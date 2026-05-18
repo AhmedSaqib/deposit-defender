@@ -1,64 +1,89 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <header className="bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-3xl mx-auto px-4 py-5">
+          <h1 className="text-2xl font-bold text-gray-900">DepositDefender</h1>
+          <p className="text-sm text-gray-500 mt-0.5">
+            AI-powered property inspection and deposit dispute analysis — Ontario (RTA / LTB)
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </header>
+
+      <main className="flex-1 max-w-3xl mx-auto px-4 py-12 w-full">
+        <h2 className="text-xl font-bold text-gray-800 mb-2 text-center">Who are you?</h2>
+        <p className="text-sm text-gray-500 text-center mb-10">
+          Choose your role to get started. Each path uses Claude AI to analyze your photos.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Tenant card */}
+          <Link
+            href="/tenant"
+            className="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-400 transition-all p-8 flex flex-col gap-4"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <div className="text-4xl">🏠</div>
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
+                I&apos;m a Tenant
+              </h3>
+              <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+                My landlord withheld part or all of my deposit. I want to dispute the deductions with an AI-analyzed rebuttal.
+              </p>
+            </div>
+            <div className="mt-auto">
+              <ul className="text-xs text-gray-500 space-y-1">
+                <li>✓ Paste the landlord&apos;s deduction letter</li>
+                <li>✓ Upload move-in and move-out photos</li>
+                <li>✓ Get a claim-by-claim rebuttal PDF</li>
+              </ul>
+            </div>
+            <span className="inline-block mt-2 text-sm font-semibold text-blue-700 group-hover:underline">
+              Dispute my deductions →
+            </span>
+          </Link>
+
+          {/* Landlord card */}
+          <Link
+            href="/landlord"
+            className="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-emerald-400 transition-all p-8 flex flex-col gap-4"
           >
-            Documentation
-          </a>
+            <div className="text-4xl">🔑</div>
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 group-hover:text-emerald-700 transition-colors">
+                I&apos;m a Landlord
+              </h3>
+              <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+                My tenant has moved out. I want to document any damage by comparing before and after photos and generate a formal inspection report.
+              </p>
+            </div>
+            <div className="mt-auto">
+              <ul className="text-xs text-gray-500 space-y-1">
+                <li>✓ Upload before and after photos</li>
+                <li>✓ AI identifies damage vs. wear &amp; tear</li>
+                <li>✓ Download a detailed inspection report PDF</li>
+              </ul>
+            </div>
+            <span className="inline-block mt-2 text-sm font-semibold text-emerald-700 group-hover:underline">
+              Inspect my property →
+            </span>
+          </Link>
         </div>
+
+        <p className="text-xs text-gray-400 text-center mt-10">
+          Not legal advice. Ontario RTA / LTB jurisdiction only.{" "}
+          <a
+            href="https://stepstojustice.ca"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            stepstojustice.ca
+          </a>{" "}
+          · LTB: 1-888-332-3234
+        </p>
       </main>
     </div>
   );
