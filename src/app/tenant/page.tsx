@@ -191,7 +191,7 @@ export default function TenantPage() {
               onChange={(e) => setDeductionLetter(e.target.value)}
               rows={8}
               placeholder="e.g. 'Wall damage in bedroom: $400. Deep cleaning fee: $250. Carpet stain in living room: $150.'"
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y text-gray-900"
             />
           </div>
 
@@ -222,7 +222,7 @@ export default function TenantPage() {
 
           {loading && (
             <div className="text-center text-sm text-gray-500 space-y-1">
-              <p className="font-medium text-blue-700">Claude is reviewing your photos and letter…</p>
+              <p className="font-medium text-blue-700">Analysing your photos and letter…</p>
               <p>This takes 30–90 seconds with many photos. Please wait.</p>
             </div>
           )}

@@ -109,6 +109,63 @@ export default function LandlordPage() {
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<InspectionReport | null>(null);
   const [downloadingPdf, setDownloadingPdf] = useState(false);
+  const [deductionLetter, setDeductionLetter] = useState("");
+  const [letterCopied, setLetterCopied] = useState(false);
+
+  const generateDeductionLetter = () => {
+    if (!report) return;
+    const chargeable = report.findings.filter((f) => !f.is_wear_and_tear && f.severity !== "none");
+    const date = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+    const itemLines = chargeable.map((f, i) =>
+      `${i + 1}. ${f.item}${f.location ? ` — ${f.location}` : ""}\n   ${f.description}\n   Recommended repair: ${f.repair_recommendation}\n   Estimated cost: ${f.estimated_repair_cost_cad !== null ? `$${f.estimated_repair_cost_cad.toFixed(2)}` : "TBD"}`
+    ).join("\n\n");
+    const total = report.total_chargeable_cad > 0 ? `$${report.total_chargeable_cad.toFixed(2)}` : "see above";
+
+    const letter = `${propertyAddress || "[Landlord Name]"}
+${propertyAddress ? "" : "[Landlord Address]"}
+${date}
+
+${tenantName || "[Tenant Name]"}
+[Tenant Forwarding Address]
+
+RE: Security Deposit Deductions — ${propertyAddress || "[Property Address]"}
+
+Dear ${tenantName || "[Tenant Name]"},
+
+Following your departure from ${propertyAddress || "the above-referenced property"} and our subsequent inspection, this letter provides a formal itemized accounting of deductions from your security deposit.
+
+PROPERTY CONDITION SUMMARY
+Overall condition: ${report.overall_condition.charAt(0).toUpperCase() + report.overall_condition.slice(1)}
+${report.overall_summary}
+
+ITEMIZED DEDUCTIONS
+${chargeable.length === 0 ? "No chargeable damage was identified. Your full deposit will be returned." : itemLines}
+
+${chargeable.length > 0 ? `TOTAL DEDUCTIONS: ${total}
+
+Please note that normal wear and tear has not been charged, in accordance with standard tenancy law. The deductions above reflect only damage beyond reasonable wear.
+
+${report.total_chargeable_cad > 0 ? `[Your deposit balance after deductions will be confirmed separately once all repair costs are finalised.]` : ""}` : ""}
+
+If you have any questions regarding this itemization, please contact us within 7 days of receiving this letter.
+
+${report.recommended_next_steps.length > 0 ? `NEXT STEPS\n${report.recommended_next_steps.map((s, i) => `${i + 1}. ${s}`).join("\n")}\n` : ""}
+Yours sincerely,
+
+${propertyAddress || "[Landlord Name]"}
+[Contact Details]`;
+
+    setDeductionLetter(letter);
+    setTimeout(() => {
+      document.getElementById("deduction-letter")?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
+  const copyDeductionLetter = () => {
+    navigator.clipboard.writeText(deductionLetter);
+    setLetterCopied(true);
+    setTimeout(() => setLetterCopied(false), 2000);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -185,7 +242,7 @@ export default function LandlordPage() {
 
       <main className="max-w-3xl mx-auto px-4 py-8 space-y-8">
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-xs text-blue-800 leading-relaxed">
-          <strong>How it works:</strong> Upload your after photos (before photos optional). Claude will analyse them for damage beyond normal wear and tear and generate a formal inspection report. Before photos improve accuracy significantly.
+          <strong>How it works:</strong> Upload your after photos (before photos optional). Our AI will analyse them for damage beyond normal wear and tear and generate a formal inspection report. Before photos improve accuracy significantly.
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-5">
@@ -228,7 +285,7 @@ export default function LandlordPage() {
               onChange={(e) => setNotes(e.target.value)}
               rows={3}
               placeholder="Any specific concerns or areas to focus on (e.g. 'tenant had a pet', 'focus on kitchen and master bedroom')."
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-y"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-y text-gray-900"
             />
           </div>
 
@@ -236,7 +293,7 @@ export default function LandlordPage() {
             <FileDropZone
               id="beforePhotos"
               label="Before Photos (Move-In) — optional"
-              hint="If you have them — Claude will still analyse after photos alone"
+              hint="If you have them — our AI will still analyse after photos alone"
               files={beforePhotos}
               onChange={setBeforePhotos}
             />
@@ -259,7 +316,7 @@ export default function LandlordPage() {
 
           {loading && (
             <div className="text-center text-sm text-gray-500 space-y-1">
-              <p className="font-medium text-emerald-700">Claude is comparing your before and after photos…</p>
+              <p className="font-medium text-emerald-700">Analysing your photos…</p>
               <p>This takes 30–90 seconds with many photos. Please wait.</p>
             </div>
           )}
@@ -299,13 +356,21 @@ export default function LandlordPage() {
                 <span>·</span>
                 <span>{report.findings.length} total</span>
               </div>
-              <button
-                onClick={handleDownloadPdf}
-                disabled={downloadingPdf}
-                className="bg-gray-900 text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-              >
-                {downloadingPdf ? "Generating PDF…" : "Download Inspection Report PDF"}
-              </button>
+              <div className="flex flex-wrap gap-3">
+                <button
+                  onClick={handleDownloadPdf}
+                  disabled={downloadingPdf}
+                  className="bg-gray-900 text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  {downloadingPdf ? "Generating PDF…" : "Download Inspection Report PDF"}
+                </button>
+                <button
+                  onClick={generateDeductionLetter}
+                  className="bg-emerald-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-emerald-800 transition-colors"
+                >
+                  Generate Deduction Letter
+                </button>
+              </div>
             </div>
 
             {/* Chargeable findings */}
@@ -347,6 +412,24 @@ export default function LandlordPage() {
                 ))}
               </ol>
             </div>
+
+            {deductionLetter && (
+              <div id="deduction-letter" className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <h2 className="text-base font-bold text-gray-800">Deduction Letter</h2>
+                  <button
+                    onClick={copyDeductionLetter}
+                    className="text-sm font-semibold px-4 py-2 rounded-lg bg-gray-900 text-white hover:bg-gray-700 transition-colors"
+                  >
+                    {letterCopied ? "Copied!" : "Copy Letter"}
+                  </button>
+                </div>
+                <p className="text-xs text-gray-500 mb-4">
+                  Fill in the bracketed sections before sending. Deliver via email with read receipt or post with proof of delivery.
+                </p>
+                <pre className="text-xs text-gray-700 bg-gray-50 rounded-lg p-5 whitespace-pre-wrap leading-relaxed border border-gray-100">{deductionLetter}</pre>
+              </div>
+            )}
 
             <p className="text-xs text-gray-400 text-center pb-4">
               MoveProof is not a law firm. Estimated costs are approximations — verify with local contractors. Consult a legal professional for jurisdiction-specific advice.

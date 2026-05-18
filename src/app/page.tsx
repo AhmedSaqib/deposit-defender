@@ -15,7 +15,7 @@ export default function Home() {
       <main className="flex-1 max-w-3xl mx-auto px-4 py-12 w-full">
         <h2 className="text-xl font-bold text-gray-800 mb-2 text-center">Who are you?</h2>
         <p className="text-sm text-gray-500 text-center mb-10">
-          Choose your role to get started. Each path uses Claude AI to analyze your photos.
+          Choose your role to get started. Upload your photos and get an AI-powered report in minutes.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -70,6 +70,29 @@ export default function Home() {
               Inspect my property →
             </span>
           </Link>
+        </div>
+
+        <div className="mt-12">
+          <h2 className="text-base font-bold text-gray-700 mb-1">Free Tools</h2>
+          <p className="text-xs text-gray-500 mb-4">No photos needed — useful at any stage of a tenancy.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link
+              href="/tools/deadline"
+              className="group bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-400 transition-all p-5 flex flex-col gap-2"
+            >
+              <p className="text-base font-bold text-gray-800 group-hover:text-blue-700 transition-colors">⏱ Deposit Deadline Calculator</p>
+              <p className="text-xs text-gray-500 leading-relaxed">Find out exactly when your deposit must be returned and get a ready-to-send follow-up letter.</p>
+              <span className="text-xs font-semibold text-blue-700 group-hover:underline mt-1">Calculate deadline →</span>
+            </Link>
+            <Link
+              href="/tools/demand"
+              className="group bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-400 transition-all p-5 flex flex-col gap-2"
+            >
+              <p className="text-base font-bold text-gray-800 group-hover:text-blue-700 transition-colors">✉️ Demand Letter Generator</p>
+              <p className="text-xs text-gray-500 leading-relaxed">Generate a formal demand letter to dispute unfair deductions — ready to send in minutes.</p>
+              <span className="text-xs font-semibold text-blue-700 group-hover:underline mt-1">Write demand letter →</span>
+            </Link>
+          </div>
         </div>
 
         <p className="text-xs text-gray-400 text-center mt-10">
