@@ -167,18 +167,14 @@ export default function TenantPage() {
           </Link>
           <div>
             <h1 className="text-xl font-bold text-gray-900">Tenant Dispute Analysis</h1>
-            <p className="text-xs text-gray-500">DepositDefender · Ontario RTA / LTB</p>
+            <p className="text-xs text-gray-500">MoveProof</p>
           </div>
         </div>
       </header>
 
       <main className="max-w-3xl mx-auto px-4 py-8 space-y-8">
         <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-xs text-amber-800 leading-relaxed">
-          <strong>Not legal advice.</strong> For legal guidance visit{" "}
-          <a href="https://stepstojustice.ca" target="_blank" rel="noopener noreferrer" className="underline">
-            stepstojustice.ca
-          </a>{" "}
-          or call the LTB at 1-888-332-3234.
+          <strong>Not legal advice.</strong> Consult a local legal professional or tenants&apos; rights organisation in your jurisdiction for case-specific guidance.
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-6">
@@ -284,10 +280,7 @@ export default function TenantPage() {
             </div>
 
             <p className="text-xs text-gray-400 text-center pb-4">
-              DepositDefender is not a law firm and does not provide legal advice.{" "}
-              <a href="https://stepstojustice.ca" target="_blank" rel="noopener noreferrer" className="underline">
-                stepstojustice.ca
-              </a>
+              MoveProof is not a law firm and does not provide legal advice. Consult a local legal professional for jurisdiction-specific guidance.
             </p>
           </div>
         )}

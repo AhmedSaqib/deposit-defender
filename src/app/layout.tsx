@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DepositDefender — Ontario Tenant Deposit Dispute Tool",
+  title: "MoveProof — AI Property Inspection & Deposit Dispute",
   description:
-    "AI-powered analysis to help Ontario tenants dispute unfair security deposit deductions.",
+    "AI-powered property inspection reports and deposit dispute analysis for landlords and tenants worldwide.",
 };
 
 export default function RootLayout({

@@ -29,18 +29,18 @@ export const AnalysisResultSchema = z.object({
 export type AnalysisResult = z.infer<typeof AnalysisResultSchema>;
 export type ClaimAnalysis = z.infer<typeof ClaimAnalysisSchema>;
 
-const SYSTEM_PROMPT = `You are an expert tenant-rights analyst helping Ontario tenants build defensible disputes against landlord security deposit deductions under the Residential Tenancies Act (RTA) and Landlord and Tenant Board (LTB) standards.
+const SYSTEM_PROMPT = `You are an expert tenant-rights analyst helping tenants build defensible disputes against landlord security deposit deductions. You apply universally recognised tenancy law principles that hold across most jurisdictions worldwide.
 
 Your job: given a landlord's list of claimed damages with dollar amounts, plus photos from move-in and move-out, produce a rigorous claim-by-claim analysis.
 
-Apply these LTB principles:
+Apply these standard tenancy principles:
 - Normal wear and tear is NOT deductible (faded paint, minor scuffs, worn carpet from foot traffic, small nail holes from picture hangers, minor appliance wear).
 - Pre-existing damage visible in move-in photos cannot be charged to the tenant.
-- Landlord must prove damage was caused by tenant, not pre-existing or normal use.
-- Deduction amounts must be reasonable and reflect depreciated value, not replacement cost of new items.
-- "Cleaning fees" beyond reasonable cleaning are not deductible if tenant left unit reasonably clean.
+- The landlord must be able to prove damage was caused by the tenant, not pre-existing or resulting from normal use.
+- Deduction amounts must be reasonable and reflect depreciated value, not the replacement cost of brand-new items.
+- Cleaning fees beyond reasonable cleaning standards are generally not deductible if the tenant left the unit in a reasonably clean condition.
 
-For each claim, return strict JSON. Be honest — if a claim appears valid, say so. The tenant's case is stronger when built on truthful analysis, not denial of legitimate damage.
+For each claim, return strict JSON. Be honest — if a claim appears valid, say so. The tenant's case is stronger when built on truthful analysis, not blanket denial.
 
 Photo references should describe what you see (e.g. "move-in photo 2 shows existing scratch on baseboard"). Be specific.
 
@@ -51,7 +51,7 @@ Output ONLY valid JSON matching this schema exactly:
       "claim": "string — the landlord's claim as stated",
       "claimed_amount_cad": number or null,
       "verdict": "likely_valid" | "likely_invalid" | "partially_valid" | "insufficient_evidence",
-      "reasoning": "string — detailed reasoning citing photos and LTB principles",
+      "reasoning": "string — detailed reasoning citing photos and tenancy law principles",
       "photo_references": ["string — description of what specific photos show"],
       "suggested_dispute_amount_cad": number or null,
       "wear_and_tear_assessment": "string — assessment of normal wear and tear applicability"
@@ -90,18 +90,20 @@ export const InspectionReportSchema = z.object({
 export type InspectionReport = z.infer<typeof InspectionReportSchema>;
 export type DamageFinding = z.infer<typeof DamageFindingSchema>;
 
-const LANDLORD_SYSTEM_PROMPT = `You are an expert property inspection analyst helping Ontario landlords document property condition after a tenancy under the Residential Tenancies Act (RTA).
+const LANDLORD_SYSTEM_PROMPT = `You are an expert property inspection analyst helping landlords document property condition after a tenancy. You apply universally recognised tenancy law principles that hold across most jurisdictions worldwide.
 
-Your job: given before (move-in) and after (move-out) photos, produce a rigorous property inspection report identifying any damage or changes.
+Your job: produce a rigorous property inspection report identifying damage or changes to the property.
 
-Apply these Ontario RTA principles:
-- Normal wear and tear is NOT chargeable to the tenant (faded paint, minor scuffs, worn carpet from normal foot traffic, small nail holes from picture hangers, minor appliance wear from normal use).
+If BEFORE photos are provided, compare them carefully against the AFTER photos — only flag issues that appear NEW or clearly WORSENED.
+If NO before photos are provided, analyze the after photos alone for visible signs of damage. In this case, clearly note in each finding's description that the assessment was made without before-photo comparison, and be appropriately conservative — only flag things that clearly appear to be damage rather than pre-existing wear.
+
+Apply these standard tenancy principles:
+- Normal wear and tear is NOT chargeable to the tenant (faded paint, minor scuffs, worn carpet from normal foot traffic, small nail holes from picture hangers, minor appliance wear).
 - Only damage BEYOND normal wear and tear can be charged to the tenant.
-- Compare before and after photos carefully — only flag issues that appear NEW or clearly WORSENED since move-in.
-- Estimated repair costs should reflect reasonable Ontario market rates and depreciated value, not replacement with brand-new items.
-- Be specific and objective. This report may be submitted to the LTB and must withstand scrutiny.
+- Estimated repair costs should reflect reasonable local market rates and depreciated value, not replacement with brand-new items.
+- Be specific and objective. This report may be used in a formal dispute and must withstand scrutiny.
 
-For each finding, include all observations — both chargeable damage and wear and tear — so the landlord has a complete picture. Accurate, honest documentation is more defensible than over-claiming.
+Include all findings — both chargeable damage and wear and tear — so the landlord has a complete picture. Accurate, honest documentation is more defensible than over-claiming.
 
 Photo references should cite specific photos by number and describe exactly what you observe.
 
@@ -114,7 +116,7 @@ Output ONLY valid JSON matching this schema exactly:
       "severity": "none" | "cosmetic" | "moderate" | "significant",
       "is_wear_and_tear": true | false,
       "estimated_repair_cost_cad": number or null,
-      "description": "string — detailed objective description of what you observe and how it compares to move-in photos",
+      "description": "string — detailed objective description of what you observe",
       "photo_references": ["string — what each specific photo shows, referenced by number"],
       "repair_recommendation": "string — specific repair action recommended"
     }
@@ -160,17 +162,22 @@ export async function analyzeInspection(
 ): Promise<InspectionReport> {
   const content: Array<Anthropic.TextBlockParam | Anthropic.ImageBlockParam> = [];
 
+  const hasBeforePhotos = beforeImages.length > 0;
   const contextLines: string[] = [
     `INSPECTION CONTEXT:`,
     context.propertyAddress ? `Property: ${context.propertyAddress}` : "",
     context.tenantName ? `Tenant: ${context.tenantName}` : "",
     context.notes ? `Landlord notes: ${context.notes}` : "",
     "",
-    `Comparing ${beforeImages.length} before (move-in) photo(s) against ${afterImages.length} after (move-out) photo(s).`,
+    hasBeforePhotos
+      ? `Comparing ${beforeImages.length} before (move-in) photo(s) against ${afterImages.length} after (move-out) photo(s).`
+      : `No before photos provided. Analyze the ${afterImages.length} after photo(s) for visible damage. Be conservative — only flag things that clearly appear to be damage rather than normal wear.`,
   ].filter(Boolean);
 
   content.push({ type: "text", text: contextLines.join("\n") });
-  content.push(...buildImageBlocks(beforeImages, "Before (move-in) photo"));
+  if (hasBeforePhotos) {
+    content.push(...buildImageBlocks(beforeImages, "Before (move-in) photo"));
+  }
   content.push(...buildImageBlocks(afterImages, "After (move-out) photo"));
   content.push({
     type: "text",

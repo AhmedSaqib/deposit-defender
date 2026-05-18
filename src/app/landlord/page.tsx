@@ -164,7 +164,7 @@ export default function LandlordPage() {
     }
   };
 
-  const canSubmit = beforePhotos.length > 0 && afterPhotos.length > 0 && !loading;
+  const canSubmit = afterPhotos.length > 0 && !loading;
 
   const chargeableFindings = report?.findings.filter((f) => !f.is_wear_and_tear && f.severity !== "none") ?? [];
   const wearFindings = report?.findings.filter((f) => f.is_wear_and_tear) ?? [];
@@ -178,14 +178,14 @@ export default function LandlordPage() {
           </Link>
           <div>
             <h1 className="text-xl font-bold text-gray-900">Property Inspection Report</h1>
-            <p className="text-xs text-gray-500">DepositDefender · Ontario RTA / LTB</p>
+            <p className="text-xs text-gray-500">MoveProof</p>
           </div>
         </div>
       </header>
 
       <main className="max-w-3xl mx-auto px-4 py-8 space-y-8">
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-xs text-blue-800 leading-relaxed">
-          <strong>How it works:</strong> Upload your before and after photos. Claude will compare them, identify any damage beyond normal wear and tear, and generate a formal inspection report you can use to document deductions.
+          <strong>How it works:</strong> Upload your after photos (before photos optional). Claude will analyse them for damage beyond normal wear and tear and generate a formal inspection report. Before photos improve accuracy significantly.
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-5">
@@ -200,7 +200,7 @@ export default function LandlordPage() {
                 value={propertyAddress}
                 onChange={(e) => setPropertyAddress(e.target.value)}
                 placeholder="123 Main St, Unit 4, Toronto, ON"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 text-gray-900"
               />
             </div>
             <div>
@@ -213,7 +213,7 @@ export default function LandlordPage() {
                 value={tenantName}
                 onChange={(e) => setTenantName(e.target.value)}
                 placeholder="Jane Smith"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 text-gray-900"
               />
             </div>
           </div>
@@ -235,8 +235,8 @@ export default function LandlordPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FileDropZone
               id="beforePhotos"
-              label="Before Photos (Move-In)"
-              hint="Taken at the start of the tenancy"
+              label="Before Photos (Move-In) — optional"
+              hint="If you have them — Claude will still analyse after photos alone"
               files={beforePhotos}
               onChange={setBeforePhotos}
             />
@@ -327,7 +327,7 @@ export default function LandlordPage() {
                   Normal Wear &amp; Tear — Not Chargeable ({wearFindings.length})
                 </h2>
                 <p className="text-xs text-gray-500 -mt-2">
-                  These items are expected degradation from normal use and cannot be deducted from the deposit under the RTA.
+                  These items are expected degradation from normal use and generally cannot be deducted from the deposit under standard tenancy law.
                 </p>
                 {wearFindings.map((finding, i) => (
                   <FindingCard key={i} finding={finding} index={i} />
@@ -349,11 +349,7 @@ export default function LandlordPage() {
             </div>
 
             <p className="text-xs text-gray-400 text-center pb-4">
-              DepositDefender is not a law firm. Estimated costs are approximations — verify with contractors.{" "}
-              <a href="https://stepstojustice.ca" target="_blank" rel="noopener noreferrer" className="underline">
-                stepstojustice.ca
-              </a>{" "}
-              · LTB: 1-888-332-3234
+              MoveProof is not a law firm. Estimated costs are approximations — verify with local contractors. Consult a legal professional for jurisdiction-specific advice.
             </p>
           </div>
         )}

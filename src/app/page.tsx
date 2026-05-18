@@ -5,9 +5,9 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <header className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-3xl mx-auto px-4 py-5">
-          <h1 className="text-2xl font-bold text-gray-900">DepositDefender</h1>
+          <h1 className="text-2xl font-bold text-gray-900">MoveProof</h1>
           <p className="text-sm text-gray-500 mt-0.5">
-            AI-powered property inspection and deposit dispute analysis — Ontario (RTA / LTB)
+            AI-powered property inspection and deposit dispute analysis — worldwide
           </p>
         </div>
       </header>
@@ -73,16 +73,7 @@ export default function Home() {
         </div>
 
         <p className="text-xs text-gray-400 text-center mt-10">
-          Not legal advice. Ontario RTA / LTB jurisdiction only.{" "}
-          <a
-            href="https://stepstojustice.ca"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            stepstojustice.ca
-          </a>{" "}
-          · LTB: 1-888-332-3234
+          Not legal advice. Consult a local legal professional for jurisdiction-specific guidance.
         </p>
       </main>
     </div>
