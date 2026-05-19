@@ -11,10 +11,10 @@ export function InnerHeader({ title, subtitle, maxWidth = "max-w-2xl" }: InnerHe
   return (
     <header className="bg-white border-b border-gray-200 shadow-sm">
       <div className={`${maxWidth} mx-auto px-4 py-3.5 flex items-center gap-3`}>
-        <Link href="/" className="flex items-center gap-2 shrink-0 group" aria-label="Back to MoveProof.ai">
+        <Link href="/" className="flex items-center gap-2 shrink-0 group" aria-label="Back to RentProof.ai">
           <LogoMark className="w-8 h-8" />
           <span className="hidden sm:block text-sm font-bold">
-            <span className="text-gray-800 group-hover:text-gray-900 transition-colors">MoveProof</span>
+            <span className="text-gray-800 group-hover:text-gray-900 transition-colors">RentProof</span>
             <span className="text-blue-600">.ai</span>
           </span>
         </Link>

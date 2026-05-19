@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "MoveProof.ai — AI Property Inspection & Deposit Dispute";
+export const alt = "RentProof.ai — AI Property Inspection & Deposit Dispute";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -23,7 +23,7 @@ export default function Image() {
         {/* Brand name */}
         <div style={{ display: "flex", alignItems: "baseline", lineHeight: 1 }}>
           <span style={{ fontSize: 88, fontWeight: 900, color: "white", letterSpacing: "-3px" }}>
-            MoveProof
+            RentProof
           </span>
           <span style={{ fontSize: 88, fontWeight: 900, color: "#93c5fd", letterSpacing: "-3px" }}>
             .ai

@@ -423,7 +423,7 @@ ${propertyAddress || "[Landlord Name]"}
             )}
 
             <p className="text-xs text-gray-400 text-center pb-4">
-              MoveProof is not a law firm. Estimated costs are approximations — verify with local contractors. Consult a legal professional for jurisdiction-specific advice.
+              RentProof is not a law firm. Estimated costs are approximations — verify with local contractors. Consult a legal professional for jurisdiction-specific advice.
             </p>
           </div>
         )}

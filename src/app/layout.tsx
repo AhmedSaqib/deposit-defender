@@ -14,13 +14,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://moveproof.ai";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rentproof.ai";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "MoveProof.ai — AI Property Inspection & Deposit Dispute",
-    template: "%s | MoveProof.ai",
+    default: "RentProof.ai — AI Property Inspection & Deposit Dispute",
+    template: "%s | RentProof.ai",
   },
   description:
     "Dispute unfair deposit deductions or document property damage with AI. Upload before and after photos, get a formal PDF report in minutes. Free tools included — worldwide.",
@@ -29,21 +29,21 @@ export const metadata: Metadata = {
     "landlord deposit deduction", "deposit return deadline", "demand letter deposit",
     "tenant rights", "wear and tear", "AI property inspection",
   ],
-  authors: [{ name: "MoveProof.ai", url: SITE_URL }],
-  creator: "MoveProof.ai",
+  authors: [{ name: "RentProof.ai", url: SITE_URL }],
+  creator: "RentProof.ai",
   openGraph: {
     type: "website",
-    siteName: "MoveProof.ai",
+    siteName: "RentProof.ai",
     url: SITE_URL,
-    title: "MoveProof.ai — AI Property Inspection & Deposit Dispute",
+    title: "RentProof.ai — AI Property Inspection & Deposit Dispute",
     description:
       "Dispute unfair deposit deductions or document property damage with AI. Upload before and after photos, get a formal PDF report in minutes.",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "MoveProof.ai" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "RentProof.ai" }],
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MoveProof.ai — AI Property Inspection & Deposit Dispute",
+    title: "RentProof.ai — AI Property Inspection & Deposit Dispute",
     description:
       "Dispute unfair deposit deductions or document property damage with AI. Free tools included — worldwide.",
     images: ["/opengraph-image"],
@@ -71,11 +71,11 @@ export default function RootLayout({
         <Analytics />
         <footer className="mt-auto border-t border-gray-200 bg-white">
           <div className="max-w-3xl mx-auto px-4 py-5 flex flex-wrap items-center justify-between gap-3">
-            <p className="text-xs text-gray-400">© {new Date().getFullYear()} MoveProof. Not legal advice.</p>
+            <p className="text-xs text-gray-400">© {new Date().getFullYear()} RentProof. Not legal advice.</p>
             <nav className="flex gap-5 text-xs text-gray-500">
               <Link href="/about" className="hover:text-gray-800 transition-colors">About</Link>
               <Link href="/privacy" className="hover:text-gray-800 transition-colors">Privacy Policy</Link>
-              <a href="mailto:hello@moveproof.app" className="hover:text-gray-800 transition-colors">Contact</a>
+              <a href="mailto:hello@rentproof.ai" className="hover:text-gray-800 transition-colors">Contact</a>
             </nav>
           </div>
         </footer>

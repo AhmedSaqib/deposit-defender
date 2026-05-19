@@ -38,12 +38,12 @@ export async function POST(request: NextRequest) {
       const report = InspectionReportSchema.parse(result);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const buffer = await renderToBuffer(React.createElement(InspectionReportDocument, { report, generatedAt, meta }) as any);
-      return toResponse(buffer, "moveproof-inspection-report.pdf");
+      return toResponse(buffer, "rentproof-inspection-report.pdf");
     } else {
       const analysisResult = AnalysisResultSchema.parse(result);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const buffer = await renderToBuffer(React.createElement(RebuttalDocument, { result: analysisResult, generatedAt }) as any);
-      return toResponse(buffer, "moveproof-rebuttal.pdf");
+      return toResponse(buffer, "rentproof-rebuttal.pdf");
     }
   } catch {
     return Response.json({ error: "Invalid result data or PDF generation failed" }, { status: 400 });

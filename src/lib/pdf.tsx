@@ -187,10 +187,10 @@ interface RebuttalDocumentProps {
 
 export function RebuttalDocument({ result, generatedAt }: RebuttalDocumentProps) {
   return (
-    <Document title="MoveProof — Tenant Rebuttal">
+    <Document title="RentProof — Tenant Rebuttal">
       {/* Cover Page */}
       <Page size="LETTER" style={styles.page}>
-        <Text style={styles.coverTitle}>MoveProof</Text>
+        <Text style={styles.coverTitle}>RentProof</Text>
         <Text style={styles.coverSubtitle}>Tenant Security Deposit Dispute Rebuttal</Text>
         <Text style={styles.coverMeta}>Generated: {generatedAt}</Text>
         <Text style={styles.coverMeta}>Jurisdiction: Universally recognised tenancy principles</Text>
@@ -217,7 +217,7 @@ export function RebuttalDocument({ result, generatedAt }: RebuttalDocumentProps)
         <Text style={styles.coverDisclaimer}>{DISCLAIMER}</Text>
 
         <Text style={styles.footer}>
-          MoveProof — Not legal advice — consult a local legal professional
+          RentProof — Not legal advice — consult a local legal professional
         </Text>
       </Page>
 
@@ -266,7 +266,7 @@ export function RebuttalDocument({ result, generatedAt }: RebuttalDocumentProps)
         ))}
 
         <Text style={styles.footer}>
-          MoveProof — Not legal advice — consult a local legal professional
+          RentProof — Not legal advice — consult a local legal professional
         </Text>
       </Page>
 
@@ -301,7 +301,7 @@ export function RebuttalDocument({ result, generatedAt }: RebuttalDocumentProps)
         </View>
 
         <Text style={styles.footer}>
-          MoveProof — Not legal advice — consult a local legal professional
+          RentProof — Not legal advice — consult a local legal professional
         </Text>
       </Page>
     </Document>
@@ -366,10 +366,10 @@ export function InspectionReportDocument({ report, generatedAt, meta }: Inspecti
   const noIssueFindings = report.findings.filter((f) => f.severity === "none");
 
   return (
-    <Document title="MoveProof — Property Inspection Report">
+    <Document title="RentProof — Property Inspection Report">
       {/* Cover Page */}
       <Page size="LETTER" style={styles.page}>
-        <Text style={styles.coverTitle}>MoveProof</Text>
+        <Text style={styles.coverTitle}>RentProof</Text>
         <Text style={styles.coverSubtitle}>Property Inspection Report</Text>
         <Text style={styles.coverMeta}>Generated: {generatedAt}</Text>
         <Text style={styles.coverMeta}>Jurisdiction: Universally recognised tenancy principles</Text>
@@ -415,7 +415,7 @@ export function InspectionReportDocument({ report, generatedAt, meta }: Inspecti
         </View>
 
         <Text style={styles.footer}>
-          MoveProof — AI-assisted inspection report — consult a local legal professional
+          RentProof — AI-assisted inspection report — consult a local legal professional
         </Text>
       </Page>
 
@@ -470,7 +470,7 @@ export function InspectionReportDocument({ report, generatedAt, meta }: Inspecti
           ))}
 
           <Text style={styles.footer}>
-            MoveProof — AI-assisted inspection report — consult a local legal professional
+            RentProof — AI-assisted inspection report — consult a local legal professional
           </Text>
         </Page>
       )}
@@ -513,7 +513,7 @@ export function InspectionReportDocument({ report, generatedAt, meta }: Inspecti
           ))}
 
           <Text style={styles.footer}>
-            MoveProof — AI-assisted inspection report — consult a local legal professional
+            RentProof — AI-assisted inspection report — consult a local legal professional
           </Text>
         </Page>
       )}
@@ -551,7 +551,7 @@ export function InspectionReportDocument({ report, generatedAt, meta }: Inspecti
         </View>
 
         <Text style={styles.footer}>
-          MoveProof — AI-assisted inspection report — consult a local legal professional
+          RentProof — AI-assisted inspection report — consult a local legal professional
         </Text>
       </Page>
     </Document>

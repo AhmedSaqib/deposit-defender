@@ -270,7 +270,7 @@ export default function TenantPage() {
             </div>
 
             <p className="text-xs text-gray-400 text-center pb-4">
-              MoveProof is not a law firm and does not provide legal advice. Consult a local legal professional for jurisdiction-specific guidance.
+              RentProof is not a law firm and does not provide legal advice. Consult a local legal professional for jurisdiction-specific guidance.
             </p>
           </div>
         )}

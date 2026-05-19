@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     "Find out exactly when your security deposit must be returned. Covers UK, Australia (NSW, VIC, QLD, WA), Canada (Ontario, BC, Alberta), and 10 US states. Includes ready-to-send letter templates. Free.",
   alternates: { canonical: "/tools/deadline" },
   openGraph: {
-    title: "Security Deposit Return Deadline Calculator | MoveProof.ai",
+    title: "Security Deposit Return Deadline Calculator | RentProof.ai",
     description:
       "How long does your landlord have to return your deposit? Covers 15+ jurisdictions including UK, Australia, Canada, and the USA. Get your deadline instantly — free.",
     url: "/tools/deadline",

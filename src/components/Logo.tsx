@@ -36,7 +36,7 @@ export function Brand({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
     <div className="flex items-center gap-2.5">
       <LogoMark className={iconClass} />
       <span className={textClass}>
-        <span className="text-gray-900">MoveProof</span>
+        <span className="text-gray-900">RentProof</span>
         <span className="text-blue-600">.ai</span>
       </span>
     </div>

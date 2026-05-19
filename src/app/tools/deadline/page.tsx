@@ -272,7 +272,7 @@ Yours sincerely,
         )}
 
         <p className="text-xs text-gray-400 text-center pb-4">
-          Not legal advice. Deadlines are general guidelines based on publicly available statutes and may not reflect recent amendments, local overrides, or your specific circumstances. Always verify with a licensed legal professional in your jurisdiction. MoveProof accepts no liability for reliance on this tool.
+          Not legal advice. Deadlines are general guidelines based on publicly available statutes and may not reflect recent amendments, local overrides, or your specific circumstances. Always verify with a licensed legal professional in your jurisdiction. RentProof accepts no liability for reliance on this tool.
         </p>
       </main>
     </div>

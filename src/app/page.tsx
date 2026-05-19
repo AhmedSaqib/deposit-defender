@@ -11,17 +11,17 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://moveproof.ai/#website",
-      url: "https://moveproof.ai",
-      name: "MoveProof.ai",
+      "@id": "https://rentproof.ai/#website",
+      url: "https://rentproof.ai",
+      name: "RentProof.ai",
       description:
         "AI-powered property inspection reports and deposit dispute analysis for landlords and tenants worldwide.",
     },
     {
       "@type": "SoftwareApplication",
-      "@id": "https://moveproof.ai/#app",
-      name: "MoveProof.ai",
-      url: "https://moveproof.ai",
+      "@id": "https://rentproof.ai/#app",
+      name: "RentProof.ai",
+      url: "https://rentproof.ai",
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
       description:
@@ -59,7 +59,7 @@ export default function Home() {
       </header>
 
       <main className="flex-1 max-w-3xl mx-auto px-4 py-12 w-full">
-        <h1 className="sr-only">MoveProof.ai — AI Property Inspection and Deposit Dispute Analysis</h1>
+        <h1 className="sr-only">RentProof.ai — AI Property Inspection and Deposit Dispute Analysis</h1>
         <h2 className="text-xl font-bold text-gray-800 mb-2 text-center">Who are you?</h2>
         <p className="text-sm text-gray-500 text-center mb-10">
           Choose your role to get started. Upload your photos and get an AI-powered report in minutes.
