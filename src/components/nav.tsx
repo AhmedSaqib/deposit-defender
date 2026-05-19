@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { signOut } from '@/lib/actions'
 import { BarChart3, PlusCircle, List, LogOut, Receipt, MapPin } from 'lucide-react'
