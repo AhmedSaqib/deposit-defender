@@ -25,28 +25,25 @@ export async function POST(request: NextRequest) {
   });
 
   try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const toResponse = (buf: Buffer, filename: string) =>
+      new Response(new Uint8Array(buf), {
+        headers: {
+          "Content-Type": "application/pdf",
+          "Content-Disposition": `attachment; filename="${filename}"`,
+        },
+      });
+
     if (mode === "landlord") {
       const report = InspectionReportSchema.parse(result);
-      const buffer = await renderToBuffer(
-        React.createElement(InspectionReportDocument, { report, generatedAt, meta })
-      );
-      return new Response(buffer, {
-        headers: {
-          "Content-Type": "application/pdf",
-          "Content-Disposition": 'attachment; filename="deposit-defender-inspection-report.pdf"',
-        },
-      });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const buffer = await renderToBuffer(React.createElement(InspectionReportDocument, { report, generatedAt, meta }) as any);
+      return toResponse(buffer, "moveproof-inspection-report.pdf");
     } else {
       const analysisResult = AnalysisResultSchema.parse(result);
-      const buffer = await renderToBuffer(
-        React.createElement(RebuttalDocument, { result: analysisResult, generatedAt })
-      );
-      return new Response(buffer, {
-        headers: {
-          "Content-Type": "application/pdf",
-          "Content-Disposition": 'attachment; filename="deposit-defender-rebuttal.pdf"',
-        },
-      });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const buffer = await renderToBuffer(React.createElement(RebuttalDocument, { result: analysisResult, generatedAt }) as any);
+      return toResponse(buffer, "moveproof-rebuttal.pdf");
     }
   } catch {
     return Response.json({ error: "Invalid result data or PDF generation failed" }, { status: 400 });
