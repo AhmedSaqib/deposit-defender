@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { InnerHeader } from "@/components/InnerHeader";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "MoveProof.ai privacy policy — what data we collect, how it is used, and your rights.",
+  alternates: { canonical: "/privacy" },
+  robots: { index: false, follow: false },
+};
 
 export default function PrivacyPage() {
   return (

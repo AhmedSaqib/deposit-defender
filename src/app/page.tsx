@@ -1,9 +1,49 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Brand } from "@/components/Logo";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://moveproof.ai/#website",
+      url: "https://moveproof.ai",
+      name: "MoveProof.ai",
+      description:
+        "AI-powered property inspection reports and deposit dispute analysis for landlords and tenants worldwide.",
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://moveproof.ai/#app",
+      name: "MoveProof.ai",
+      url: "https://moveproof.ai",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      description:
+        "Dispute unfair deposit deductions or document property damage with AI. Upload before and after photos to get a formal PDF report in minutes.",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      featureList: [
+        "AI deposit dispute analysis",
+        "Property inspection report generation",
+        "Security deposit deadline calculator",
+        "Demand letter generator",
+      ],
+    },
+  ],
+};
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <header className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -19,6 +59,7 @@ export default function Home() {
       </header>
 
       <main className="flex-1 max-w-3xl mx-auto px-4 py-12 w-full">
+        <h1 className="sr-only">MoveProof.ai — AI Property Inspection and Deposit Dispute Analysis</h1>
         <h2 className="text-xl font-bold text-gray-800 mb-2 text-center">Who are you?</h2>
         <p className="text-sm text-gray-500 text-center mb-10">
           Choose your role to get started. Upload your photos and get an AI-powered report in minutes.

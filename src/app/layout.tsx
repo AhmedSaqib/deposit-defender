@@ -14,10 +14,46 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://moveproof.ai";
+
 export const metadata: Metadata = {
-  title: "MoveProof — AI Property Inspection & Deposit Dispute",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "MoveProof.ai — AI Property Inspection & Deposit Dispute",
+    template: "%s | MoveProof.ai",
+  },
   description:
-    "AI-powered property inspection reports and deposit dispute analysis for landlords and tenants worldwide.",
+    "Dispute unfair deposit deductions or document property damage with AI. Upload before and after photos, get a formal PDF report in minutes. Free tools included — worldwide.",
+  keywords: [
+    "deposit dispute", "security deposit return", "property inspection report",
+    "landlord deposit deduction", "deposit return deadline", "demand letter deposit",
+    "tenant rights", "wear and tear", "AI property inspection",
+  ],
+  authors: [{ name: "MoveProof.ai", url: SITE_URL }],
+  creator: "MoveProof.ai",
+  openGraph: {
+    type: "website",
+    siteName: "MoveProof.ai",
+    url: SITE_URL,
+    title: "MoveProof.ai — AI Property Inspection & Deposit Dispute",
+    description:
+      "Dispute unfair deposit deductions or document property damage with AI. Upload before and after photos, get a formal PDF report in minutes.",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "MoveProof.ai" }],
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MoveProof.ai — AI Property Inspection & Deposit Dispute",
+    description:
+      "Dispute unfair deposit deductions or document property damage with AI. Free tools included — worldwide.",
+    images: ["/opengraph-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+  alternates: { canonical: SITE_URL },
 };
 
 export default function RootLayout({

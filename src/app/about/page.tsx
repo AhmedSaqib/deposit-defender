@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { InnerHeader } from "@/components/InnerHeader";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "MoveProof.ai is an independent tool built to help tenants dispute unfair deposit deductions and landlords document property condition — worldwide.",
+  alternates: { canonical: "/about" },
+};
 
 export default function AboutPage() {
   return (
