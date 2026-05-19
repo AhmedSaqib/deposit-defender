@@ -104,7 +104,7 @@ export async function markReturned(id: string) {
 const ExpenseSchema = z.object({
   description: z.string().min(1),
   amount: z.coerce.number().min(0.01),
-  category: z.enum(EXPENSE_CATEGORIES as [ExpenseCategory, ...ExpenseCategory[]]),
+  category: z.enum(EXPENSE_CATEGORIES as unknown as [ExpenseCategory, ...ExpenseCategory[]]),
   expense_date: z.string().min(1),
   notes: z.string().optional(),
 })

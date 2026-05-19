@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
   const { error } = await resend.emails.send({
     from: 'MarginLog <onboarding@resend.dev>',
     to: 'ahmedsaqib998@gmail.com',
-    reply_to: email,
+    replyTo: email,
     subject: `MarginLog feedback from ${name}`,
     text: `From: ${name} <${email}>\n\n${message}`,
   })
