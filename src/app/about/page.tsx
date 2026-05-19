@@ -1,121 +1,91 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { InnerHeader } from "@/components/InnerHeader";
+import Link from 'next/link'
+import { ArrowLeft } from 'lucide-react'
+import Logo from '@/components/logo'
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "RentProof.ai is an independent tool built to help tenants dispute unfair deposit deductions and landlords document property condition — worldwide.",
-  alternates: { canonical: "/about" },
-};
+export const metadata = {
+  title: 'About — MarginLog',
+  description: 'MarginLog is a resale profit tracker built for serious resellers who want to know their real numbers.',
+}
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <InnerHeader title="About RentProof.ai" />
+    <div className="min-h-screen bg-zinc-950 text-white">
+      <header className="flex items-center justify-between px-6 py-4 max-w-3xl mx-auto">
+        <Logo />
+        <Link href="/" className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-white transition-colors">
+          <ArrowLeft className="w-4 h-4" /> Back
+        </Link>
+      </header>
 
-      <main className="max-w-2xl mx-auto px-4 py-10 space-y-10">
+      <main className="max-w-3xl mx-auto px-6 py-12">
+        <h1 className="text-3xl font-bold mb-2">About MarginLog</h1>
+        <p className="text-zinc-500 text-sm mb-10">The resale profit tracker that tells you what you actually made.</p>
 
-        {/* Mission */}
-        <section className="space-y-4">
-          <h2 className="text-lg font-bold text-gray-900">Why RentProof exists</h2>
-          <p className="text-sm text-gray-700 leading-relaxed">
-            Deposit disputes are one of the most stressful and costly parts of renting. Landlords and
-            tenants alike find themselves in disagreements where the outcome often comes down to who
-            kept better records — not who was actually right.
-          </p>
-          <p className="text-sm text-gray-700 leading-relaxed">
-            Tenants lose deposits to deductions they can&apos;t effectively challenge. Landlords struggle
-            to document legitimate damage in a way that holds up formally. Both sides waste time,
-            money, and stress on disputes that clear documentation could have avoided entirely.
-          </p>
-          <p className="text-sm text-gray-700 leading-relaxed">
-            RentProof exists to level that playing field. We use AI to do the work of comparing
-            photos, identifying what qualifies as damage versus normal wear and tear, and producing
-            formal documentation — in minutes, not days, at a fraction of what a solicitor or property
-            manager would charge.
-          </p>
-        </section>
+        <div className="space-y-8 text-zinc-300 leading-relaxed">
+          <section>
+            <h2 className="text-white font-semibold text-lg mb-3">Why we built this</h2>
+            <p>
+              Every reseller knows the problem. You sell something on Poshmark for $45 and think you made $45. Then you subtract the 20% platform fee, the $8 you spent on shipping, and the $12 you paid at the thrift store — and you made $18. Or maybe less. You're not really sure.
+            </p>
+            <p className="mt-3">
+              Most resellers track their numbers in spreadsheets they build from scratch, or don't track at all. The apps that exist are either built for professional businesses (too complex, too expensive) or don't account for what fees actually are on each platform.
+            </p>
+            <p className="mt-3">
+              MarginLog was built to fix that. Log a sale in 30 seconds, see your real profit immediately, and over time understand which platforms and categories are actually making you money.
+            </p>
+          </section>
 
-        {/* Who built it */}
-        <section className="space-y-4 border-t border-gray-100 pt-8">
-          <h2 className="text-lg font-bold text-gray-900">Who built this</h2>
-          <p className="text-sm text-gray-700 leading-relaxed">
-            RentProof was built by a software developer based in Kitchener, Ontario. It started as a
-            personal project after seeing how one-sided deposit disputes tend to be — and how much
-            better the outcome is for anyone who walks in with clear, well-organised evidence.
-          </p>
-          <p className="text-sm text-gray-700 leading-relaxed">
-            This is an independent product, not a law firm. It is built and maintained by one person
-            with the goal of making formal property documentation accessible to everyone, not just
-            those who can afford professional help.
-          </p>
-          <p className="text-sm text-gray-700 leading-relaxed">
-            Questions, feedback, or issues — reach out at:{" "}
-            <a href="mailto:hello@rentproof.ai" className="text-blue-700 hover:underline font-medium">
-              hello@rentproof.ai
-            </a>
-          </p>
-        </section>
-
-        {/* What the AI does */}
-        <section className="space-y-4 border-t border-gray-100 pt-8">
-          <h2 className="text-lg font-bold text-gray-900">What the AI actually does</h2>
-          <p className="text-sm text-gray-700 leading-relaxed">
-            RentProof uses a large language model with vision capabilities to compare before and after
-            photos, read deduction letters, and apply widely-accepted tenancy principles — such as the
-            difference between chargeable damage and normal wear and tear.
-          </p>
-          <p className="text-sm text-gray-700 leading-relaxed">
-            The quality of the output depends heavily on the quality of the photos. Clear, well-lit,
-            room-by-room photos taken at both move-in and move-out will produce a much more useful
-            report than a handful of blurry images.
-          </p>
-
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 space-y-2">
-            <p className="text-xs font-bold text-amber-800 uppercase tracking-wide">Important limitations</p>
-            <ul className="text-sm text-amber-900 space-y-1.5 leading-relaxed">
-              <li>• RentProof is <strong>not a law firm</strong> and does not provide legal advice.</li>
-              <li>• AI analysis is a starting point — not a legal conclusion. Tenancy law varies by jurisdiction and changes over time.</li>
-              <li>• For disputes involving significant amounts of money, always consult a licensed legal professional in your area.</li>
-              <li>• The free tools (deadline calculator, demand letter generator) are general guides. Verify deadlines and requirements with official sources before acting.</li>
+          <section>
+            <h2 className="text-white font-semibold text-lg mb-3">What MarginLog does</h2>
+            <ul className="space-y-2 text-zinc-400">
+              {[
+                'Calculates true net profit after platform fees, your shipping cost, and cost of goods',
+                'Tracks every sale across eBay, Poshmark, Mercari, Depop, Facebook Marketplace, Vinted, and Etsy',
+                'Shows you which platforms and categories perform best over time',
+                'Exports your full sales history to CSV — useful at tax time',
+                'Keeps fee tables current so you always get accurate numbers',
+              ].map(item => (
+                <li key={item} className="flex gap-2">
+                  <span className="text-emerald-500 mt-0.5">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
-          </div>
-        </section>
+          </section>
 
-        {/* Data */}
-        <section className="space-y-4 border-t border-gray-100 pt-8">
-          <h2 className="text-lg font-bold text-gray-900">Your data</h2>
-          <p className="text-sm text-gray-700 leading-relaxed">
-            We take privacy seriously. Photos and text you upload for AI analysis are transmitted
-            directly to the AI provider for processing and are <strong>not stored by RentProof</strong> on
-            any database or server. The free tools (deadline calculator and demand letter generator)
-            run entirely in your browser — that data never leaves your device.
-          </p>
-          <p className="text-sm text-gray-700 leading-relaxed">
-            Read our full{" "}
-            <Link href="/privacy" className="text-blue-700 hover:underline font-medium">
-              Privacy Policy
-            </Link>{" "}
-            for complete details on what is collected and how it is handled.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-white font-semibold text-lg mb-3">What MarginLog doesn't do</h2>
+            <p className="text-zinc-400">
+              MarginLog is not accounting software. It is not a tax filing tool. It is not a crosslisting tool. It does one thing well: tells you your real profit on every item you sell, and shows you trends over time. If you need more than that, you likely already know what you need.
+            </p>
+          </section>
 
-        {/* Contact */}
-        <section className="space-y-3 border-t border-gray-100 pt-8">
-          <h2 className="text-lg font-bold text-gray-900">Contact</h2>
-          <p className="text-sm text-gray-700 leading-relaxed">
-            For questions, feedback, bug reports, or partnership enquiries:
-          </p>
-          <a
-            href="mailto:hello@rentproof.ai"
-            className="inline-block text-sm font-semibold text-blue-700 hover:underline"
-          >
-            hello@rentproof.ai
-          </a>
-        </section>
+          <section>
+            <h2 className="text-white font-semibold text-lg mb-3">Who it's for</h2>
+            <p className="text-zinc-400">
+              Casual resellers who sell a few items a month and want to stop guessing. Intermediate resellers running a side hustle who need to understand their margins. Anyone who has ever sold something online and then tried to remember what they actually paid for it.
+            </p>
+          </section>
 
+          <section className="border-t border-zinc-800 pt-8">
+            <p className="text-zinc-500 text-sm">
+              Questions or feedback? Email us at{' '}
+              <a href="mailto:hello@marginlog.ai" className="text-emerald-400 hover:text-emerald-300">
+                hello@marginlog.ai
+              </a>
+            </p>
+          </section>
+        </div>
       </main>
+
+      <footer className="border-t border-zinc-800 mt-16">
+        <div className="max-w-3xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
+          <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
+          <Link href="/about" className="hover:text-zinc-400 transition-colors">About</Link>
+          <Link href="/privacy" className="hover:text-zinc-400 transition-colors">Privacy</Link>
+          <Link href="/terms" className="hover:text-zinc-400 transition-colors">Terms</Link>
+        </div>
+      </footer>
     </div>
-  );
+  )
 }

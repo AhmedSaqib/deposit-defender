@@ -1,151 +1,150 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { Brand } from "@/components/Logo";
+import Link from 'next/link'
+import { TrendingUp, BarChart3, FileInput, Layers, Receipt, MapPin } from 'lucide-react'
+import Logo from '@/components/logo'
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-};
+const features = [
+  {
+    icon: TrendingUp,
+    title: 'True profit tracking',
+    desc: 'Real net profit after platform fees, COGS, and shipping. Fee tables for eBay, Poshmark, Mercari, Depop, Etsy, and more — kept current.',
+  },
+  {
+    icon: BarChart3,
+    title: 'Analytics that matter',
+    desc: 'Profit by platform, category, and month in one dashboard. Know exactly where your margin comes from.',
+  },
+  {
+    icon: FileInput,
+    title: 'Import any CSV',
+    desc: 'Upload a CSV from any platform — column names are detected automatically, no reformatting needed. Export for tax season in one click.',
+  },
+  {
+    icon: Layers,
+    title: 'Built for how resellers work',
+    desc: 'Split a haul purchase across items, log bundles with proportional revenue, and track returns that drop out of your totals automatically.',
+  },
+  {
+    icon: MapPin,
+    title: 'Sourcing trip ROI',
+    desc: 'Group sales by sourcing trip and see real net ROI after the cost of the trip itself. Know if Goodwill Tuesday was actually worth it.',
+  },
+  {
+    icon: Receipt,
+    title: 'Business expense tracker',
+    desc: 'Log shipping supplies, platform subscriptions, mileage, and more. Organized by Schedule C category so tax season is less painful.',
+  },
+]
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://rentproof.ai/#website",
-      url: "https://rentproof.ai",
-      name: "RentProof.ai",
-      description:
-        "AI-powered property inspection reports and deposit dispute analysis for landlords and tenants worldwide.",
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://rentproof.ai/#app",
-      name: "RentProof.ai",
-      url: "https://rentproof.ai",
-      applicationCategory: "BusinessApplication",
-      operatingSystem: "Web",
-      description:
-        "Dispute unfair deposit deductions or document property damage with AI. Upload before and after photos to get a formal PDF report in minutes.",
-      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-      featureList: [
-        "AI deposit dispute analysis",
-        "Property inspection report generation",
-        "Security deposit deadline calculator",
-        "Demand letter generator",
-      ],
-    },
-  ],
-};
+const bars = [28, 45, 36, 62, 48, 71, 55, 80, 63, 74, 68, 92]
 
-export default function Home() {
+const platforms = [
+  { name: 'Poshmark', amount: '$542', pct: 88, color: 'bg-emerald-500' },
+  { name: 'eBay', amount: '$418', pct: 67, color: 'bg-blue-500' },
+  { name: 'Mercari', amount: '$324', pct: 52, color: 'bg-amber-500' },
+]
+
+export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <header className="bg-white border-b border-gray-200 shadow-sm">
-        <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Brand size="lg" />
-            <span className="hidden sm:block text-sm text-gray-400 pl-3 border-l border-gray-200">
-              Your property. Your proof.
-            </span>
-          </div>
-          <nav className="flex items-center gap-5">
-            <Link href="/about" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">About</Link>
-          </nav>
+    <div className="min-h-screen bg-zinc-950 text-white">
+      <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
+        <Logo />
+        <div className="flex gap-3">
+          <Link href="/login" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">
+            Log in
+          </Link>
+          <Link href="/signup" className="text-sm bg-emerald-500 hover:bg-emerald-400 text-black font-medium px-4 py-1.5 rounded-lg transition-colors">
+            Get started free
+          </Link>
         </div>
       </header>
 
-      <main className="flex-1 max-w-3xl mx-auto px-4 py-12 w-full">
-        <h1 className="sr-only">RentProof.ai — AI Property Inspection and Deposit Dispute Analysis</h1>
-        <h2 className="text-xl font-bold text-gray-800 mb-2 text-center">Who are you?</h2>
-        <p className="text-sm text-gray-500 text-center mb-10">
-          Choose your role to get started. Upload your photos and get an AI-powered report in minutes.
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {/* Tenant card */}
-          <Link
-            href="/tenant"
-            className="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-400 transition-all p-8 flex flex-col gap-4"
-          >
-            <div className="text-4xl">🏠</div>
+      <main className="max-w-5xl mx-auto px-6">
+        <section className="py-16 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
-                I&apos;m a Tenant
-              </h3>
-              <p className="text-sm text-gray-600 mt-2 leading-relaxed">
-                My landlord withheld part or all of my deposit. I want to dispute the deductions with an AI-analyzed rebuttal.
+              <p className="text-emerald-400 text-sm font-medium mb-4 tracking-wide uppercase">Built for resellers</p>
+              <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight">
+                Stop guessing what<br />you actually made
+              </h1>
+              <p className="text-zinc-400 text-lg lg:text-xl mb-10 leading-relaxed">
+                Log every sale, track true profit after fees, and finally know your numbers — across every resale platform.
               </p>
+              <Link
+                href="/signup"
+                className="inline-block bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-8 py-3.5 rounded-xl text-base transition-colors"
+              >
+                Start tracking free
+              </Link>
             </div>
-            <div className="mt-auto">
-              <ul className="text-xs text-gray-500 space-y-1">
-                <li>✓ Paste the landlord&apos;s deduction letter</li>
-                <li>✓ Upload move-in and move-out photos</li>
-                <li>✓ Get a claim-by-claim rebuttal PDF</li>
-              </ul>
-            </div>
-            <span className="inline-block mt-2 text-sm font-semibold text-blue-700 group-hover:underline">
-              Dispute my deductions →
-            </span>
-          </Link>
 
-          {/* Landlord card */}
-          <Link
-            href="/landlord"
-            className="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-emerald-400 transition-all p-8 flex flex-col gap-4"
-          >
-            <div className="text-4xl">🔑</div>
-            <div>
-              <h3 className="text-lg font-bold text-gray-900 group-hover:text-emerald-700 transition-colors">
-                I&apos;m a Landlord
-              </h3>
-              <p className="text-sm text-gray-600 mt-2 leading-relaxed">
-                My tenant has moved out. I want to document any damage by comparing before and after photos and generate a formal inspection report.
-              </p>
-            </div>
-            <div className="mt-auto">
-              <ul className="text-xs text-gray-500 space-y-1">
-                <li>✓ Upload before and after photos</li>
-                <li>✓ AI identifies damage vs. wear &amp; tear</li>
-                <li>✓ Download a detailed inspection report PDF</li>
-              </ul>
-            </div>
-            <span className="inline-block mt-2 text-sm font-semibold text-emerald-700 group-hover:underline">
-              Inspect my property →
-            </span>
-          </Link>
-        </div>
+            {/* Dashboard preview */}
+            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-5">
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-xs text-zinc-500 mb-1">Net profit this month</p>
+                  <p className="text-3xl font-bold text-emerald-400">$1,284</p>
+                </div>
+                <span className="text-xs text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-2 py-1 rounded-lg">↑ 23%</span>
+              </div>
 
-        <div className="mt-12">
-          <h2 className="text-base font-bold text-gray-700 mb-1">Free Tools</h2>
-          <p className="text-xs text-gray-500 mb-4">No photos needed — useful at any stage of a tenancy.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Link
-              href="/tools/deadline"
-              className="group bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-400 transition-all p-5 flex flex-col gap-2"
-            >
-              <p className="text-base font-bold text-gray-800 group-hover:text-blue-700 transition-colors">⏱ Deposit Deadline Calculator</p>
-              <p className="text-xs text-gray-500 leading-relaxed">Find out exactly when your deposit must be returned and get a ready-to-send follow-up letter.</p>
-              <span className="text-xs font-semibold text-blue-700 group-hover:underline mt-1">Calculate deadline →</span>
-            </Link>
-            <Link
-              href="/tools/demand"
-              className="group bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-400 transition-all p-5 flex flex-col gap-2"
-            >
-              <p className="text-base font-bold text-gray-800 group-hover:text-blue-700 transition-colors">✉️ Demand Letter Generator</p>
-              <p className="text-xs text-gray-500 leading-relaxed">Generate a formal demand letter to dispute unfair deductions — ready to send in minutes.</p>
-              <span className="text-xs font-semibold text-blue-700 group-hover:underline mt-1">Write demand letter →</span>
-            </Link>
+              {/* Mini bar chart */}
+              <div className="flex items-end gap-1 h-20">
+                {bars.map((h, i) => (
+                  <div
+                    key={i}
+                    className={`flex-1 rounded-sm transition-all ${i === bars.length - 1 ? 'bg-emerald-400' : 'bg-zinc-700'}`}
+                    style={{ height: `${h}%` }}
+                  />
+                ))}
+              </div>
+              <p className="text-xs text-zinc-600 -mt-2">Monthly profit · last 12 months</p>
+
+              {/* Platform breakdown */}
+              <div className="border-t border-zinc-800 pt-4 space-y-3">
+                {platforms.map(({ name, amount, pct, color }) => (
+                  <div key={name} className="space-y-1">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-zinc-400">{name}</span>
+                      <span className="text-zinc-300 font-medium">{amount}</span>
+                    </div>
+                    <div className="h-1 bg-zinc-800 rounded-full overflow-hidden">
+                      <div className={`h-full rounded-full ${color}`} style={{ width: `${pct}%` }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
 
-        <p className="text-xs text-gray-400 text-center mt-10">
-          Not legal advice. Consult a local legal professional for jurisdiction-specific guidance.
-        </p>
+        <section className="py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map(({ icon: Icon, title, desc }) => (
+            <div key={title} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
+              <div className="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
+                <Icon className="w-5 h-5 text-emerald-400" />
+              </div>
+              <h3 className="font-semibold text-white mb-2">{title}</h3>
+              <p className="text-zinc-400 text-sm leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </section>
+
+        <section className="py-12 text-center border-t border-zinc-800">
+          <p className="text-zinc-500 text-sm">Supports eBay · Poshmark · Mercari · Depop · Facebook Marketplace · Vinted · Etsy</p>
+        </section>
       </main>
+
+      <footer className="border-t border-zinc-800">
+        <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap items-center justify-between gap-4">
+          <p className="text-xs text-zinc-600">© {new Date().getFullYear()} MarginLog. Not financial advice.</p>
+          <nav className="flex gap-5 text-xs text-zinc-600">
+            <Link href="/about" className="hover:text-zinc-400 transition-colors">About</Link>
+            <Link href="/privacy" className="hover:text-zinc-400 transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-zinc-400 transition-colors">Terms</Link>
+            <Link href="/contact" className="hover:text-zinc-400 transition-colors">Contact</Link>
+          </nav>
+        </div>
+      </footer>
     </div>
-  );
+  )
 }
