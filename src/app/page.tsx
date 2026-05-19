@@ -1,6 +1,36 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { TrendingUp, BarChart3, FileInput, Layers, Receipt, MapPin } from 'lucide-react'
 import Logo from '@/components/logo'
+
+export const metadata: Metadata = {
+  title: 'MarginLog — Resale Profit Tracker',
+  description: 'Track true profit on every sale across eBay, Poshmark, Mercari, Depop, and more. See real net profit after platform fees, COGS, and shipping — free.',
+  alternates: { canonical: 'https://marginlog.vercel.app' },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://marginlog.vercel.app/#website',
+      url: 'https://marginlog.vercel.app',
+      name: 'MarginLog',
+      description: 'Resale profit tracker for eBay, Poshmark, Mercari, Depop, and more.',
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': 'https://marginlog.vercel.app/#app',
+      name: 'MarginLog',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      description: 'Track true resale profit after platform fees across eBay, Poshmark, Mercari, Depop, Etsy, Facebook Marketplace, and Vinted.',
+      url: 'https://marginlog.vercel.app',
+    },
+  ],
+}
 
 const features = [
   {
@@ -46,6 +76,10 @@ const platforms = [
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
         <Logo />
         <div className="flex gap-3">

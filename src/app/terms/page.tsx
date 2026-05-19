@@ -3,7 +3,9 @@ import { ArrowLeft } from 'lucide-react'
 import Logo from '@/components/logo'
 
 export const metadata = {
-  title: 'Terms of Service — MarginLog',
+  title: 'Terms of Service',
+  description: 'Terms governing your use of MarginLog.',
+  robots: { index: false, follow: false },
 }
 
 const LAST_UPDATED = 'May 19, 2026'

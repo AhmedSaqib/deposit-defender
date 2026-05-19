@@ -6,8 +6,29 @@ import './globals.css'
 const geist = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'MarginLog — Resale Profit Tracker',
+  metadataBase: new URL('https://marginlog.vercel.app'),
+  title: {
+    default: 'MarginLog — Resale Profit Tracker',
+    template: '%s — MarginLog',
+  },
   description: 'Track true profit across eBay, Poshmark, Mercari, Depop, and more. Know your real numbers after fees.',
+  keywords: ['resale profit tracker', 'ebay profit calculator', 'poshmark profit', 'mercari fees', 'reseller tool', 'flipping profit tracker', 'resale business tracker'],
+  openGraph: {
+    type: 'website',
+    siteName: 'MarginLog',
+    title: 'MarginLog — Resale Profit Tracker',
+    description: 'Track true profit across eBay, Poshmark, Mercari, Depop, and more. Know your real numbers after fees.',
+    url: 'https://marginlog.vercel.app',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MarginLog — Resale Profit Tracker',
+    description: 'Track true profit across eBay, Poshmark, Mercari, Depop, and more. Know your real numbers after fees.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

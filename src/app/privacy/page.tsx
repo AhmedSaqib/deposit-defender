@@ -3,7 +3,9 @@ import { ArrowLeft } from 'lucide-react'
 import Logo from '@/components/logo'
 
 export const metadata = {
-  title: 'Privacy Policy — MarginLog',
+  title: 'Privacy Policy',
+  description: 'How MarginLog collects, uses, and protects your data.',
+  robots: { index: false, follow: false },
 }
 
 const LAST_UPDATED = 'May 19, 2026'

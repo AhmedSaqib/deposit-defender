@@ -1,6 +1,13 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import ContactForm from '@/components/contact-form'
 import Logo from '@/components/logo'
+
+export const metadata: Metadata = {
+  title: 'Contact',
+  description: 'Send feedback, bug reports, or feature requests to the MarginLog team.',
+  robots: { index: false, follow: false },
+}
 
 export default function ContactPage() {
   return (
