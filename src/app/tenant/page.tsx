@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FileDropZone } from "@/components/FileDropZone";
+import { InnerHeader } from "@/components/InnerHeader";
 import type { AnalysisResult, ClaimAnalysis } from "@/lib/analyze";
 
 const VERDICT_CONFIG: Record<
@@ -154,23 +155,12 @@ export default function TenantPage() {
 
   const canSubmit =
     deductionLetter.trim().length > 0 &&
-    beforePhotos.length > 0 &&
     afterPhotos.length > 0 &&
     !loading;
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200 shadow-sm">
-        <div className="max-w-3xl mx-auto px-4 py-5 flex items-center gap-4">
-          <Link href="/" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-            ← Back
-          </Link>
-          <div>
-            <h1 className="text-xl font-bold text-gray-900">Tenant Dispute Analysis</h1>
-            <p className="text-xs text-gray-500">MoveProof</p>
-          </div>
-        </div>
-      </header>
+      <InnerHeader title="Tenant Dispute Analysis" subtitle="AI-powered claim-by-claim rebuttal" maxWidth="max-w-3xl" />
 
       <main className="max-w-3xl mx-auto px-4 py-8 space-y-8">
         <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-xs text-amber-800 leading-relaxed">
@@ -198,8 +188,8 @@ export default function TenantPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FileDropZone
               id="beforePhotos"
-              label="Move-In Photos"
-              hint="Photos from the start of your tenancy"
+              label="Move-In Photos (optional)"
+              hint="Photos from the start of your tenancy, if you have them"
               files={beforePhotos}
               onChange={setBeforePhotos}
             />

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { InnerHeader } from "@/components/InnerHeader";
 
 interface Dispute {
   id: number;
@@ -117,15 +117,7 @@ ${tenantName}`;
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200 shadow-sm">
-        <div className="max-w-2xl mx-auto px-4 py-5 flex items-center gap-4">
-          <Link href="/" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">← Back</Link>
-          <div>
-            <h1 className="text-xl font-bold text-gray-900">Demand Letter Generator</h1>
-            <p className="text-xs text-gray-500">MoveProof Free Tool · For Tenants</p>
-          </div>
-        </div>
-      </header>
+      <InnerHeader title="Demand Letter Generator" subtitle="Free Tool — ready to send in minutes" />
 
       <main className="max-w-2xl mx-auto px-4 py-8 space-y-6">
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-xs text-blue-800 leading-relaxed">

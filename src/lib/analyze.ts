@@ -217,12 +217,19 @@ export async function analyzeClaim(
 ): Promise<AnalysisResult> {
   const content: Array<Anthropic.TextBlockParam | Anthropic.ImageBlockParam> = [];
 
+  const hasBeforePhotos = moveInImages.length > 0;
+  const photoContext = hasBeforePhotos
+    ? `Below are ${moveInImages.length} move-in photo(s) followed by ${moveOutImages.length} move-out photo(s). Analyze each claimed deduction against this evidence.`
+    : `No move-in photos were provided. Analyze the ${moveOutImages.length} move-out photo(s) against the claimed deductions. Without before-photo comparison, note where claims cannot be verified from photos alone and apply the principle that the burden of proof lies with the landlord.`;
+
   content.push({
     type: "text",
-    text: `LANDLORD'S DEDUCTION LETTER:\n\n${deductionLetter}\n\nBelow are ${moveInImages.length} move-in photo(s) followed by ${moveOutImages.length} move-out photo(s). Analyze each claimed deduction against this evidence.`,
+    text: `LANDLORD'S DEDUCTION LETTER:\n\n${deductionLetter}\n\n${photoContext}`,
   });
 
-  content.push(...buildImageBlocks(moveInImages, "Move-in photo"));
+  if (hasBeforePhotos) {
+    content.push(...buildImageBlocks(moveInImages, "Move-in photo"));
+  }
   content.push(...buildImageBlocks(moveOutImages, "Move-out photo"));
 
   content.push({

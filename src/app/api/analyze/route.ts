@@ -23,9 +23,6 @@ export async function POST(request: NextRequest) {
   const beforeFiles = formData.getAll("beforePhotos") as File[];
   const afterFiles = formData.getAll("afterPhotos") as File[];
 
-  if (mode !== "landlord" && beforeFiles.length === 0) {
-    return Response.json({ error: "At least one before photo is required" }, { status: 400 });
-  }
   if (afterFiles.length === 0) {
     return Response.json({ error: "At least one after photo is required" }, { status: 400 });
   }

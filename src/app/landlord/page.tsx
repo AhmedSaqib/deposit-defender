@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FileDropZone } from "@/components/FileDropZone";
+import { InnerHeader } from "@/components/InnerHeader";
 import type { InspectionReport, DamageFinding } from "@/lib/analyze";
 
 const SEVERITY_CONFIG: Record<
@@ -228,17 +229,7 @@ ${propertyAddress || "[Landlord Name]"}
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200 shadow-sm">
-        <div className="max-w-3xl mx-auto px-4 py-5 flex items-center gap-4">
-          <Link href="/" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-            ← Back
-          </Link>
-          <div>
-            <h1 className="text-xl font-bold text-gray-900">Property Inspection Report</h1>
-            <p className="text-xs text-gray-500">MoveProof</p>
-          </div>
-        </div>
-      </header>
+      <InnerHeader title="Property Inspection Report" subtitle="AI-powered damage vs. wear & tear analysis" maxWidth="max-w-3xl" />
 
       <main className="max-w-3xl mx-auto px-4 py-8 space-y-8">
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-xs text-blue-800 leading-relaxed">
