@@ -166,7 +166,7 @@ export const CALC_PLATFORMS: Record<string, CalcPlatform> = {
     ],
   },
 
-  facebook: {
+  'facebook-marketplace': {
     name: 'Facebook Marketplace',
     slug: 'facebook-marketplace',
     feeRate: 0.05,
