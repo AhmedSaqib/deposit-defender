@@ -109,6 +109,12 @@ export default function LandingPage() {
               >
                 Start tracking free
               </Link>
+              <Link
+                href="/calculators"
+                className="block mt-4 text-sm text-zinc-500 hover:text-emerald-400 transition-colors"
+              >
+                Try the free fee calculators →
+              </Link>
             </div>
 
             {/* Dashboard preview */}
@@ -163,8 +169,28 @@ export default function LandingPage() {
           ))}
         </section>
 
-        <section className="py-12 text-center border-t border-zinc-800">
-          <p className="text-zinc-500 text-sm">Supports eBay · Poshmark · Mercari · Depop · Facebook Marketplace · Vinted · Etsy</p>
+        <section className="py-12 border-t border-zinc-800">
+          <p className="text-zinc-500 text-sm text-center mb-5">Not ready to sign up? Try the free fee calculators — no account needed.</p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {[
+              { label: 'eBay', href: '/calculators/ebay' },
+              { label: 'Poshmark', href: '/calculators/poshmark' },
+              { label: 'Mercari', href: '/calculators/mercari' },
+              { label: 'Depop', href: '/calculators/depop' },
+              { label: 'Etsy', href: '/calculators/etsy' },
+              { label: 'Facebook Marketplace', href: '/calculators/facebook-marketplace' },
+              { label: 'Vinted', href: '/calculators/vinted' },
+              { label: 'Compare all platforms →', href: '/calculators/compare' },
+            ].map(({ label, href }) => (
+              <Link
+                key={href}
+                href={href}
+                className="text-xs text-zinc-500 hover:text-white border border-zinc-800 hover:border-zinc-600 rounded-lg px-3 py-1.5 transition-colors"
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
         </section>
       </main>
 
