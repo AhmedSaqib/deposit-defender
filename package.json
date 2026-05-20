@@ -24,6 +24,13 @@
     "resend": "^2.0.0",
     "zod": "^4.4.3"
   },
+  "browserslist": [
+    "chrome >= 93",
+    "firefox >= 90",
+    "safari >= 15",
+    "edge >= 93",
+    "not dead"
+  ],
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20.19.41",
