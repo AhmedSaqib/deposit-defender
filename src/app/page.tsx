@@ -6,7 +6,7 @@ import Logo from '@/components/logo'
 export const metadata: Metadata = {
   title: 'MarginLog — Resale Profit Tracker',
   description: 'Track true profit on every sale across eBay, Poshmark, Mercari, Depop, and more. See real net profit after platform fees, COGS, and shipping — free.',
-  alternates: { canonical: 'https://marginlog.vercel.app' },
+  alternates: { canonical: 'https://marginlog.net' },
 }
 
 const jsonLd = {
@@ -14,20 +14,20 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebSite',
-      '@id': 'https://marginlog.vercel.app/#website',
-      url: 'https://marginlog.vercel.app',
+      '@id': 'https://marginlog.net/#website',
+      url: 'https://marginlog.net',
       name: 'MarginLog',
       description: 'Resale profit tracker for eBay, Poshmark, Mercari, Depop, and more.',
     },
     {
       '@type': 'SoftwareApplication',
-      '@id': 'https://marginlog.vercel.app/#app',
+      '@id': 'https://marginlog.net/#app',
       name: 'MarginLog',
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
       description: 'Track true resale profit after platform fees across eBay, Poshmark, Mercari, Depop, Etsy, Facebook Marketplace, and Vinted.',
-      url: 'https://marginlog.vercel.app',
+      url: 'https://marginlog.net',
     },
   ],
 }

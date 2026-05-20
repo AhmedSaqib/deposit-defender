@@ -22,7 +22,7 @@ export async function generateMetadata(
   return {
     title,
     description,
-    alternates: { canonical: `https://marginlog.vercel.app/calculators/${slug}` },
+    alternates: { canonical: `https://marginlog.net/calculators/${slug}` },
     openGraph: { title, description },
     twitter: { title, description },
   }

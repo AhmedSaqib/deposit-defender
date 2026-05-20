@@ -6,7 +6,7 @@ import './globals.css'
 const geist = Geist({ variable: '--font-geist-sans', subsets: ['latin'], display: 'swap' })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://marginlog.vercel.app'),
+  metadataBase: new URL('https://marginlog.net'),
   title: {
     default: 'MarginLog — Resale Profit Tracker',
     template: '%s — MarginLog',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: 'MarginLog',
     title: 'MarginLog — Resale Profit Tracker',
     description: 'Track true profit across eBay, Poshmark, Mercari, Depop, and more. Know your real numbers after fees.',
-    url: 'https://marginlog.vercel.app',
+    url: 'https://marginlog.net',
   },
   twitter: {
     card: 'summary_large_image',

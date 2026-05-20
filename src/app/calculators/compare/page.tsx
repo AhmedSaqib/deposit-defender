@@ -7,7 +7,7 @@ import { CALC_PLATFORMS, CALC_PLATFORM_SLUGS } from '@/lib/calculator-config'
 export const metadata: Metadata = {
   title: 'Compare Resale Platform Fees — eBay vs Poshmark vs Mercari & More',
   description: 'See your profit on every resale platform side by side. Compare eBay, Poshmark, Mercari, Depop, Etsy, Facebook Marketplace, and Vinted fees instantly.',
-  alternates: { canonical: 'https://marginlog.vercel.app/calculators/compare' },
+  alternates: { canonical: 'https://marginlog.net/calculators/compare' },
   openGraph: {
     title: 'Compare Resale Platform Fees — eBay vs Poshmark vs Mercari & More',
     description: 'See your profit on every resale platform side by side. Enter one price, compare all 7 platforms instantly.',

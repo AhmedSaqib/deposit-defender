@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/dashboard', '/log', '/sales', '/haul', '/bundle', '/expenses', '/trips', '/import', '/api/'],
     },
-    sitemap: 'https://marginlog.vercel.app/sitemap.xml',
+    sitemap: 'https://marginlog.net/sitemap.xml',
   }
 }

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { CALC_PLATFORM_SLUGS } from '@/lib/calculator-config'
 
-const BASE = 'https://marginlog.vercel.app'
+const BASE = 'https://marginlog.net'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const calculatorPages: MetadataRoute.Sitemap = CALC_PLATFORM_SLUGS.map(slug => ({

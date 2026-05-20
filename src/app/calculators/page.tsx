@@ -6,7 +6,7 @@ import { CALC_PLATFORMS } from '@/lib/calculator-config'
 export const metadata: Metadata = {
   title: 'Free Reseller Profit Calculators — eBay, Poshmark, Mercari & More',
   description: 'Free profit calculators for every resale platform. See your true net profit after fees, shipping, and cost of goods. No signup required.',
-  alternates: { canonical: 'https://marginlog.vercel.app/calculators' },
+  alternates: { canonical: 'https://marginlog.net/calculators' },
 }
 
 const icons: Record<string, string> = {
