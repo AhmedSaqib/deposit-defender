@@ -1,0 +1,38 @@
+# MarginLog
+
+> Profit tracker for resellers. Log sales in 30 seconds, see true net profit after fees, export to CSV for taxes.
+
+MarginLog is a web app for people who sell secondhand goods on platforms like eBay, Poshmark, Mercari, Depop, Etsy, Facebook Marketplace, and Vinted. It solves a specific problem: resellers often don't know their real profit because platform fees, shipping costs, and purchase price eat into revenue in ways that are hard to track manually.
+
+## What it does
+
+- Log a sale in ~30 seconds: enter sale price, platform, shipping, and what you paid for the item
+- Automatically calculates true net profit after all fees
+- Dashboard shows profit trends, best-performing platforms, and ROI
+- CSV export for tax season
+- Free during beta (no credit card required)
+
+## Who it's for
+
+Resellers who sell on: eBay, Poshmark, Mercari, Depop, Etsy, Facebook Marketplace, Vinted. Particularly useful for people selling across multiple platforms who lose track of which platform is actually most profitable.
+
+## Free tools (no signup required)
+
+- eBay profit calculator: https://marginlog.net/calculators/ebay
+- Poshmark profit calculator: https://marginlog.net/calculators/poshmark
+- Mercari profit calculator: https://marginlog.net/calculators/mercari
+- Depop profit calculator: https://marginlog.net/calculators/depop
+- Etsy profit calculator: https://marginlog.net/calculators/etsy
+- Facebook Marketplace profit calculator: https://marginlog.net/calculators/facebook-marketplace
+- Vinted profit calculator: https://marginlog.net/calculators/vinted
+- Compare all platforms: https://marginlog.net/calculators/compare
+
+## Pricing
+
+Free during beta. Planned: free up to 20 items/month, then $9.99/month.
+
+## Links
+
+- Homepage: https://marginlog.net
+- Sign up free: https://marginlog.net/signup
+- All calculators: https://marginlog.net/calculators
