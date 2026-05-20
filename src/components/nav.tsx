@@ -4,12 +4,13 @@ import { signOut } from '@/lib/actions'
 import { BarChart3, PlusCircle, List, LogOut, Receipt, MapPin } from 'lucide-react'
 import Logo from '@/components/logo'
 import BillingButton from '@/components/billing-button'
-import { getSubscriptionStatus } from '@/lib/subscription'
+import { getSubscriptionInfo } from '@/lib/subscription'
 
 export default async function Nav() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  const isPro = user ? (await getSubscriptionStatus(user.id)) === 'active' : false
+  const sub = user ? await getSubscriptionInfo(user.id) : null
+  const isPro = sub?.status === 'active'
 
   return (
     <nav className="bg-zinc-900 border-b border-zinc-800 px-4 py-3">
@@ -31,7 +32,11 @@ export default async function Nav() {
           <Link href="/trips" className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-zinc-800 transition-colors">
             <MapPin className="w-4 h-4" /> Trips
           </Link>
-          <BillingButton isPro={isPro} />
+          <BillingButton
+            isPro={isPro}
+            cancelAtPeriodEnd={sub?.cancelAtPeriodEnd ?? false}
+            currentPeriodEnd={sub?.currentPeriodEnd ?? null}
+          />
           <form action={signOut}>
             <button type="submit" className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-white px-3 py-1.5 rounded-lg hover:bg-zinc-800 transition-colors ml-2">
               <LogOut className="w-4 h-4" />

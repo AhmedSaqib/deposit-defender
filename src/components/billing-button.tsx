@@ -3,7 +3,13 @@
 import { useState } from 'react'
 import { Zap } from 'lucide-react'
 
-export default function BillingButton({ isPro }: { isPro: boolean }) {
+type Props = {
+  isPro: boolean
+  cancelAtPeriodEnd?: boolean
+  currentPeriodEnd?: string | null
+}
+
+export default function BillingButton({ isPro, cancelAtPeriodEnd, currentPeriodEnd }: Props) {
   const [loading, setLoading] = useState(false)
 
   async function handleClick() {
@@ -16,14 +22,19 @@ export default function BillingButton({ isPro }: { isPro: boolean }) {
   }
 
   if (isPro) {
+    const endDate = currentPeriodEnd
+      ? new Date(currentPeriodEnd).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+      : null
+
     return (
       <button
         onClick={handleClick}
         disabled={loading}
         className="flex items-center gap-1.5 text-sm text-emerald-400 px-3 py-1.5 rounded-lg hover:bg-zinc-800 transition-colors disabled:opacity-50"
+        title={cancelAtPeriodEnd && endDate ? `Access ends ${endDate}` : 'Manage billing'}
       >
         <Zap className="w-4 h-4" />
-        {loading ? '...' : 'Pro'}
+        {loading ? '...' : cancelAtPeriodEnd && endDate ? `Pro · ends ${endDate}` : 'Pro'}
       </button>
     )
   }

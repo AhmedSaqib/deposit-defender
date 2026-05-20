@@ -29,6 +29,7 @@ export async function POST(req: NextRequest) {
       stripe_customer_id: session.customer as string,
       stripe_subscription_id: subscription.id,
       status: subscription.status,
+      cancel_at_period_end: raw.cancel_at_period_end ?? false,
       current_period_end: periodEnd ? new Date(periodEnd * 1000).toISOString() : null,
       updated_at: new Date().toISOString(),
     })
@@ -42,6 +43,7 @@ export async function POST(req: NextRequest) {
       .from('subscriptions')
       .update({
         status: subscription.status,
+        cancel_at_period_end: raw.cancel_at_period_end ?? false,
         current_period_end: periodEnd ? new Date(periodEnd * 1000).toISOString() : null,
         updated_at: new Date().toISOString(),
       })

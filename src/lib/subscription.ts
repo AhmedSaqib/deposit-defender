@@ -2,15 +2,30 @@ import { createClient } from '@/lib/supabase/server'
 
 export const FREE_LIMIT = 20
 
-export async function getSubscriptionStatus(userId: string) {
+export type SubscriptionInfo = {
+  status: 'active' | 'free'
+  cancelAtPeriodEnd: boolean
+  currentPeriodEnd: string | null
+}
+
+export async function getSubscriptionInfo(userId: string): Promise<SubscriptionInfo> {
   const supabase = await createClient()
   const { data } = await supabase
     .from('subscriptions')
-    .select('status, current_period_end')
+    .select('status, current_period_end, cancel_at_period_end')
     .eq('user_id', userId)
     .single()
 
-  return data?.status === 'active' ? 'active' : 'free'
+  return {
+    status: data?.status === 'active' ? 'active' : 'free',
+    cancelAtPeriodEnd: data?.cancel_at_period_end ?? false,
+    currentPeriodEnd: data?.current_period_end ?? null,
+  }
+}
+
+export async function getSubscriptionStatus(userId: string) {
+  const { status } = await getSubscriptionInfo(userId)
+  return status
 }
 
 export async function getMonthlyCount(userId: string) {
