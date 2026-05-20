@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { PLATFORMS, EXPENSE_CATEGORIES, type Platform, type ExpenseCategory } from '@/lib/platform-fees'
+import { canLogSale } from '@/lib/subscription'
 import { z } from 'zod'
 
 const SaleSchema = z.object({
@@ -21,6 +22,9 @@ export async function logSale(formData: FormData) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/login')
+
+  const allowed = await canLogSale(user.id)
+  if (!allowed) redirect('/log?limit=1')
 
   const parsed = SaleSchema.safeParse(Object.fromEntries(formData))
   if (!parsed.success) throw new Error('Invalid form data')

@@ -1,10 +1,13 @@
 import { redirect } from 'next/navigation'
+import Link from 'next/link'
 import Nav from '@/components/nav'
 import { createClient } from '@/lib/supabase/server'
 import { logSale } from '@/lib/actions'
 import { PLATFORMS, CATEGORIES } from '@/lib/platform-fees'
+import { getMonthlyCount, FREE_LIMIT } from '@/lib/subscription'
+import UpgradeButton from '@/components/upgrade-button'
 
-export default async function LogPage({ searchParams }: { searchParams: Promise<{ cogs?: string }> }) {
+export default async function LogPage({ searchParams }: { searchParams: Promise<{ cogs?: string; limit?: string }> }) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/login')
@@ -12,17 +15,49 @@ export default async function LogPage({ searchParams }: { searchParams: Promise<
   const today = new Date().toISOString().split('T')[0]
   const params = await searchParams
   const defaultCogs = params.cogs ?? '0'
+  const atLimit = params.limit === '1'
 
-  const { data: trips = [] } = await supabase
-    .from('sourcing_trips')
-    .select('id, name, trip_date')
-    .order('trip_date', { ascending: false })
-    .limit(30)
+  const [{ data: trips = [] }, monthlyCount] = await Promise.all([
+    supabase.from('sourcing_trips').select('id, name, trip_date').order('trip_date', { ascending: false }).limit(30),
+    getMonthlyCount(user.id),
+  ])
+
+  if (atLimit) {
+    return (
+      <div className="min-h-screen bg-zinc-950 text-white">
+        <Nav />
+        <main className="max-w-xl mx-auto px-4 py-8">
+          <div className="bg-zinc-900 border border-zinc-700 rounded-2xl p-8 text-center">
+            <p className="text-4xl mb-4">🔒</p>
+            <h1 className="text-xl font-bold mb-2">You've hit your free limit</h1>
+            <p className="text-zinc-400 text-sm mb-1">
+              You've logged <span className="text-white font-semibold">{monthlyCount} of {FREE_LIMIT} sales</span> this month.
+            </p>
+            <p className="text-zinc-500 text-sm mb-6">
+              Upgrade to MarginLog Pro for unlimited sales tracking, analytics, and CSV export.
+            </p>
+            <UpgradeButton />
+            <p className="text-xs text-zinc-600 mt-4">
+              Resets on the 1st of next month · Cancel anytime
+            </p>
+          </div>
+        </main>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
       <Nav />
       <main className="max-w-xl mx-auto px-4 py-8">
+        {monthlyCount >= FREE_LIMIT - 3 && (
+          <div className="mb-4 bg-amber-500/10 border border-amber-500/20 rounded-xl px-4 py-3 flex items-center justify-between">
+            <p className="text-sm text-amber-400">
+              {FREE_LIMIT - monthlyCount} free sale{FREE_LIMIT - monthlyCount === 1 ? '' : 's'} left this month
+            </p>
+            <UpgradeButton small />
+          </div>
+        )}
         <div className="flex items-baseline justify-between mb-6">
           <h1 className="text-xl font-semibold">Log a sale</h1>
           <div className="flex gap-3 text-xs text-zinc-500">
