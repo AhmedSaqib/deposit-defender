@@ -3,8 +3,9 @@ import { ArrowLeft } from 'lucide-react'
 import Logo from '@/components/logo'
 
 export const metadata = {
-  title: 'About — MarginLog',
-  description: 'MarginLog is a resale profit tracker built for serious resellers who want to know their real numbers.',
+  title: 'About MarginLog — Resale Profit Tracker for Serious Resellers',
+  description: 'Learn how MarginLog helps resellers track true profit across eBay, Poshmark, Mercari, and more. Built to show your real numbers after every fee.',
+  alternates: { canonical: 'https://marginlog.net/about' },
 }
 
 export default function AboutPage() {

@@ -19,11 +19,13 @@ export const metadata: Metadata = {
     title: 'MarginLog — Resale Profit Tracker',
     description: 'Track true profit across eBay, Poshmark, Mercari, Depop, and more. Know your real numbers after fees.',
     url: 'https://marginlog.net',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'MarginLog — Resale Profit Tracker' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'MarginLog — Resale Profit Tracker',
     description: 'Track true profit across eBay, Poshmark, Mercari, Depop, and more. Know your real numbers after fees.',
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
