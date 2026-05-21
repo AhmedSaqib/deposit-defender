@@ -105,6 +105,28 @@ All notable changes to MarginLog, organised by development session.
 
 ---
 
+## Session 5 — UX Polish & Data Integrity
+*Auth redirects, footer navigation, analytics-safe data model*
+
+### Added
+- `src/components/app-footer.tsx` — footer with Contact, Terms, and Privacy links added to all 8 authenticated pages (dashboard, sales, log, import, haul, bundle, expenses, trips)
+
+### Changed
+- `src/middleware.ts` — bidirectional auth redirect: authenticated users hitting `/`, `/login`, or `/signup` are now redirected to `/dashboard`
+- `src/lib/actions.ts` — `logSale` and `importSales` now always write `status: 'sold'` explicitly, making the column safe to add a `NOT NULL` + `CHECK` constraint in Postgres
+- `src/app/log/page.tsx` — haul/bundle shortcut links bumped from `text-zinc-500` to `text-zinc-400` for legible contrast
+- `src/components/import-form.tsx` — corrected misleading subtext from "Upload a CSV — column names are detected automatically" to explicitly state platform-specific CSV exports only
+
+### Pending (SQL — run in Supabase)
+```sql
+UPDATE sales SET status = 'sold' WHERE status IS NULL;
+ALTER TABLE sales ALTER COLUMN status SET DEFAULT 'sold';
+ALTER TABLE sales ALTER COLUMN status SET NOT NULL;
+ALTER TABLE sales ADD CONSTRAINT sales_status_check CHECK (status IN ('sold', 'returned'));
+```
+
+---
+
 ## Platform fee reference
 
 | Platform | Fee |
