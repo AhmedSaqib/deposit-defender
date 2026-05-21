@@ -1,7 +1,11 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
+const PROTECTED = ['/dashboard', '/log', '/sales', '/haul', '/bundle', '/expenses', '/trips', '/import']
+const AUTH_ONLY = ['/', '/login', '/signup']
+
 export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl
   let supabaseResponse = NextResponse.next({ request })
 
   const supabase = createServerClient(
@@ -25,10 +29,16 @@ export async function middleware(request: NextRequest) {
 
   const { data: { user } } = await supabase.auth.getUser()
 
-  if (!user) {
+  // Unauthenticated user hitting a protected route → send to login
+  if (!user && PROTECTED.some(p => pathname.startsWith(p))) {
     const res = NextResponse.redirect(new URL('/login', request.url))
     supabaseResponse.cookies.getAll().forEach(cookie => res.cookies.set(cookie))
     return res
+  }
+
+  // Authenticated user hitting /, /login, /signup → send to dashboard
+  if (user && AUTH_ONLY.includes(pathname)) {
+    return NextResponse.redirect(new URL('/dashboard', request.url))
   }
 
   return supabaseResponse
@@ -36,6 +46,9 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
+    '/',
+    '/login',
+    '/signup',
     '/dashboard/:path*',
     '/log/:path*',
     '/sales/:path*',
