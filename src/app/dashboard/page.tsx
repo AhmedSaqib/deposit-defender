@@ -1,3 +1,4 @@
+import AppFooter from '@/components/app-footer'
 import { redirect } from 'next/navigation'
 import Nav from '@/components/nav'
 import DashboardTabs from '@/components/dashboard-tabs'
@@ -119,6 +120,7 @@ export default async function DashboardPage() {
           count={active.length}
         />
       </main>
+      <AppFooter />
     </div>
   )
 }

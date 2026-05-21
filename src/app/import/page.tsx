@@ -1,3 +1,4 @@
+import AppFooter from '@/components/app-footer'
 import { redirect } from 'next/navigation'
 import Nav from '@/components/nav'
 import { createClient } from '@/lib/supabase/server'
@@ -12,6 +13,7 @@ export default async function ImportPage() {
     <div className="min-h-screen bg-zinc-950 text-white">
       <Nav />
       <ImportForm />
+      <AppFooter />
     </div>
   )
 }

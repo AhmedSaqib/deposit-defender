@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import Nav from '@/components/nav'
+import AppFooter from '@/components/app-footer'
 import { createClient } from '@/lib/supabase/server'
 import { logSale } from '@/lib/actions'
 import { PLATFORMS, CATEGORIES } from '@/lib/platform-fees'
@@ -42,6 +43,7 @@ export default async function LogPage({ searchParams }: { searchParams: Promise<
             </p>
           </div>
         </main>
+        <AppFooter />
       </div>
     )
   }
@@ -187,6 +189,7 @@ export default async function LogPage({ searchParams }: { searchParams: Promise<
           </button>
         </form>
       </main>
+      <AppFooter />
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import AppFooter from '@/components/app-footer'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { PlusCircle, FileInput } from 'lucide-react'
@@ -132,6 +133,7 @@ export default async function SalesPage() {
           </div>
         )}
       </main>
+      <AppFooter />
     </div>
   )
 }

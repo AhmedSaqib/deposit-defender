@@ -1,3 +1,4 @@
+import AppFooter from '@/components/app-footer'
 import { redirect } from 'next/navigation'
 import Nav from '@/components/nav'
 import { createClient } from '@/lib/supabase/server'
@@ -160,6 +161,7 @@ export default async function TripsPage() {
           </div>
         )}
       </main>
+      <AppFooter />
     </div>
   )
 }
