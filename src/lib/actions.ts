@@ -34,6 +34,7 @@ export async function logSale(formData: FormData) {
   const { error } = await supabase.from('sales').insert({
     ...parsed.data,
     user_id: user.id,
+    status: 'sold',
     ...(tripId ? { sourcing_trip_id: tripId } : {}),
   })
 
@@ -77,7 +78,7 @@ export async function importSales(rows: {
   if (!user) redirect('/login')
 
   const { error } = await supabase.from('sales').insert(
-    rows.map(row => ({ ...row, user_id: user.id }))
+    rows.map(row => ({ ...row, user_id: user.id, status: 'sold' }))
   )
   if (error) throw new Error(error.message)
 
