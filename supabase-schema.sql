@@ -57,3 +57,10 @@ create policy "Users own their trips" on sourcing_trips for all
 -- ── Migrations (run these if you already created the tables above) ────────────
 -- alter table sales add column if not exists status text not null default 'sold';
 -- alter table sales add column if not exists sourcing_trip_id uuid references sourcing_trips(id) on delete set null;
+
+-- ── Applied migrations ────────────────────────────────────────────────────────
+-- Backfill + lock down sales.status (run once, already applied on prod)
+-- update sales set status = 'sold' where status is null;
+-- alter table sales alter column status set default 'sold';
+-- alter table sales alter column status set not null;
+-- alter table sales add constraint sales_status_check check (status in ('sold', 'returned'));

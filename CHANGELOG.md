@@ -117,7 +117,7 @@ All notable changes to MarginLog, organised by development session.
 - `src/app/log/page.tsx` — haul/bundle shortcut links bumped from `text-zinc-500` to `text-zinc-400` for legible contrast
 - `src/components/import-form.tsx` — corrected misleading subtext from "Upload a CSV — column names are detected automatically" to explicitly state platform-specific CSV exports only
 
-### Pending (SQL — run in Supabase)
+### Database (applied in Supabase)
 ```sql
 UPDATE sales SET status = 'sold' WHERE status IS NULL;
 ALTER TABLE sales ALTER COLUMN status SET DEFAULT 'sold';
