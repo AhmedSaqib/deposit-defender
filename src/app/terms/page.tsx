@@ -8,7 +8,7 @@ export const metadata = {
   robots: { index: false, follow: false },
 }
 
-const LAST_UPDATED = 'May 19, 2026'
+const LAST_UPDATED = 'May 20, 2026'
 
 export default function TermsPage() {
   return (
@@ -47,38 +47,50 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-white font-semibold mb-2">5. Data and exports</h2>
+            <h2 className="text-white font-semibold mb-2">5. Billing and subscriptions</h2>
+            <p>MarginLog offers a free tier (up to 20 sales per month) and a paid Pro plan at $9.99 USD per month. Payments are processed by Stripe. By subscribing, you authorise Stripe to charge your payment method on a recurring monthly basis.</p>
+            <p className="mt-2">You may cancel your subscription at any time through the billing portal accessible from the app. Cancellation takes effect at the end of the current billing period — you retain Pro access until then. We do not offer refunds for partial months.</p>
+            <p className="mt-2">We reserve the right to change pricing with at least 30 days' notice to active subscribers by email.</p>
+          </section>
+
+          <section>
+            <h2 className="text-white font-semibold mb-2">6. Data and exports</h2>
             <p>You own the data you enter into MarginLog. We claim no rights to it. You can export it at any time. We store it solely to provide the service to you.</p>
           </section>
 
           <section>
-            <h2 className="text-white font-semibold mb-2">6. Service availability</h2>
+            <h2 className="text-white font-semibold mb-2">7. Service availability</h2>
             <p>We aim for high availability but do not guarantee uninterrupted access. We may perform maintenance, experience outages, or make changes to the service at any time. We are not liable for losses caused by service interruptions.</p>
           </section>
 
           <section>
-            <h2 className="text-white font-semibold mb-2">7. Fee accuracy</h2>
+            <h2 className="text-white font-semibold mb-2">8. Fee accuracy</h2>
             <p>Platform fee rates (eBay, Poshmark, Mercari, etc.) change over time. We update our fee tables when platforms announce changes, but we cannot guarantee real-time accuracy. Always verify current rates with the platform directly before making financial decisions.</p>
           </section>
 
           <section>
-            <h2 className="text-white font-semibold mb-2">8. Limitation of liability</h2>
+            <h2 className="text-white font-semibold mb-2">9. Limitation of liability</h2>
             <p>MarginLog is provided "as is." To the maximum extent permitted by law, we are not liable for any indirect, incidental, or consequential damages arising from your use of the service, including but not limited to losses from inaccurate profit calculations.</p>
           </section>
 
           <section>
-            <h2 className="text-white font-semibold mb-2">9. Termination</h2>
+            <h2 className="text-white font-semibold mb-2">10. Termination</h2>
             <p>You may stop using MarginLog and delete your account at any time. We may terminate accounts that violate these terms. On termination, your data will be deleted within 30 days.</p>
           </section>
 
           <section>
-            <h2 className="text-white font-semibold mb-2">10. Changes to terms</h2>
+            <h2 className="text-white font-semibold mb-2">11. Changes to terms</h2>
             <p>We may update these terms. We will notify you by email at least 14 days before material changes take effect. Continued use of the service after that date constitutes acceptance.</p>
           </section>
 
           <section>
-            <h2 className="text-white font-semibold mb-2">11. Contact</h2>
-            <p>Questions about these terms: <a href="mailto:hello@marginlog.ai" className="text-emerald-400 hover:text-emerald-300">hello@marginlog.ai</a></p>
+            <h2 className="text-white font-semibold mb-2">12. Governing law</h2>
+            <p>These terms are governed by the laws of Canada. Any disputes will be resolved in Canadian courts.</p>
+          </section>
+
+          <section>
+            <h2 className="text-white font-semibold mb-2">13. Contact</h2>
+            <p>Questions about these terms: <a href="mailto:ahmedsaqib998@gmail.com" className="text-emerald-400 hover:text-emerald-300">ahmedsaqib998@gmail.com</a></p>
           </section>
         </div>
       </main>

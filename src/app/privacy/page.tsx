@@ -8,7 +8,7 @@ export const metadata = {
   robots: { index: false, follow: false },
 }
 
-const LAST_UPDATED = 'May 19, 2026'
+const LAST_UPDATED = 'May 20, 2026'
 
 export default function PrivacyPage() {
   return (
@@ -28,8 +28,9 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="text-white font-semibold mb-2">1. What we collect</h2>
-            <p>When you create an account, we collect your <strong className="text-white">email address</strong> and a hashed password. We do not collect your name, phone number, or payment information.</p>
+            <p>When you create an account, we collect your <strong className="text-white">email address</strong> and a hashed password. We do not collect your name or phone number.</p>
             <p className="mt-2">When you log a sale, we store the data you enter: item name, category, platform, prices, date, and optional notes. This data is associated with your account and stored in our database.</p>
+            <p className="mt-2">If you subscribe to MarginLog Pro, your payment is processed by <strong className="text-white">Stripe</strong>. We store your Stripe customer ID and subscription status. We never see or store your card details — those are held by Stripe.</p>
           </section>
 
           <section>
@@ -38,8 +39,14 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-white font-semibold mb-2">3. Data storage</h2>
-            <p>Your data is stored on <a href="https://supabase.com" className="text-emerald-400 hover:text-emerald-300" target="_blank" rel="noopener noreferrer">Supabase</a>, a managed database platform. Data is encrypted at rest and in transit. Supabase infrastructure runs on AWS and is SOC 2 compliant.</p>
+            <h2 className="text-white font-semibold mb-2">3. Third-party services</h2>
+            <p>We use the following sub-processors to operate MarginLog:</p>
+            <ul className="mt-2 space-y-1.5 list-none">
+              <li><strong className="text-white">Supabase</strong> — database and authentication. Data encrypted at rest and in transit. SOC 2 compliant, hosted on AWS.</li>
+              <li><strong className="text-white">Stripe</strong> — payment processing. Handles all card data. PCI DSS Level 1 certified. <a href="https://stripe.com/privacy" className="text-emerald-400 hover:text-emerald-300" target="_blank" rel="noopener noreferrer">Stripe Privacy Policy</a>.</li>
+              <li><strong className="text-white">Vercel</strong> — hosting and CDN. Your requests are routed through Vercel's infrastructure.</li>
+              <li><strong className="text-white">Resend</strong> — transactional email delivery (e.g. password reset). Only your email address is shared.</li>
+            </ul>
           </section>
 
           <section>
@@ -64,7 +71,7 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="text-white font-semibold mb-2">8. Contact</h2>
-            <p>Privacy questions: <a href="mailto:hello@marginlog.ai" className="text-emerald-400 hover:text-emerald-300">hello@marginlog.ai</a></p>
+            <p>Privacy questions or data deletion requests: <a href="mailto:ahmedsaqib998@gmail.com" className="text-emerald-400 hover:text-emerald-300">ahmedsaqib998@gmail.com</a>. We will respond within 5 business days.</p>
           </section>
         </div>
       </main>
