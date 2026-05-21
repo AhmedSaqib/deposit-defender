@@ -45,8 +45,8 @@ const features = [
   },
   {
     icon: FileInput,
-    title: 'Import any CSV',
-    desc: 'Upload a CSV from any platform — column names are detected automatically, no reformatting needed. Export for tax season in one click.',
+    title: 'CSV import & export',
+    desc: 'Upload a CSV export from eBay, Poshmark, Mercari, or other resale platforms — column names matched automatically. Export for tax season in one click.',
   },
   {
     icon: Layers,
@@ -96,12 +96,12 @@ export default function LandingPage() {
         <section className="py-16 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <p className="text-emerald-400 text-sm font-medium mb-4 tracking-wide uppercase">Built for resellers</p>
+              <p className="text-emerald-400 text-sm font-medium mb-4 tracking-wide uppercase">For eBay, Poshmark & Mercari resellers</p>
               <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight">
-                Stop guessing what<br />you actually made
+                See your real profit<br />after every sale
               </h1>
               <p className="text-zinc-400 text-lg lg:text-xl mb-10 leading-relaxed">
-                Log every sale, track true profit after fees, and finally know your numbers — across every resale platform.
+                Platform fees quietly eat your margin. MarginLog deducts them automatically — log a sale in seconds and know exactly what you made.
               </p>
               <Link
                 href="/signup"
@@ -109,6 +109,7 @@ export default function LandingPage() {
               >
                 Start tracking free
               </Link>
+              <p className="mt-3 text-xs text-zinc-600">Resellers are already tracking with MarginLog · Free to start</p>
               <Link
                 href="/calculators"
                 className="block mt-4 text-sm text-zinc-500 hover:text-emerald-400 transition-colors"
