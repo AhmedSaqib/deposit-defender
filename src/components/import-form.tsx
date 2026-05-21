@@ -129,7 +129,7 @@ export default function ImportForm() {
         ) : (
           <>
             <p className="text-zinc-400 text-sm">Drop your CSV here or <span className="text-emerald-400">browse</span></p>
-            <p className="text-zinc-600 text-xs mt-1">Supports any CSV with flexible column names</p>
+            <p className="text-zinc-600 text-xs mt-1">CSV exports from eBay, Poshmark, Mercari, and other resale platforms only</p>
           </>
         )}
         <input ref={inputRef} type="file" accept=".csv" className="hidden" onChange={e => { if (e.target.files?.[0]) handleFile(e.target.files[0]) }} />

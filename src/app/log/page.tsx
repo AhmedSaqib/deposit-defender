@@ -62,7 +62,7 @@ export default async function LogPage({ searchParams }: { searchParams: Promise<
         )}
         <div className="flex items-baseline justify-between mb-6">
           <h1 className="text-xl font-semibold">Log a sale</h1>
-          <div className="flex gap-3 text-xs text-zinc-500">
+          <div className="flex gap-3 text-xs text-zinc-400">
             <a href="/haul" className="hover:text-emerald-400 transition-colors">Split a haul →</a>
             <a href="/bundle" className="hover:text-emerald-400 transition-colors">Log a bundle →</a>
           </div>
