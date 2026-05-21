@@ -96,7 +96,7 @@ export default function LandingPage() {
         <section className="py-16 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <p className="text-emerald-400 text-sm font-medium mb-4 tracking-wide uppercase">For eBay, Poshmark & Mercari resellers</p>
+              <p className="text-emerald-400 text-sm font-medium mb-4 tracking-wide uppercase">For eBay, Poshmark, Mercari & more</p>
               <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight">
                 See your real profit<br />after every sale
               </h1>
