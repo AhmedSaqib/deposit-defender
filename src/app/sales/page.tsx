@@ -68,7 +68,7 @@ export default async function SalesPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-zinc-800 text-zinc-500 text-xs">
+                  <tr className="border-b border-zinc-800 text-zinc-400 text-xs">
                     <th className="text-left px-4 py-3 font-medium">Item</th>
                     <th className="text-left px-4 py-3 font-medium">Platform</th>
                     <th className="text-left px-4 py-3 font-medium hidden sm:table-cell">Date</th>
@@ -109,7 +109,7 @@ export default async function SalesPage() {
                                 'use server'
                                 await markReturned(s.id)
                               }}>
-                                <button type="submit" className="text-zinc-400 hover:text-amber-400 transition-colors text-xs">
+                                <button type="submit" className="text-xs text-zinc-300 hover:text-amber-400 border border-zinc-700 hover:border-amber-400/50 px-2 py-1 rounded transition-colors">
                                   Return
                                 </button>
                               </form>
@@ -118,7 +118,7 @@ export default async function SalesPage() {
                               'use server'
                               await deleteSale(s.id)
                             }}>
-                              <button type="submit" className="text-zinc-400 hover:text-red-400 transition-colors text-xs">
+                              <button type="submit" className="text-xs text-zinc-300 hover:text-red-400 border border-zinc-700 hover:border-red-400/50 px-2 py-1 rounded transition-colors">
                                 Delete
                               </button>
                             </form>
