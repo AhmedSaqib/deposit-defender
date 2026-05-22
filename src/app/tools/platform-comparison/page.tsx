@@ -80,7 +80,7 @@ const platforms = [
     feeOnShipping: 'Yes',
     shippingPaidBy: 'Seller',
     effectiveTotal: '~9.5% + $0.20',
-    payout50: '~$44.55',
+    payout50: '~$45.05',
     bestFor: 'Handmade, vintage, unique items',
     href: '/calculators/etsy',
     notes: '$0.20 listing fee charged when item lists and renews when it sells. Offsite ads add 12–15% if enabled.',
