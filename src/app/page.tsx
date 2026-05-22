@@ -89,6 +89,9 @@ export default async function LandingPage() {
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
         <Logo />
         <div className="flex items-center gap-3">
+          <Link href="/tools" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">
+            Tools
+          </Link>
           <Link href="/blog" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">
             Blog
           </Link>
