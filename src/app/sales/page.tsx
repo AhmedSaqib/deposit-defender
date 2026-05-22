@@ -109,7 +109,7 @@ export default async function SalesPage() {
                                 'use server'
                                 await markReturned(s.id)
                               }}>
-                                <button type="submit" className="text-zinc-600 hover:text-amber-400 transition-colors text-xs">
+                                <button type="submit" className="text-zinc-400 hover:text-amber-400 transition-colors text-xs">
                                   Return
                                 </button>
                               </form>
@@ -118,7 +118,7 @@ export default async function SalesPage() {
                               'use server'
                               await deleteSale(s.id)
                             }}>
-                              <button type="submit" className="text-zinc-600 hover:text-red-400 transition-colors text-xs">
+                              <button type="submit" className="text-zinc-400 hover:text-red-400 transition-colors text-xs">
                                 Delete
                               </button>
                             </form>
