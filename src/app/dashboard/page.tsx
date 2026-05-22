@@ -59,19 +59,11 @@ export default async function DashboardPage() {
     },
   ]
 
-  // Monthly data
-  const monthMap: Record<string, number> = {}
-  active.forEach(s => {
-    const key = s.sale_date.slice(0, 7)
-    monthMap[key] = (monthMap[key] ?? 0) + netProfit(s)
-  })
-  const monthlyData = Object.entries(monthMap)
-    .sort(([a], [b]) => a.localeCompare(b))
-    .slice(-12)
-    .map(([key, profit]) => ({
-      month: new Date(key + '-01').toLocaleDateString('en-US', { month: 'short', year: '2-digit' }),
-      profit: parseFloat(profit.toFixed(2)),
-    }))
+  // Raw chart sales — aggregation happens client-side per granularity
+  const chartSales = active.map(s => ({
+    sale_date: s.sale_date,
+    profit: parseFloat(netProfit(s).toFixed(2)),
+  }))
 
   // Category breakdown
   const catMap: Record<string, number> = {}
@@ -112,7 +104,7 @@ export default async function DashboardPage() {
         <h1 className="text-xl font-semibold mb-6">Dashboard</h1>
         <DashboardTabs
           stats={stats}
-          monthlyData={monthlyData}
+          chartSales={chartSales}
           recentSales={active.slice(0, 5)}
           categoryData={categoryData}
           platformData={platformData}
