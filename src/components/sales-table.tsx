@@ -28,7 +28,7 @@ export default function SalesTable({ initialSales }: { initialSales: Sale[] }) {
   const [sales, setSales] = useState<Sale[]>(initialSales)
   const [editing, setEditing] = useState<EditState>(null)
 
-  function startEdit(id: string, field: EditState['field'], value: string) {
+  function startEdit(id: string, field: NonNullable<EditState>['field'], value: string) {
     setEditing({ id, field, value })
   }
 
@@ -51,7 +51,7 @@ export default function SalesTable({ initialSales }: { initialSales: Sale[] }) {
 
   function cell(
     sale: Sale,
-    field: EditState['field'],
+    field: NonNullable<EditState>['field'],
     display: React.ReactNode,
     rawValue: string,
     align: 'left' | 'right' = 'left'
