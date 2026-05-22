@@ -16,7 +16,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${post.title} | MarginLog`,
     description: post.description,
     alternates: { canonical: `https://marginlog.net/blog/${slug}` },
-    openGraph: { title: post.title, description: post.description, type: 'article' },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: 'article',
+      publishedTime: post.date,
+      url: `https://marginlog.net/blog/${slug}`,
+    },
+    twitter: { card: 'summary_large_image', title: post.title, description: post.description },
   }
 }
 
@@ -128,7 +135,7 @@ function HowToTrackResellingProfits() {
       </p>
       <ul className="text-zinc-400 space-y-2">
         <li><span className="text-white font-medium">Sale price</span> — what the buyer paid</li>
-        <li><span className="text-white font-medium">Platform fee</span> — what the platform takes (eBay ~13.25%, Poshmark 20%, Mercari 10%, etc.)</li>
+        <li><span className="text-white font-medium">Platform fee</span> — what the platform takes (<Link href="/calculators/ebay" className="text-emerald-400 hover:text-emerald-300">eBay ~13.25%</Link>, <Link href="/calculators/poshmark" className="text-emerald-400 hover:text-emerald-300">Poshmark 20%</Link>, <Link href="/calculators/mercari" className="text-emerald-400 hover:text-emerald-300">Mercari 10%</Link>, etc.)</li>
         <li><span className="text-white font-medium">Cost of goods (COGS)</span> — what you paid for the item</li>
         <li><span className="text-white font-medium">Shipping cost</span> — what you actually paid to ship it, not what you charged</li>
       </ul>
@@ -154,13 +161,13 @@ function HowToTrackResellingProfits() {
       <div className="mt-8" />
       <h2 className="text-white">Tracking across multiple platforms</h2>
       <p className="text-zinc-400">
-        Selling on eBay and Poshmark simultaneously is where spreadsheets start breaking down. You end up with separate tabs, inconsistent column names, and no single view of how your business is actually doing.
+        Selling on <Link href="/calculators/ebay" className="text-emerald-400 hover:text-emerald-300">eBay</Link> and <Link href="/calculators/poshmark" className="text-emerald-400 hover:text-emerald-300">Poshmark</Link> simultaneously is where spreadsheets start breaking down. You end up with separate tabs, inconsistent column names, and no single view of how your business is actually doing.
       </p>
       <p className="text-zinc-400">
         The key is a single system that handles all platforms with their correct fee structures built in. When you log a sale on eBay, 13.25% should be deducted automatically. When you log on Poshmark, 20%. You shouldn't be looking up fee tables every time.
       </p>
       <p className="text-zinc-400">
-        This also matters when you're deciding which platform to use for a given item. If you track properly, you can see over time that Mercari outperforms eBay on certain categories for you — or that Facebook Marketplace has better margins despite lower prices. That's data you can't get from a gut feeling.
+        This also matters when you're deciding which platform to use for a given item. If you track properly, you can see over time that Mercari outperforms eBay on certain categories for you — or that Facebook Marketplace has better margins despite lower prices. That's data you can't get from a gut feeling. You can also <Link href="/calculators/compare" className="text-emerald-400 hover:text-emerald-300">compare platform fees side by side</Link> before you list.
       </p>
 
       <div className="mt-8" />
@@ -225,8 +232,20 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   const Content = CONTENT[slug]
   if (!Content) notFound()
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    author: { '@type': 'Organization', name: 'MarginLog', url: 'https://marginlog.net' },
+    publisher: { '@type': 'Organization', name: 'MarginLog', url: 'https://marginlog.net' },
+    url: `https://marginlog.net/blog/${slug}`,
+  }
+
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
         <Logo />
         <div className="flex gap-3">
