@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Logo from '@/components/logo'
 import { POSTS } from '@/lib/posts'
+import { createClient } from '@/lib/supabase/server'
 
 export const metadata: Metadata = {
   title: 'Blog — MarginLog',
@@ -9,14 +10,23 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://marginlog.net/blog' },
 }
 
-export default function BlogIndex() {
+export default async function BlogIndex() {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
         <Logo />
         <div className="flex gap-3">
-          <Link href="/login" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">Log in</Link>
-          <Link href="/signup" className="text-sm bg-emerald-500 hover:bg-emerald-400 text-black font-medium px-4 py-1.5 rounded-lg transition-colors">Get started free</Link>
+          {user ? (
+            <Link href="/dashboard" className="text-sm bg-emerald-500 hover:bg-emerald-400 text-black font-medium px-4 py-1.5 rounded-lg transition-colors">Dashboard</Link>
+          ) : (
+            <>
+              <Link href="/login" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">Log in</Link>
+              <Link href="/signup" className="text-sm bg-emerald-500 hover:bg-emerald-400 text-black font-medium px-4 py-1.5 rounded-lg transition-colors">Get started free</Link>
+            </>
+          )}
         </div>
       </header>
 
