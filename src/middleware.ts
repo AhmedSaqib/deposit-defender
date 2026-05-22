@@ -2,7 +2,6 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
 const PROTECTED = ['/dashboard', '/log', '/sales', '/haul', '/bundle', '/expenses', '/trips', '/import']
-const AUTH_ONLY = ['/', '/login', '/signup']
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
@@ -36,21 +35,11 @@ export async function middleware(request: NextRequest) {
     return res
   }
 
-  // Authenticated user hitting /, /login, /signup → send to dashboard
-  if (user && AUTH_ONLY.includes(pathname)) {
-    const res = NextResponse.redirect(new URL('/dashboard', request.url))
-    supabaseResponse.cookies.getAll().forEach(cookie => res.cookies.set(cookie))
-    return res
-  }
-
   return supabaseResponse
 }
 
 export const config = {
   matcher: [
-    '/',
-    '/login',
-    '/signup',
     '/dashboard/:path*',
     '/log/:path*',
     '/sales/:path*',
