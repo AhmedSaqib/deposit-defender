@@ -88,7 +88,10 @@ export default async function LandingPage() {
       />
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
         <Logo />
-        <div className="flex gap-3">
+        <div className="flex items-center gap-3">
+          <Link href="/blog" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">
+            Blog
+          </Link>
           <Link href="/login" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">
             Log in
           </Link>
@@ -205,6 +208,7 @@ export default async function LandingPage() {
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap items-center justify-between gap-4">
           <p className="text-xs text-zinc-600">© {new Date().getFullYear()} MarginLog. Not financial advice.</p>
           <nav className="flex gap-5 text-xs text-zinc-600">
+            <Link href="/blog" className="hover:text-zinc-400 transition-colors">Blog</Link>
             <Link href="/about" className="hover:text-zinc-400 transition-colors">About</Link>
             <Link href="/privacy" className="hover:text-zinc-400 transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-zinc-400 transition-colors">Terms</Link>
