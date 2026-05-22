@@ -102,7 +102,118 @@ function ResellingProfitMistakes() {
   )
 }
 
+function HowToTrackResellingProfits() {
+  return (
+    <article className="prose prose-invert prose-zinc max-w-none">
+      <p className="text-zinc-400 lead">
+        Most resellers have a rough sense of what they made last month. Very few know the actual number. The difference matters more than you'd think — especially at tax time, and especially once you're selling across more than one platform.
+      </p>
+      <p className="text-zinc-400">
+        This is a straightforward guide to tracking reselling profits properly — what to record, when to record it, and how to make the system stick.
+      </p>
+
+      <div className="mt-8" />
+      <h2 className="text-white">Why most resellers don't know their real profit</h2>
+      <p className="text-zinc-400">
+        The problem isn't laziness. It's that the number you see — the sale price — feels like profit. You sold a jacket for $45 and $45 hit your account. Except it didn't. Poshmark took $9. You paid $12 for the jacket. Shipping was $6. The real number was $18.
+      </p>
+      <p className="text-zinc-400">
+        When you're doing a handful of sales a month, this gap is annoying but manageable. As volume scales, it becomes the difference between a business that's growing and one that's quietly running at a loss.
+      </p>
+
+      <div className="mt-8" />
+      <h2 className="text-white">The four numbers you actually need to track</h2>
+      <p className="text-zinc-400">
+        Every sale has four components that determine your real profit:
+      </p>
+      <ul className="text-zinc-400 space-y-2">
+        <li><span className="text-white font-medium">Sale price</span> — what the buyer paid</li>
+        <li><span className="text-white font-medium">Platform fee</span> — what the platform takes (eBay ~13.25%, Poshmark 20%, Mercari 10%, etc.)</li>
+        <li><span className="text-white font-medium">Cost of goods (COGS)</span> — what you paid for the item</li>
+        <li><span className="text-white font-medium">Shipping cost</span> — what you actually paid to ship it, not what you charged</li>
+      </ul>
+      <p className="text-zinc-400">
+        Net profit = Sale price − Platform fee − COGS − Shipping cost
+      </p>
+      <p className="text-zinc-400">
+        That's it. Everything else — ROI, margin percentage, platform comparisons — is just different ways of looking at these four numbers.
+      </p>
+
+      <div className="mt-8" />
+      <h2 className="text-white">When to record each number</h2>
+      <p className="text-zinc-400">
+        Timing matters more than most people realise. The biggest mistake resellers make is trying to reconstruct COGS at the end of the month or at tax time. By then you've forgotten what you paid at the garage sale three weeks ago, and the receipt is gone.
+      </p>
+      <p className="text-zinc-400">
+        The right time to record COGS is at the point of purchase — not when the item sells. This is the single habit change that makes the most difference. When you get home from a sourcing run, log what you paid per item before you do anything else.
+      </p>
+      <p className="text-zinc-400">
+        Sale price, platform fee, and shipping you can always retrieve from your platform order history. COGS is the one you can't recover retroactively.
+      </p>
+
+      <div className="mt-8" />
+      <h2 className="text-white">Tracking across multiple platforms</h2>
+      <p className="text-zinc-400">
+        Selling on eBay and Poshmark simultaneously is where spreadsheets start breaking down. You end up with separate tabs, inconsistent column names, and no single view of how your business is actually doing.
+      </p>
+      <p className="text-zinc-400">
+        The key is a single system that handles all platforms with their correct fee structures built in. When you log a sale on eBay, 13.25% should be deducted automatically. When you log on Poshmark, 20%. You shouldn't be looking up fee tables every time.
+      </p>
+      <p className="text-zinc-400">
+        This also matters when you're deciding which platform to use for a given item. If you track properly, you can see over time that Mercari outperforms eBay on certain categories for you — or that Facebook Marketplace has better margins despite lower prices. That's data you can't get from a gut feeling.
+      </p>
+
+      <div className="mt-8" />
+      <h2 className="text-white">Handling hauls and bulk purchases</h2>
+      <p className="text-zinc-400">
+        Buying in bulk — a lot at an estate sale, a pallet, a job lot — creates a specific tracking problem. You paid one price for a group of items with different expected values.
+      </p>
+      <p className="text-zinc-400">
+        The equal-split approach (total cost ÷ number of items) is fast but inaccurate. If you paid $60 for a lot of 10 items and three of them will sell for $30 each while the rest go for $5, assigning $6 COGS to every item distorts your profit on every sale.
+      </p>
+      <p className="text-zinc-400">
+        A better method: allocate cost proportionally based on expected sale price. Items worth more absorb more of the total cost. It takes five extra minutes per haul and makes every per-item profit figure meaningful.
+      </p>
+
+      <div className="mt-8" />
+      <h2 className="text-white">Business expenses beyond the items</h2>
+      <p className="text-zinc-400">
+        Profit tracking isn't complete without expenses. Shipping supplies, packaging materials, storage, mileage, platform subscriptions — these are all real costs of your reselling business, and in most countries they're tax-deductible.
+      </p>
+      <p className="text-zinc-400">
+        Most resellers track item-level costs reasonably well but ignore operating expenses entirely. A reseller doing $2,000 a month in net profit likely has $200–$400 in legitimate deductible expenses they never claim — which means overpaying tax every year.
+      </p>
+      <p className="text-zinc-400">
+        Log expenses as they happen, not at tax time. One line per purchase with a category. That's all it takes.
+      </p>
+
+      <div className="mt-8" />
+      <h2 className="text-white">Choosing a system that sticks</h2>
+      <p className="text-zinc-400">
+        The best tracking system is the one you actually use. For low volume sellers, a well-structured spreadsheet works fine. The columns you need: date, item, platform, sale price, COGS, shipping cost, platform fee (formula), net profit (formula).
+      </p>
+      <p className="text-zinc-400">
+        As volume increases, the manual entry and formula maintenance become the bottleneck. This is when a dedicated tool starts to make sense — not because spreadsheets can't do it, but because the friction of updating them consistently gets high enough that the system breaks down.
+      </p>
+      <p className="text-zinc-400">
+        Whatever you use, the non-negotiable is logging every sale close to when it happens, not in batches at the end of the month. The further you get from the sale, the less accurate your records.
+      </p>
+
+      <hr className="border-zinc-800 my-10" />
+
+      <h2 className="text-white">A simpler starting point</h2>
+      <p className="text-zinc-400">
+        If you want to skip building a spreadsheet from scratch, <Link href="/" className="text-emerald-400 hover:text-emerald-300">MarginLog</Link> is free to start. It handles the platform fee calculations automatically for eBay, Poshmark, Mercari, Depop, Etsy, Facebook Marketplace, and Vinted — so you log the sale and see the real number straight away. It also has a haul calculator for bulk purchases and an expense tracker built in.
+      </p>
+      <p className="text-zinc-400">
+        If you'd rather build your own system, the four numbers above are all you need to get started. The habit matters more than the tool.
+      </p>
+    </article>
+  )
+}
+
 const CONTENT: Record<string, React.FC> = {
+  'how-to-track-reselling-profits': HowToTrackResellingProfits,
   'reselling-profit-mistakes': ResellingProfitMistakes,
 }
 

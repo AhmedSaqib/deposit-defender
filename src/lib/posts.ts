@@ -8,6 +8,13 @@ export type Post = {
 
 export const POSTS: Post[] = [
   {
+    slug: 'how-to-track-reselling-profits',
+    title: 'How to Track Reselling Profits (The Right Way)',
+    description: 'Most resellers have no idea what they actually made last month. Here is a simple system for tracking reselling profits accurately — across every platform.',
+    date: '2026-05-22',
+    readingTime: '6 min read',
+  },
+  {
     slug: 'reselling-profit-mistakes',
     title: '5 Profit Mistakes Most Resellers Make (And How to Avoid Them)',
     description: 'Most resellers are unknowingly leaving money on the table. Here are the five most common profit tracking mistakes and how to fix them.',
