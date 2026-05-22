@@ -46,6 +46,29 @@ export async function logSale(formData: FormData) {
   redirect('/sales')
 }
 
+export async function updateSale(
+  id: string,
+  field: 'item_name' | 'platform' | 'sale_date' | 'sale_price',
+  value: string
+) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) redirect('/login')
+
+  const parsedValue = field === 'sale_price' ? parseFloat(value) : value
+
+  const { error } = await supabase
+    .from('sales')
+    .update({ [field]: parsedValue })
+    .eq('id', id)
+    .eq('user_id', user.id)
+
+  if (error) throw new Error(error.message)
+
+  revalidatePath('/sales')
+  revalidatePath('/dashboard')
+}
+
 export async function deleteSale(id: string) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
