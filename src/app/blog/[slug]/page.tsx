@@ -41,6 +41,7 @@ function ResellingProfitMistakes() {
         The fix: calculate net profit on every sale, not just at the end of the month. Once you see the real number per item, you start making better decisions about what to list and where.
       </p>
 
+      <div className="mt-8" />
       <h2 className="text-white">2. Not knowing the real cost of a haul</h2>
       <p className="text-zinc-400">
         You spend $80 at a garage sale and come home with 20 items. Most people divide equally — $4 per item — and move on. But some of those items will sell for $5 and others for $60. Treating them the same distorts your profit on every sale.
@@ -52,6 +53,7 @@ function ResellingProfitMistakes() {
         This is also what stops you from thinking a $25 sale was profitable when $18 of it was the item's allocated cost plus fees.
       </p>
 
+      <div className="mt-8" />
       <h2 className="text-white">3. Ignoring business expenses entirely</h2>
       <p className="text-zinc-400">
         Reselling has real operating costs that most people never log: shipping supplies, packaging materials, storage, mileage to the post office, platform subscriptions, phone bills. These are all legitimately deductible business expenses in most countries.
@@ -63,6 +65,7 @@ function ResellingProfitMistakes() {
         The fix is simple: log expenses as they happen, not at tax time. One line per purchase. Categorising by type (shipping supplies, subscriptions, mileage) makes it easy to hand to an accountant or file yourself.
       </p>
 
+      <div className="mt-8" />
       <h2 className="text-white">4. Assuming your biggest platform is your best platform</h2>
       <p className="text-zinc-400">
         Most resellers sell on multiple platforms and have a feel for which one moves inventory fastest. That's not the same as which one is most profitable.
@@ -74,6 +77,7 @@ function ResellingProfitMistakes() {
         One month of clean data per platform will tell you more than a year of guessing.
       </p>
 
+      <div className="mt-8" />
       <h2 className="text-white">5. Reconstructing records at tax time</h2>
       <p className="text-zinc-400">
         Every reseller who hasn't built a tracking habit eventually faces the same April situation: months of sales, no cost records, PayPal and bank statements that don't tell the full story.
