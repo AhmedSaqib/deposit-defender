@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
+import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { TrendingUp, BarChart3, FileInput, Layers, Receipt, MapPin } from 'lucide-react'
 import Logo from '@/components/logo'
+import { createClient } from '@/lib/supabase/server'
 
 export const metadata: Metadata = {
   title: 'MarginLog — Resale Profit Tracker',
@@ -73,7 +75,11 @@ const platforms = [
   { name: 'Mercari', amount: '$324', pct: 52, color: 'bg-amber-500' },
 ]
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (user) redirect('/dashboard')
+
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
       <script
