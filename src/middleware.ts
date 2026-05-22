@@ -38,7 +38,9 @@ export async function middleware(request: NextRequest) {
 
   // Authenticated user hitting /, /login, /signup → send to dashboard
   if (user && AUTH_ONLY.includes(pathname)) {
-    return NextResponse.redirect(new URL('/dashboard', request.url))
+    const res = NextResponse.redirect(new URL('/dashboard', request.url))
+    supabaseResponse.cookies.getAll().forEach(cookie => res.cookies.set(cookie))
+    return res
   }
 
   return supabaseResponse
