@@ -55,16 +55,16 @@ const jsonLd = {
 
 export default function ComparePage() {
   return (
-    <div className="min-h-screen bg-white text-zinc-900">
+    <div className="min-h-screen bg-zinc-950 text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
-        <Logo light />
+        <Logo />
         <div className="flex items-center gap-4">
-          <Link href="/login" className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors">
+          <Link href="/login" className="text-sm text-zinc-400 hover:text-white transition-colors">
             Log in
           </Link>
           <Link
@@ -77,7 +77,7 @@ export default function ComparePage() {
       </header>
 
       <main className="max-w-2xl mx-auto px-6 py-12">
-        <Link href="/calculators" className="text-xs text-zinc-500 hover:text-zinc-600 transition-colors mb-6 inline-block">
+        <Link href="/calculators" className="text-xs text-zinc-600 hover:text-zinc-400 transition-colors mb-6 inline-block">
           ← All calculators
         </Link>
 
@@ -85,7 +85,7 @@ export default function ComparePage() {
           <h1 className="text-3xl font-bold mb-3 leading-tight">
             Which platform makes you the most money?
           </h1>
-          <p className="text-zinc-600 leading-relaxed">
+          <p className="text-zinc-400 leading-relaxed">
             Enter your numbers once. See your real profit on every resale platform side by side — eBay, Poshmark, Mercari, Depop, Etsy, Facebook Marketplace, and Vinted.
           </p>
         </div>
@@ -95,8 +95,8 @@ export default function ComparePage() {
         {/* Fee overview table */}
         <div className="mt-12">
           <h2 className="text-lg font-semibold mb-4">Resale platform fee comparison</h2>
-          <div className="bg-white border border-zinc-200 rounded-2xl overflow-hidden">
-            <div className="grid grid-cols-3 px-5 py-3 border-b border-zinc-200 text-xs text-zinc-500 font-medium">
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden">
+            <div className="grid grid-cols-3 px-5 py-3 border-b border-zinc-800 text-xs text-zinc-500 font-medium">
               <span>Platform</span>
               <span className="text-center">Fee</span>
               <span className="text-right">On a $50 sale</span>
@@ -110,16 +110,16 @@ export default function ComparePage() {
                 <Link
                   key={slug}
                   href={`/calculators/${slug}`}
-                  className="grid grid-cols-3 px-5 py-3.5 border-b border-zinc-200 last:border-0 hover:bg-zinc-50 transition-colors"
+                  className="grid grid-cols-3 px-5 py-3.5 border-b border-zinc-800/50 last:border-0 hover:bg-zinc-800/50 transition-colors"
                 >
-                  <span className="text-sm text-zinc-600">{p.name}</span>
-                  <span className="text-sm text-zinc-600 text-center">{p.feeLabel}</span>
-                  <span className="text-sm text-red-600 text-right">−${fee.toFixed(2)}</span>
+                  <span className="text-sm text-zinc-300">{p.name}</span>
+                  <span className="text-sm text-zinc-400 text-center">{p.feeLabel}</span>
+                  <span className="text-sm text-red-400 text-right">−${fee.toFixed(2)}</span>
                 </Link>
               )
             })}
           </div>
-          <p className="text-xs text-zinc-500 mt-2">Click any platform for a full profit calculator.</p>
+          <p className="text-xs text-zinc-600 mt-2">Click any platform for a full profit calculator.</p>
         </div>
 
         {/* FAQ */}
@@ -127,17 +127,17 @@ export default function ComparePage() {
           <h2 className="text-lg font-semibold mb-6">Platform fee questions</h2>
           <div className="space-y-5">
             {(jsonLd.mainEntity as Array<{ name: string; acceptedAnswer: { text: string } }>).map(faq => (
-              <div key={faq.name} className="border-b border-zinc-200 pb-5">
-                <p className="font-medium text-zinc-900 mb-2">{faq.name}</p>
-                <p className="text-sm text-zinc-600 leading-relaxed">{faq.acceptedAnswer.text}</p>
+              <div key={faq.name} className="border-b border-zinc-800 pb-5">
+                <p className="font-medium text-white mb-2">{faq.name}</p>
+                <p className="text-sm text-zinc-400 leading-relaxed">{faq.acceptedAnswer.text}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-12 bg-white border border-zinc-200 rounded-2xl p-8 text-center">
+        <div className="mt-12 bg-zinc-900 border border-zinc-800 rounded-2xl p-8 text-center">
           <p className="text-xl font-bold mb-2">Track every sale automatically</p>
-          <p className="text-zinc-600 text-sm mb-6 max-w-md mx-auto">
+          <p className="text-zinc-400 text-sm mb-6 max-w-md mx-auto">
             MarginLog logs every sale in 30 seconds — true profit, analytics across all platforms, and CSV export for tax season. Free during beta.
           </p>
           <Link
@@ -146,15 +146,15 @@ export default function ComparePage() {
           >
             Create your free account
           </Link>
-          <p className="text-xs text-zinc-500 mt-3">Free · No card required · Lifetime free during beta</p>
+          <p className="text-xs text-zinc-600 mt-3">Free · No card required · Lifetime free during beta</p>
         </div>
       </main>
 
-      <footer className="border-t border-zinc-200 mt-16">
-        <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-500">
-          <Link href="/" className="hover:text-zinc-600 transition-colors">Home</Link>
-          <Link href="/calculators" className="hover:text-zinc-600 transition-colors">All calculators</Link>
-          <Link href="/signup" className="hover:text-zinc-600 transition-colors">Start free</Link>
+      <footer className="border-t border-zinc-800 mt-16">
+        <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
+          <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
+          <Link href="/calculators" className="hover:text-zinc-400 transition-colors">All calculators</Link>
+          <Link href="/signup" className="hover:text-zinc-400 transition-colors">Start free</Link>
         </div>
       </footer>
     </div>

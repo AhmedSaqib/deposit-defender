@@ -132,11 +132,11 @@ export default async function PlatformComparisonPage() {
   const { data: { user } } = await supabase.auth.getUser()
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900">
+    <div className="min-h-screen bg-zinc-950 text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
-        <Logo light />
+        <Logo />
         <div className="flex items-center gap-3">
           {user ? (
             <Link href="/dashboard" className="text-sm bg-emerald-500 hover:bg-emerald-400 text-black font-medium px-4 py-1.5 rounded-lg transition-colors">
@@ -144,7 +144,7 @@ export default async function PlatformComparisonPage() {
             </Link>
           ) : (
             <>
-              <Link href="/login" className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors px-3 py-1.5">Log in</Link>
+              <Link href="/login" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">Log in</Link>
               <Link href="/signup" className="text-sm bg-emerald-500 hover:bg-emerald-400 text-black font-medium px-4 py-1.5 rounded-lg transition-colors">Get started free</Link>
             </>
           )}
@@ -154,10 +154,10 @@ export default async function PlatformComparisonPage() {
       <main className="max-w-5xl mx-auto px-6 py-12">
         <div className="mb-10">
           <p className="text-xs text-zinc-500 mb-3">
-            <Link href="/tools" className="hover:text-zinc-600">Tools</Link> / Platform Comparison
+            <Link href="/tools" className="hover:text-zinc-400">Tools</Link> / Platform Comparison
           </p>
           <h1 className="text-3xl font-bold mb-3">Platform Fee Comparison 2026</h1>
-          <p className="text-zinc-600 leading-relaxed max-w-2xl">
+          <p className="text-zinc-400 leading-relaxed max-w-2xl">
             Every major resale platform side by side — selling fees, payment processing, and what you actually keep on a $50 sale. Updated for 2026.
           </p>
         </div>
@@ -165,7 +165,7 @@ export default async function PlatformComparisonPage() {
         {/* Cards — mobile-first, stacked */}
         <div className="space-y-4 mb-12 lg:hidden">
           {platforms.map(p => (
-            <div key={p.name} className="bg-white border border-zinc-200 rounded-xl p-5">
+            <div key={p.name} className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-xl">{p.emoji}</span>
                 <span className="font-semibold">{p.name}</span>
@@ -173,27 +173,27 @@ export default async function PlatformComparisonPage() {
               <dl className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-zinc-500">Selling fee</dt>
-                  <dd className="text-zinc-600 text-right">{p.sellingFee}</dd>
+                  <dd className="text-zinc-200 text-right">{p.sellingFee}</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-zinc-500">Payment processing</dt>
-                  <dd className="text-zinc-600">{p.paymentProcessing}</dd>
+                  <dd className="text-zinc-200">{p.paymentProcessing}</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-zinc-500">Listing fee</dt>
-                  <dd className="text-zinc-600">{p.listingFee}</dd>
+                  <dd className="text-zinc-200">{p.listingFee}</dd>
                 </div>
                 <div className="flex justify-between">
                   <dt className="text-zinc-500">Shipping paid by</dt>
-                  <dd className="text-zinc-600">{p.shippingPaidBy}</dd>
+                  <dd className="text-zinc-200">{p.shippingPaidBy}</dd>
                 </div>
-                <div className="flex justify-between border-t border-zinc-200 pt-2 mt-2">
-                  <dt className="text-zinc-600 font-medium">Payout on $50 sale</dt>
-                  <dd className="text-emerald-600 font-semibold">{p.payout50}</dd>
+                <div className="flex justify-between border-t border-zinc-800 pt-2 mt-2">
+                  <dt className="text-zinc-400 font-medium">Payout on $50 sale</dt>
+                  <dd className="text-emerald-400 font-semibold">{p.payout50}</dd>
                 </div>
               </dl>
-              {p.notes && <p className="text-xs text-zinc-500 mt-3 leading-relaxed">{p.notes}</p>}
-              <Link href={p.href} className="inline-block mt-3 text-xs text-emerald-600 hover:text-emerald-700">
+              {p.notes && <p className="text-xs text-zinc-600 mt-3 leading-relaxed">{p.notes}</p>}
+              <Link href={p.href} className="inline-block mt-3 text-xs text-emerald-400 hover:text-emerald-300">
                 Open {p.name} calculator →
               </Link>
             </div>
@@ -204,7 +204,7 @@ export default async function PlatformComparisonPage() {
         <div className="hidden lg:block overflow-x-auto mb-12">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-zinc-200 text-left">
+              <tr className="border-b border-zinc-800 text-left">
                 <th className="pb-3 pr-4 text-zinc-500 font-medium">Platform</th>
                 <th className="pb-3 pr-4 text-zinc-500 font-medium">Selling Fee</th>
                 <th className="pb-3 pr-4 text-zinc-500 font-medium">Payment Processing</th>
@@ -216,72 +216,72 @@ export default async function PlatformComparisonPage() {
             </thead>
             <tbody>
               {platforms.map(p => (
-                <tr key={p.name} className="border-b border-zinc-200 hover:bg-zinc-50 transition-colors">
+                <tr key={p.name} className="border-b border-zinc-800/60 hover:bg-zinc-900/50 transition-colors">
                   <td className="py-3.5 pr-4">
                     <div className="flex items-center gap-2">
                       <span>{p.emoji}</span>
-                      <Link href={p.href} className="font-medium hover:text-emerald-600 transition-colors">{p.name}</Link>
+                      <Link href={p.href} className="font-medium hover:text-emerald-400 transition-colors">{p.name}</Link>
                     </div>
                   </td>
-                  <td className="py-3.5 pr-4 text-zinc-600">{p.sellingFee}</td>
-                  <td className="py-3.5 pr-4 text-zinc-600">{p.paymentProcessing}</td>
-                  <td className="py-3.5 pr-4 text-zinc-600">{p.listingFee}</td>
-                  <td className="py-3.5 pr-4 text-zinc-600">{p.shippingPaidBy}</td>
-                  <td className="py-3.5 pr-4 text-zinc-600">{p.effectiveTotal}</td>
-                  <td className="py-3.5 font-semibold text-emerald-600">{p.payout50}</td>
+                  <td className="py-3.5 pr-4 text-zinc-300">{p.sellingFee}</td>
+                  <td className="py-3.5 pr-4 text-zinc-300">{p.paymentProcessing}</td>
+                  <td className="py-3.5 pr-4 text-zinc-300">{p.listingFee}</td>
+                  <td className="py-3.5 pr-4 text-zinc-300">{p.shippingPaidBy}</td>
+                  <td className="py-3.5 pr-4 text-zinc-300">{p.effectiveTotal}</td>
+                  <td className="py-3.5 font-semibold text-emerald-400">{p.payout50}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <p className="text-xs text-zinc-500 mt-3">Payout on $50 assumes the buyer pays shipping (where applicable). Fees shown are for standard categories and may vary.</p>
+          <p className="text-xs text-zinc-600 mt-3">Payout on $50 assumes the buyer pays shipping (where applicable). Fees shown are for standard categories and may vary.</p>
         </div>
 
         {/* Platform detail cards */}
         <h2 className="text-xl font-semibold mb-4">Platform breakdown</h2>
         <div className="space-y-4 mb-12">
           {platforms.map(p => (
-            <div key={p.name} className="bg-white border border-zinc-200 rounded-xl p-5">
+            <div key={p.name} className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <span className="text-xl">{p.emoji}</span>
                   <span className="font-semibold">{p.name}</span>
                 </div>
-                <Link href={p.href} className="text-xs text-emerald-600 hover:text-emerald-700">Calculator →</Link>
+                <Link href={p.href} className="text-xs text-emerald-400 hover:text-emerald-300">Calculator →</Link>
               </div>
               <p className="text-xs text-zinc-500 mb-1">Best for: {p.bestFor}</p>
-              {p.notes && <p className="text-sm text-zinc-600 leading-relaxed">{p.notes}</p>}
+              {p.notes && <p className="text-sm text-zinc-400 leading-relaxed">{p.notes}</p>}
             </div>
           ))}
         </div>
 
         {/* Key takeaways */}
-        <div className="bg-white border border-zinc-200 rounded-2xl p-6 mb-8">
-          <h2 className="font-semibold text-zinc-900 mb-4">Key takeaways</h2>
-          <ul className="space-y-3 text-sm text-zinc-600">
-            <li className="flex gap-3"><span className="text-emerald-600 mt-0.5">→</span><span><strong className="text-zinc-700">Vinted keeps the most in your pocket</strong> — zero seller fees, but the buyer base is primarily clothing and the platform is smaller than eBay or Poshmark.</span></li>
-            <li className="flex gap-3"><span className="text-emerald-600 mt-0.5">→</span><span><strong className="text-zinc-700">Poshmark's 20% is the highest</strong> — but buyers expect it, shipping is handled, and the fashion-focused audience can support higher prices.</span></li>
-            <li className="flex gap-3"><span className="text-emerald-600 mt-0.5">→</span><span><strong className="text-zinc-700">Facebook Marketplace is free for local sales</strong> — zero fees for local pickup, making it the most profitable platform for bulky or heavy items.</span></li>
-            <li className="flex gap-3"><span className="text-emerald-600 mt-0.5">→</span><span><strong className="text-zinc-700">eBay vs Mercari are roughly equal</strong> — both land around 13% effective fees. eBay has far more buyers; Mercari is simpler to use.</span></li>
-            <li className="flex gap-3"><span className="text-emerald-600 mt-0.5">→</span><span><strong className="text-zinc-700">Etsy's $0.20 listing fee adds up</strong> — on low-price items, the listing fee is a meaningful percentage. Best for items $20 and up.</span></li>
+        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 mb-8">
+          <h2 className="font-semibold text-white mb-4">Key takeaways</h2>
+          <ul className="space-y-3 text-sm text-zinc-400">
+            <li className="flex gap-3"><span className="text-emerald-400 mt-0.5">→</span><span><strong className="text-zinc-200">Vinted keeps the most in your pocket</strong> — zero seller fees, but the buyer base is primarily clothing and the platform is smaller than eBay or Poshmark.</span></li>
+            <li className="flex gap-3"><span className="text-emerald-400 mt-0.5">→</span><span><strong className="text-zinc-200">Poshmark's 20% is the highest</strong> — but buyers expect it, shipping is handled, and the fashion-focused audience can support higher prices.</span></li>
+            <li className="flex gap-3"><span className="text-emerald-400 mt-0.5">→</span><span><strong className="text-zinc-200">Facebook Marketplace is free for local sales</strong> — zero fees for local pickup, making it the most profitable platform for bulky or heavy items.</span></li>
+            <li className="flex gap-3"><span className="text-emerald-400 mt-0.5">→</span><span><strong className="text-zinc-200">eBay vs Mercari are roughly equal</strong> — both land around 13% effective fees. eBay has far more buyers; Mercari is simpler to use.</span></li>
+            <li className="flex gap-3"><span className="text-emerald-400 mt-0.5">→</span><span><strong className="text-zinc-200">Etsy's $0.20 listing fee adds up</strong> — on low-price items, the listing fee is a meaningful percentage. Best for items $20 and up.</span></li>
           </ul>
         </div>
 
-        <div className="bg-white border border-zinc-200 rounded-2xl p-6 text-center">
-          <p className="text-sm font-medium text-zinc-900 mb-1">Selling across multiple platforms?</p>
-          <p className="text-sm text-zinc-600 mb-5">MarginLog tracks every sale automatically — real net profit after fees, analytics by platform, and CSV export for tax season.</p>
+        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-center">
+          <p className="text-sm font-medium text-white mb-1">Selling across multiple platforms?</p>
+          <p className="text-sm text-zinc-400 mb-5">MarginLog tracks every sale automatically — real net profit after fees, analytics by platform, and CSV export for tax season.</p>
           <Link href="/signup" className="inline-block bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-8 py-3 rounded-xl transition-colors">
             Start tracking free
           </Link>
-          <p className="text-xs text-zinc-500 mt-3">Free · No card required</p>
+          <p className="text-xs text-zinc-600 mt-3">Free · No card required</p>
         </div>
       </main>
 
-      <footer className="border-t border-zinc-200 mt-16">
-        <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-500">
-          <Link href="/" className="hover:text-zinc-600 transition-colors">Home</Link>
-          <Link href="/tools" className="hover:text-zinc-600 transition-colors">Tools</Link>
-          <Link href="/calculators" className="hover:text-zinc-600 transition-colors">Calculators</Link>
-          <Link href="/blog" className="hover:text-zinc-600 transition-colors">Blog</Link>
+      <footer className="border-t border-zinc-800 mt-16">
+        <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
+          <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
+          <Link href="/tools" className="hover:text-zinc-400 transition-colors">Tools</Link>
+          <Link href="/calculators" className="hover:text-zinc-400 transition-colors">Calculators</Link>
+          <Link href="/blog" className="hover:text-zinc-400 transition-colors">Blog</Link>
         </div>
       </footer>
     </div>

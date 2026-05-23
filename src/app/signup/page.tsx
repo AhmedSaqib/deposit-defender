@@ -42,51 +42,51 @@ export default function SignupPage() {
 
   if (done) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center px-4">
+      <div className="min-h-screen bg-zinc-950 flex items-center justify-center px-4">
         <div className="text-center max-w-sm">
-          <div className="w-12 h-12 bg-emerald-50 border border-emerald-200 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-emerald-700 text-xl">✓</span>
+          <div className="w-12 h-12 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-emerald-400 text-xl">✓</span>
           </div>
-          <h2 className="text-zinc-900 font-semibold text-lg mb-2">Check your email</h2>
-          <p className="text-zinc-600 text-sm">We sent a confirmation link to <strong className="text-zinc-900">{email}</strong>. Click it to activate your account.</p>
+          <h2 className="text-white font-semibold text-lg mb-2">Check your email</h2>
+          <p className="text-zinc-400 text-sm">We sent a confirmation link to <strong className="text-white">{email}</strong>. Click it to activate your account.</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-4">
+    <div className="min-h-screen bg-zinc-950 flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-3">
-            <Logo light />
+            <Logo />
           </div>
-          <p className="text-zinc-600 text-sm">Create your free account</p>
+          <p className="text-zinc-400 text-sm">Create your free account</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white border border-zinc-200 rounded-2xl p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-4">
           {error && (
-            <p className="text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg px-3 py-2">{error}</p>
+            <p className="text-red-400 text-sm bg-red-400/10 border border-red-400/20 rounded-lg px-3 py-2">{error}</p>
           )}
           <div>
-            <label className="block text-sm text-zinc-600 mb-1.5">Email</label>
+            <label className="block text-sm text-zinc-400 mb-1.5">Email</label>
             <input
               type="email"
               required
               value={email}
               onChange={e => setEmail(e.target.value)}
-              className="w-full bg-white border border-zinc-300 rounded-lg px-3 py-2.5 text-zinc-900 text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors"
             />
           </div>
           <div>
-            <label className="block text-sm text-zinc-600 mb-1.5">Password</label>
+            <label className="block text-sm text-zinc-400 mb-1.5">Password</label>
             <input
               type="password"
               required
               minLength={6}
               value={password}
               onChange={e => setPassword(e.target.value)}
-              className="w-full bg-white border border-zinc-300 rounded-lg px-3 py-2.5 text-zinc-900 text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors"
             />
           </div>
           <button
@@ -100,7 +100,7 @@ export default function SignupPage() {
 
         <p className="text-center text-zinc-500 text-sm mt-4">
           Already have an account?{' '}
-          <Link href="/login" className="text-emerald-600 hover:text-emerald-700">
+          <Link href="/login" className="text-emerald-400 hover:text-emerald-300">
             Sign in
           </Link>
         </p>

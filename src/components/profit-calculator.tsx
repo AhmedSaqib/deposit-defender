@@ -27,7 +27,7 @@ export default function ProfitCalculator({ platformSlug }: { platformSlug: strin
 
   return (
     <div className="space-y-4">
-      <div className="bg-white border border-zinc-200 rounded-2xl p-6 space-y-4">
+      <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-4">
         <Field label="Sale price" value={salePrice} onChange={v => { setSalePrice(v); setShown(false) }} />
         <Field label="What you paid (cost of goods)" value={cogs} onChange={v => { setCogs(v); setShown(false) }} />
         <Field
@@ -37,7 +37,7 @@ export default function ProfitCalculator({ platformSlug }: { platformSlug: strin
           hint={platform.shippingNote}
         />
 
-        <p className="text-xs text-zinc-500 pt-1">
+        <p className="text-xs text-zinc-600 pt-1">
           {platform.name} fee: <span className="text-zinc-500">{platform.feeLabel}</span>
           {' · '}{platform.feeNote}
         </p>
@@ -53,15 +53,15 @@ export default function ProfitCalculator({ platformSlug }: { platformSlug: strin
 
       {shown && (
         <>
-          <div className="bg-white border border-zinc-200 rounded-2xl p-6 space-y-3">
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-3">
             <Row label="Sale price" value={`$${sale.toFixed(2)}`} />
             <Row label={`${platform.name} fee (${platform.feeLabel})`} value={`−$${fee.toFixed(2)}`} negative />
             {ship > 0 && <Row label="Shipping" value={`−$${ship.toFixed(2)}`} negative />}
             {cost > 0 && <Row label="Cost of goods" value={`−$${cost.toFixed(2)}`} negative />}
 
-            <div className="border-t border-zinc-200 pt-3 flex items-center justify-between">
-              <span className="font-semibold text-zinc-900">Net profit</span>
-              <span className={`text-2xl font-bold ${net >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
+            <div className="border-t border-zinc-800 pt-3 flex items-center justify-between">
+              <span className="font-semibold text-white">Net profit</span>
+              <span className={`text-2xl font-bold ${net >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
                 ${net.toFixed(2)}
               </span>
             </div>
@@ -69,28 +69,28 @@ export default function ProfitCalculator({ platformSlug }: { platformSlug: strin
             {cost > 0 && (
               <div className="flex justify-between text-sm pt-1">
                 <span className="text-zinc-500">Return on investment</span>
-                <span className={roi >= 0 ? 'text-emerald-600' : 'text-red-600'}>{roi.toFixed(1)}%</span>
+                <span className={roi >= 0 ? 'text-emerald-400' : 'text-red-400'}>{roi.toFixed(1)}%</span>
               </div>
             )}
           </div>
 
           {gap > 1 && (
-            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
-              <p className="text-sm text-amber-800 leading-relaxed">
+            <div className="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-5">
+              <p className="text-sm text-amber-200 leading-relaxed">
                 Without accounting for fees{cost > 0 ? ' and costs' : ''}, you might have assumed{' '}
-                <span className="font-semibold text-zinc-900">${assumed.toFixed(2)}</span> profit.
+                <span className="font-semibold text-white">${assumed.toFixed(2)}</span> profit.
                 Your real profit is{' '}
-                <span className={`font-semibold ${net >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
+                <span className={`font-semibold ${net >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
                   ${net.toFixed(2)}
                 </span>.
-                {' '}That's <span className="font-semibold text-zinc-900">${gap.toFixed(2)}</span> you didn't account for.
+                {' '}That's <span className="font-semibold text-white">${gap.toFixed(2)}</span> you didn't account for.
               </p>
             </div>
           )}
 
-          <div className="bg-white border border-zinc-200 rounded-2xl p-6 text-center">
-            <p className="text-sm font-medium text-zinc-900 mb-1">Stop doing this math by hand</p>
-            <p className="text-sm text-zinc-600 mb-5">
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-center">
+            <p className="text-sm font-medium text-white mb-1">Stop doing this math by hand</p>
+            <p className="text-sm text-zinc-400 mb-5">
               Log every sale in 30 seconds. Dashboards, analytics across all platforms, and CSV export for tax season.
             </p>
             <Link
@@ -99,7 +99,7 @@ export default function ProfitCalculator({ platformSlug }: { platformSlug: strin
             >
               Start tracking free
             </Link>
-            <p className="text-xs text-zinc-500 mt-3">Free · No card required</p>
+            <p className="text-xs text-zinc-600 mt-3">Free · No card required</p>
           </div>
         </>
       )}
@@ -120,7 +120,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="text-sm text-zinc-600 mb-1.5 block">{label}</label>
+      <label className="text-sm text-zinc-400 mb-1.5 block">{label}</label>
       <div className="relative">
         <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 text-sm">$</span>
         <input
@@ -130,10 +130,10 @@ function Field({
           value={value}
           onChange={e => onChange(e.target.value)}
           placeholder="0.00"
-          className="w-full bg-white border border-zinc-300 rounded-lg pl-7 pr-4 py-2.5 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-emerald-500 transition-colors"
+          className="w-full bg-zinc-800 border border-zinc-700 rounded-lg pl-7 pr-4 py-2.5 text-white placeholder-zinc-600 focus:outline-none focus:border-emerald-500 transition-colors"
         />
       </div>
-      {hint && <p className="text-xs text-zinc-500 mt-1">{hint}</p>}
+      {hint && <p className="text-xs text-zinc-600 mt-1">{hint}</p>}
     </div>
   )
 }
@@ -141,8 +141,8 @@ function Field({
 function Row({ label, value, negative }: { label: string; value: string; negative?: boolean }) {
   return (
     <div className="flex items-center justify-between text-sm">
-      <span className="text-zinc-600">{label}</span>
-      <span className={negative ? 'text-red-600' : 'text-zinc-600'}>{value}</span>
+      <span className="text-zinc-400">{label}</span>
+      <span className={negative ? 'text-red-400' : 'text-zinc-300'}>{value}</span>
     </div>
   )
 }

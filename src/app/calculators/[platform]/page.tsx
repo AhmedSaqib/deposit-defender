@@ -48,16 +48,16 @@ export default async function CalculatorPage(
   }
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900">
+    <div className="min-h-screen bg-zinc-950 text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
-        <Logo light />
+        <Logo />
         <div className="flex items-center gap-4">
-          <Link href="/login" className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors">
+          <Link href="/login" className="text-sm text-zinc-400 hover:text-white transition-colors">
             Log in
           </Link>
           <Link
@@ -70,7 +70,7 @@ export default async function CalculatorPage(
       </header>
 
       <main className="max-w-2xl mx-auto px-6 py-12">
-        <Link href="/calculators" className="text-xs text-zinc-500 hover:text-zinc-600 transition-colors mb-6 inline-block">
+        <Link href="/calculators" className="text-xs text-zinc-600 hover:text-zinc-400 transition-colors mb-6 inline-block">
           ← All calculators
         </Link>
 
@@ -79,7 +79,7 @@ export default async function CalculatorPage(
           <h1 className="text-3xl font-bold mb-3 leading-tight">
             {platform.heroHeadline}
           </h1>
-          <p className="text-zinc-600 leading-relaxed">
+          <p className="text-zinc-400 leading-relaxed">
             {platform.heroSubtext}
           </p>
         </div>
@@ -88,9 +88,9 @@ export default async function CalculatorPage(
         <ProfitCalculator platformSlug={slug} />
 
         {/* Sign-up banner */}
-        <div className="mt-10 bg-emerald-50 border border-emerald-200 rounded-2xl p-6">
-          <p className="font-semibold text-emerald-700 mb-1">Selling on multiple platforms?</p>
-          <p className="text-sm text-zinc-600 mb-4">{platform.signupHook}</p>
+        <div className="mt-10 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-6">
+          <p className="font-semibold text-emerald-400 mb-1">Selling on multiple platforms?</p>
+          <p className="text-sm text-zinc-400 mb-4">{platform.signupHook}</p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
               href="/signup"
@@ -100,7 +100,7 @@ export default async function CalculatorPage(
             </Link>
             <Link
               href="/"
-              className="inline-block border border-zinc-300 hover:border-zinc-400 text-zinc-600 hover:text-zinc-900 font-medium px-6 py-2.5 rounded-xl transition-colors text-sm text-center"
+              className="inline-block border border-zinc-700 hover:border-zinc-500 text-zinc-400 hover:text-white font-medium px-6 py-2.5 rounded-xl transition-colors text-sm text-center"
             >
               See how it works
             </Link>
@@ -110,7 +110,7 @@ export default async function CalculatorPage(
         {/* Fee explainer */}
         <div className="mt-12">
           <h2 className="text-lg font-semibold mb-3">How {platform.name} fees work</h2>
-          <p className="text-zinc-600 text-sm leading-relaxed">{platform.feeExplainer}</p>
+          <p className="text-zinc-400 text-sm leading-relaxed">{platform.feeExplainer}</p>
         </div>
 
         {/* FAQ */}
@@ -118,9 +118,9 @@ export default async function CalculatorPage(
           <h2 className="text-lg font-semibold mb-6">{platform.name} profit — common questions</h2>
           <div className="space-y-5">
             {platform.faqs.map(faq => (
-              <div key={faq.q} className="border-b border-zinc-200 pb-5">
-                <p className="font-medium text-zinc-900 mb-2">{faq.q}</p>
-                <p className="text-sm text-zinc-600 leading-relaxed">{faq.a}</p>
+              <div key={faq.q} className="border-b border-zinc-800 pb-5">
+                <p className="font-medium text-white mb-2">{faq.q}</p>
+                <p className="text-sm text-zinc-400 leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -134,7 +134,7 @@ export default async function CalculatorPage(
               <Link
                 key={s}
                 href={`/calculators/${s}`}
-                className="text-xs text-zinc-500 hover:text-zinc-900 border border-zinc-200 hover:border-zinc-400 rounded-lg px-3 py-1.5 transition-colors"
+                className="text-xs text-zinc-500 hover:text-white border border-zinc-800 hover:border-zinc-600 rounded-lg px-3 py-1.5 transition-colors"
               >
                 {CALC_PLATFORMS[s].name}
               </Link>
@@ -143,9 +143,9 @@ export default async function CalculatorPage(
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-12 bg-white border border-zinc-200 rounded-2xl p-8 text-center">
+        <div className="mt-12 bg-zinc-900 border border-zinc-800 rounded-2xl p-8 text-center">
           <p className="text-xl font-bold mb-2">Stop calculating this by hand</p>
-          <p className="text-zinc-600 text-sm mb-6 max-w-md mx-auto">
+          <p className="text-zinc-400 text-sm mb-6 max-w-md mx-auto">
             MarginLog logs every sale in 30 seconds — true profit, platform analytics, and CSV export for tax season. Free for up to 15 users during beta.
           </p>
           <Link
@@ -154,16 +154,16 @@ export default async function CalculatorPage(
           >
             Create your free account
           </Link>
-          <p className="text-xs text-zinc-500 mt-3">Free · No card required · Lifetime free during beta</p>
+          <p className="text-xs text-zinc-600 mt-3">Free · No card required · Lifetime free during beta</p>
         </div>
       </main>
 
-      <footer className="border-t border-zinc-200 mt-16">
-        <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-500">
-          <Link href="/" className="hover:text-zinc-600 transition-colors">Home</Link>
-          <Link href="/calculators" className="hover:text-zinc-600 transition-colors">All calculators</Link>
-          <Link href="/about" className="hover:text-zinc-600 transition-colors">About</Link>
-          <Link href="/signup" className="hover:text-zinc-600 transition-colors">Start free</Link>
+      <footer className="border-t border-zinc-800 mt-16">
+        <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
+          <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
+          <Link href="/calculators" className="hover:text-zinc-400 transition-colors">All calculators</Link>
+          <Link href="/about" className="hover:text-zinc-400 transition-colors">About</Link>
+          <Link href="/signup" className="hover:text-zinc-400 transition-colors">Start free</Link>
         </div>
       </footer>
     </div>

@@ -132,9 +132,9 @@ export default async function ProfitBenchmarkPage() {
   const { data: { user } } = await supabase.auth.getUser()
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900">
+    <div className="min-h-screen bg-zinc-950 text-white">
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
-        <Logo light />
+        <Logo />
         <div className="flex items-center gap-3">
           {user ? (
             <Link href="/dashboard" className="text-sm bg-emerald-500 hover:bg-emerald-400 text-black font-medium px-4 py-1.5 rounded-lg transition-colors">
@@ -142,7 +142,7 @@ export default async function ProfitBenchmarkPage() {
             </Link>
           ) : (
             <>
-              <Link href="/login" className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors px-3 py-1.5">Log in</Link>
+              <Link href="/login" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">Log in</Link>
               <Link href="/signup" className="text-sm bg-emerald-500 hover:bg-emerald-400 text-black font-medium px-4 py-1.5 rounded-lg transition-colors">Get started free</Link>
             </>
           )}
@@ -152,30 +152,30 @@ export default async function ProfitBenchmarkPage() {
       <main className="max-w-3xl mx-auto px-6 py-12">
         <div className="mb-10">
           <p className="text-xs text-zinc-500 mb-3">
-            <Link href="/tools" className="hover:text-zinc-600">Tools</Link> / Profit Benchmarks
+            <Link href="/tools" className="hover:text-zinc-400">Tools</Link> / Profit Benchmarks
           </p>
           <h1 className="text-3xl font-bold mb-3">Reselling Profit Margin Benchmarks</h1>
-          <p className="text-zinc-600 leading-relaxed">
+          <p className="text-zinc-400 leading-relaxed">
             What margins do experienced resellers actually achieve? These benchmarks are based on typical reselling patterns by category and platform — use them to assess whether your deals are hitting the mark or leaving money on the table.
           </p>
-          <p className="text-xs text-zinc-500 mt-2">Note: benchmarks are ranges, not guarantees. Your sourcing quality, pricing strategy, and platform expertise all affect actual results.</p>
+          <p className="text-xs text-zinc-600 mt-2">Note: benchmarks are ranges, not guarantees. Your sourcing quality, pricing strategy, and platform expertise all affect actual results.</p>
         </div>
 
         <h2 className="text-lg font-semibold mb-4">By category</h2>
         <div className="space-y-3 mb-12">
           {categoryBenchmarks.map(b => (
-            <div key={b.category} className="bg-white border border-zinc-200 rounded-xl p-5">
+            <div key={b.category} className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
               <div className="flex items-start justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <span className="text-xl">{b.emoji}</span>
                   <span className="font-medium">{b.category}</span>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm text-emerald-600 font-semibold">{b.margin} margin</p>
+                  <p className="text-sm text-emerald-400 font-semibold">{b.margin} margin</p>
                   <p className="text-xs text-zinc-500">{b.roi} ROI</p>
                 </div>
               </div>
-              <p className="text-sm text-zinc-600 leading-relaxed">{b.notes}</p>
+              <p className="text-sm text-zinc-400 leading-relaxed">{b.notes}</p>
             </div>
           ))}
         </div>
@@ -183,18 +183,18 @@ export default async function ProfitBenchmarkPage() {
         <h2 className="text-lg font-semibold mb-4">By platform</h2>
         <div className="space-y-3 mb-12">
           {platformBenchmarks.map(b => (
-            <div key={b.platform} className="bg-white border border-zinc-200 rounded-xl p-5">
+            <div key={b.platform} className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
               <div className="flex items-start justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <span className="text-xl">{b.emoji}</span>
                   <span className="font-medium">{b.platform}</span>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm text-emerald-600 font-semibold">{b.margin} margin</p>
+                  <p className="text-sm text-emerald-400 font-semibold">{b.margin} margin</p>
                   <p className="text-xs text-zinc-500">Fee: {b.fee}</p>
                 </div>
               </div>
-              <p className="text-sm text-zinc-600 leading-relaxed">{b.notes}</p>
+              <p className="text-sm text-zinc-400 leading-relaxed">{b.notes}</p>
             </div>
           ))}
         </div>
@@ -202,21 +202,21 @@ export default async function ProfitBenchmarkPage() {
         <h2 className="text-lg font-semibold mb-4">ROI by experience level</h2>
         <div className="space-y-3 mb-12">
           {roiTiers.map(t => (
-            <div key={t.tier} className="bg-white border border-zinc-200 rounded-xl p-5 flex items-start gap-4">
-              <div className="bg-emerald-50 border border-emerald-200 rounded-lg px-3 py-1.5 text-emerald-700 font-semibold text-sm whitespace-nowrap">
+            <div key={t.tier} className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 flex items-start gap-4">
+              <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-lg px-3 py-1.5 text-emerald-400 font-semibold text-sm whitespace-nowrap">
                 {t.roi}
               </div>
               <div>
-                <p className="font-medium text-zinc-900 text-sm mb-0.5">{t.tier}</p>
-                <p className="text-sm text-zinc-600">{t.desc}</p>
+                <p className="font-medium text-white text-sm mb-0.5">{t.tier}</p>
+                <p className="text-sm text-zinc-400">{t.desc}</p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="bg-white border border-zinc-200 rounded-2xl p-6 mb-8">
-          <h2 className="font-semibold text-zinc-900 mb-3">How to use these benchmarks</h2>
-          <div className="space-y-3 text-sm text-zinc-600">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 mb-8">
+          <h2 className="font-semibold text-white mb-3">How to use these benchmarks</h2>
+          <div className="space-y-3 text-sm text-zinc-400">
             <p>If your margins are consistently below the benchmarks for your category, the problem is usually sourcing (paying too much) or pricing (selling too cheap). Rarely is it the platform.</p>
             <p>ROI and margin tell different stories. A 300% ROI on a $1 item is $3 profit — impressive ratio, poor volume. A 40% margin on a $200 item is $80 profit — the better deal. Track both.</p>
             <p>Platform choice matters less than category expertise. A reseller who knows vintage electronics will outperform benchmarks regardless of which platform they use.</p>
@@ -224,32 +224,32 @@ export default async function ProfitBenchmarkPage() {
         </div>
 
         <div className="flex flex-wrap gap-3 mb-10">
-          <Link href="/tools/break-even" className="text-sm text-zinc-600 hover:text-zinc-900 border border-zinc-300 hover:border-zinc-400 px-4 py-2 rounded-lg transition-colors">
+          <Link href="/tools/break-even" className="text-sm text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 px-4 py-2 rounded-lg transition-colors">
             Break-even calculator →
           </Link>
-          <Link href="/tools/platform-comparison" className="text-sm text-zinc-600 hover:text-zinc-900 border border-zinc-300 hover:border-zinc-400 px-4 py-2 rounded-lg transition-colors">
+          <Link href="/tools/platform-comparison" className="text-sm text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 px-4 py-2 rounded-lg transition-colors">
             Compare platform fees →
           </Link>
-          <Link href="/glossary/roi" className="text-sm text-zinc-600 hover:text-zinc-900 border border-zinc-300 hover:border-zinc-400 px-4 py-2 rounded-lg transition-colors">
+          <Link href="/glossary/roi" className="text-sm text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 px-4 py-2 rounded-lg transition-colors">
             What is ROI? →
           </Link>
         </div>
 
-        <div className="bg-white border border-zinc-200 rounded-2xl p-6 text-center">
-          <p className="text-sm font-medium text-zinc-900 mb-1">Know your actual margins, not estimates</p>
-          <p className="text-sm text-zinc-600 mb-5">MarginLog tracks your real net profit on every sale — with dashboards by category and platform so you can see where you&apos;re actually beating these benchmarks.</p>
+        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-center">
+          <p className="text-sm font-medium text-white mb-1">Know your actual margins, not estimates</p>
+          <p className="text-sm text-zinc-400 mb-5">MarginLog tracks your real net profit on every sale — with dashboards by category and platform so you can see where you&apos;re actually beating these benchmarks.</p>
           <Link href="/signup" className="inline-block bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-8 py-3 rounded-xl transition-colors">
             Start tracking free
           </Link>
         </div>
       </main>
 
-      <footer className="border-t border-zinc-200 mt-16">
-        <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-500">
-          <Link href="/" className="hover:text-zinc-600 transition-colors">Home</Link>
-          <Link href="/tools" className="hover:text-zinc-600 transition-colors">Tools</Link>
-          <Link href="/blog" className="hover:text-zinc-600 transition-colors">Blog</Link>
-          <Link href="/glossary/profit-margin" className="hover:text-zinc-600 transition-colors">What is profit margin?</Link>
+      <footer className="border-t border-zinc-800 mt-16">
+        <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
+          <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
+          <Link href="/tools" className="hover:text-zinc-400 transition-colors">Tools</Link>
+          <Link href="/blog" className="hover:text-zinc-400 transition-colors">Blog</Link>
+          <Link href="/glossary/profit-margin" className="hover:text-zinc-400 transition-colors">What is profit margin?</Link>
         </div>
       </footer>
     </div>
