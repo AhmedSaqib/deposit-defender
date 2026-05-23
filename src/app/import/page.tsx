@@ -10,7 +10,7 @@ export default async function ImportPage() {
   if (!user) redirect('/login')
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <Nav />
       <ImportForm />
       <AppFooter />

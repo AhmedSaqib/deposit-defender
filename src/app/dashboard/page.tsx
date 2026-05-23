@@ -98,7 +98,7 @@ export default async function DashboardPage() {
   )
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <Nav />
       <main className="max-w-5xl mx-auto px-4 py-8">
         <h1 className="text-xl font-semibold mb-6">Dashboard</h1>

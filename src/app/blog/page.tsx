@@ -15,7 +15,7 @@ export default async function BlogIndex() {
   const { data: { user } } = await supabase.auth.getUser()
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
         <Logo />
         <div className="flex gap-3">
@@ -39,7 +39,7 @@ export default async function BlogIndex() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="block bg-zinc-900 border border-zinc-800 hover:border-zinc-600 rounded-2xl p-6 transition-colors"
+              className="block bg-zinc-800 border border-zinc-700 hover:border-zinc-600 rounded-2xl p-6 transition-colors"
             >
               <p className="text-xs text-zinc-500 mb-2">{post.date} · {post.readingTime}</p>
               <h2 className="text-white font-semibold text-lg mb-2 leading-snug">{post.title}</h2>
@@ -50,7 +50,7 @@ export default async function BlogIndex() {
         </div>
       </main>
 
-      <footer className="border-t border-zinc-800 mt-16">
+      <footer className="border-t border-zinc-700 mt-16">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap items-center justify-between gap-4">
           <p className="text-xs text-zinc-600">© {new Date().getFullYear()} MarginLog</p>
           <nav className="flex gap-5 text-xs text-zinc-600">

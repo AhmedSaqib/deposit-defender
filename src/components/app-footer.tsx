@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function AppFooter() {
   return (
-    <footer className="border-t border-zinc-800 mt-16">
+    <footer className="border-t border-zinc-700 mt-16">
       <div className="max-w-5xl mx-auto px-6 py-4 flex flex-wrap gap-4 text-xs text-zinc-600">
         <Link href="/tools" className="hover:text-zinc-400 transition-colors">Tools</Link>
         <Link href="/blog" className="hover:text-zinc-400 transition-colors">Blog</Link>

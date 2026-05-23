@@ -102,7 +102,7 @@ export default function ImportForm() {
       </div>
 
       {showInfo && (
-        <div className="bg-zinc-900 border border-zinc-700 rounded-xl p-5 relative">
+        <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 relative">
           <button onClick={() => setShowInfo(false)} className="absolute top-4 right-4 text-zinc-500 hover:text-white">
             <X className="w-4 h-4" />
           </button>
@@ -153,11 +153,11 @@ export default function ImportForm() {
             {rows.length > 5 && <span className="text-zinc-500">— showing first 5 below</span>}
           </div>
 
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-xl overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-xs">
                 <thead>
-                  <tr className="border-b border-zinc-800 text-zinc-500">
+                  <tr className="border-b border-zinc-700 text-zinc-500">
                     <th className="text-left px-4 py-3 font-medium">Item</th>
                     <th className="text-left px-4 py-3 font-medium">Platform</th>
                     <th className="text-left px-4 py-3 font-medium">Date</th>
@@ -168,7 +168,7 @@ export default function ImportForm() {
                 </thead>
                 <tbody>
                   {previewRows.map((row, i) => (
-                    <tr key={i} className="border-b border-zinc-800/50 last:border-0">
+                    <tr key={i} className="border-b border-zinc-700/50 last:border-0">
                       <td className="px-4 py-2.5 text-white">{row.item_name}</td>
                       <td className="px-4 py-2.5 text-zinc-400">{PLATFORMS[row.platform as Platform]?.name ?? row.platform}</td>
                       <td className="px-4 py-2.5 text-zinc-400">{row.sale_date}</td>

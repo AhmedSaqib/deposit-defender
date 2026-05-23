@@ -113,11 +113,11 @@ export default function SalesTable({ initialSales }: { initialSales: Sale[] }) {
         <div className="fixed inset-0 z-10" onMouseDown={cancelEdit} />
       )}
 
-      <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden relative z-20">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-2xl overflow-hidden relative z-20">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-zinc-800 text-zinc-400 text-xs">
+              <tr className="border-b border-zinc-700 text-zinc-400 text-xs">
                 <th className="text-left px-4 py-3 font-medium">Item</th>
                 <th className="text-left px-4 py-3 font-medium">Platform</th>
                 <th className="text-left px-4 py-3 font-medium hidden sm:table-cell">Date</th>
@@ -132,7 +132,7 @@ export default function SalesTable({ initialSales }: { initialSales: Sale[] }) {
                 const fee = calcPlatformFee(s.sale_price, s.platform as Platform)
                 const profit = calcNetProfit(s.sale_price, s.cost_of_goods, s.shipping_cost, s.platform as Platform)
                 return (
-                  <tr key={s.id} className="border-b border-zinc-800/50 last:border-0 hover:bg-zinc-800/30 transition-colors">
+                  <tr key={s.id} className="border-b border-zinc-700/50 last:border-0 hover:bg-zinc-800/30 transition-colors">
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2">
                         {cell(s, 'item_name', <span className="text-white">{s.item_name}</span>, s.item_name)}

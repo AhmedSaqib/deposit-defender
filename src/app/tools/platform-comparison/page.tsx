@@ -132,7 +132,7 @@ export default async function PlatformComparisonPage() {
   const { data: { user } } = await supabase.auth.getUser()
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
@@ -165,7 +165,7 @@ export default async function PlatformComparisonPage() {
         {/* Cards — mobile-first, stacked */}
         <div className="space-y-4 mb-12 lg:hidden">
           {platforms.map(p => (
-            <div key={p.name} className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+            <div key={p.name} className="bg-zinc-800 border border-zinc-700 rounded-xl p-5">
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-xl">{p.emoji}</span>
                 <span className="font-semibold">{p.name}</span>
@@ -187,7 +187,7 @@ export default async function PlatformComparisonPage() {
                   <dt className="text-zinc-500">Shipping paid by</dt>
                   <dd className="text-zinc-200">{p.shippingPaidBy}</dd>
                 </div>
-                <div className="flex justify-between border-t border-zinc-800 pt-2 mt-2">
+                <div className="flex justify-between border-t border-zinc-700 pt-2 mt-2">
                   <dt className="text-zinc-400 font-medium">Payout on $50 sale</dt>
                   <dd className="text-emerald-400 font-semibold">{p.payout50}</dd>
                 </div>
@@ -204,7 +204,7 @@ export default async function PlatformComparisonPage() {
         <div className="hidden lg:block overflow-x-auto mb-12">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-zinc-800 text-left">
+              <tr className="border-b border-zinc-700 text-left">
                 <th className="pb-3 pr-4 text-zinc-500 font-medium">Platform</th>
                 <th className="pb-3 pr-4 text-zinc-500 font-medium">Selling Fee</th>
                 <th className="pb-3 pr-4 text-zinc-500 font-medium">Payment Processing</th>
@@ -216,7 +216,7 @@ export default async function PlatformComparisonPage() {
             </thead>
             <tbody>
               {platforms.map(p => (
-                <tr key={p.name} className="border-b border-zinc-800/60 hover:bg-zinc-900/50 transition-colors">
+                <tr key={p.name} className="border-b border-zinc-700/60 hover:bg-zinc-800/50 transition-colors">
                   <td className="py-3.5 pr-4">
                     <div className="flex items-center gap-2">
                       <span>{p.emoji}</span>
@@ -240,7 +240,7 @@ export default async function PlatformComparisonPage() {
         <h2 className="text-xl font-semibold mb-4">Platform breakdown</h2>
         <div className="space-y-4 mb-12">
           {platforms.map(p => (
-            <div key={p.name} className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+            <div key={p.name} className="bg-zinc-800 border border-zinc-700 rounded-xl p-5">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <span className="text-xl">{p.emoji}</span>
@@ -255,7 +255,7 @@ export default async function PlatformComparisonPage() {
         </div>
 
         {/* Key takeaways */}
-        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 mb-8">
+        <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 mb-8">
           <h2 className="font-semibold text-white mb-4">Key takeaways</h2>
           <ul className="space-y-3 text-sm text-zinc-400">
             <li className="flex gap-3"><span className="text-emerald-400 mt-0.5">→</span><span><strong className="text-zinc-200">Vinted keeps the most in your pocket</strong> — zero seller fees, but the buyer base is primarily clothing and the platform is smaller than eBay or Poshmark.</span></li>
@@ -266,7 +266,7 @@ export default async function PlatformComparisonPage() {
           </ul>
         </div>
 
-        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-center">
+        <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 text-center">
           <p className="text-sm font-medium text-white mb-1">Selling across multiple platforms?</p>
           <p className="text-sm text-zinc-400 mb-5">MarginLog tracks every sale automatically — real net profit after fees, analytics by platform, and CSV export for tax season.</p>
           <Link href="/signup" className="inline-block bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-8 py-3 rounded-xl transition-colors">
@@ -276,7 +276,7 @@ export default async function PlatformComparisonPage() {
         </div>
       </main>
 
-      <footer className="border-t border-zinc-800 mt-16">
+      <footer className="border-t border-zinc-700 mt-16">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
           <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
           <Link href="/tools" className="hover:text-zinc-400 transition-colors">Tools</Link>

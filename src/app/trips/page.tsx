@@ -44,7 +44,7 @@ export default async function TripsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <Nav />
       <main className="max-w-3xl mx-auto px-4 py-8 space-y-6">
         <div>
@@ -53,7 +53,7 @@ export default async function TripsPage() {
         </div>
 
         {/* Create trip form */}
-        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
+        <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6">
           <h2 className="text-sm font-semibold text-white mb-4">Log a sourcing trip</h2>
           <form action={createTrip} className="space-y-4">
             <div>
@@ -108,7 +108,7 @@ export default async function TripsPage() {
 
         {/* Trip list */}
         {trips.length === 0 ? (
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-12 text-center">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-12 text-center">
             <p className="text-zinc-500 text-sm">No trips yet. Create one above, then tag sales to it when logging.</p>
           </div>
         ) : (
@@ -119,7 +119,7 @@ export default async function TripsPage() {
               const itemCount = trip.sales.filter(s => s.status !== 'returned').length
 
               return (
-                <div key={trip.id} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
+                <div key={trip.id} className="bg-zinc-800 border border-zinc-700 rounded-2xl p-5">
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div>
                       <p className="text-white font-semibold">{trip.name}</p>

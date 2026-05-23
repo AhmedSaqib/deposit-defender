@@ -12,7 +12,7 @@ const LAST_UPDATED = 'May 20, 2026'
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <header className="flex items-center justify-between px-6 py-4 max-w-3xl mx-auto">
         <Logo />
         <Link href="/" className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-white transition-colors">
@@ -95,7 +95,7 @@ export default function TermsPage() {
         </div>
       </main>
 
-      <footer className="border-t border-zinc-800 mt-16">
+      <footer className="border-t border-zinc-700 mt-16">
         <div className="max-w-3xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
           <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
           <Link href="/about" className="hover:text-zinc-400 transition-colors">About</Link>

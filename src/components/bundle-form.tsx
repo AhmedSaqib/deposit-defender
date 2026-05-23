@@ -80,7 +80,7 @@ export default function BundleForm() {
         </div>
       )}
 
-      <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-4">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-sm text-zinc-400 mb-1.5">Bundle sale price ($)</label>

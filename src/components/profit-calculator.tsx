@@ -27,7 +27,7 @@ export default function ProfitCalculator({ platformSlug }: { platformSlug: strin
 
   return (
     <div className="space-y-4">
-      <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-4">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 space-y-4">
         <Field label="Sale price" value={salePrice} onChange={v => { setSalePrice(v); setShown(false) }} />
         <Field label="What you paid (cost of goods)" value={cogs} onChange={v => { setCogs(v); setShown(false) }} />
         <Field
@@ -53,13 +53,13 @@ export default function ProfitCalculator({ platformSlug }: { platformSlug: strin
 
       {shown && (
         <>
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-3">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 space-y-3">
             <Row label="Sale price" value={`$${sale.toFixed(2)}`} />
             <Row label={`${platform.name} fee (${platform.feeLabel})`} value={`−$${fee.toFixed(2)}`} negative />
             {ship > 0 && <Row label="Shipping" value={`−$${ship.toFixed(2)}`} negative />}
             {cost > 0 && <Row label="Cost of goods" value={`−$${cost.toFixed(2)}`} negative />}
 
-            <div className="border-t border-zinc-800 pt-3 flex items-center justify-between">
+            <div className="border-t border-zinc-700 pt-3 flex items-center justify-between">
               <span className="font-semibold text-white">Net profit</span>
               <span className={`text-2xl font-bold ${net >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
                 ${net.toFixed(2)}
@@ -88,7 +88,7 @@ export default function ProfitCalculator({ platformSlug }: { platformSlug: strin
             </div>
           )}
 
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-center">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 text-center">
             <p className="text-sm font-medium text-white mb-1">Stop doing this math by hand</p>
             <p className="text-sm text-zinc-400 mb-5">
               Log every sale in 30 seconds. Dashboards, analytics across all platforms, and CSV export for tax season.

@@ -132,7 +132,7 @@ export default async function ProfitBenchmarkPage() {
   const { data: { user } } = await supabase.auth.getUser()
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
         <Logo />
         <div className="flex items-center gap-3">
@@ -164,7 +164,7 @@ export default async function ProfitBenchmarkPage() {
         <h2 className="text-lg font-semibold mb-4">By category</h2>
         <div className="space-y-3 mb-12">
           {categoryBenchmarks.map(b => (
-            <div key={b.category} className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+            <div key={b.category} className="bg-zinc-800 border border-zinc-700 rounded-xl p-5">
               <div className="flex items-start justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <span className="text-xl">{b.emoji}</span>
@@ -183,7 +183,7 @@ export default async function ProfitBenchmarkPage() {
         <h2 className="text-lg font-semibold mb-4">By platform</h2>
         <div className="space-y-3 mb-12">
           {platformBenchmarks.map(b => (
-            <div key={b.platform} className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+            <div key={b.platform} className="bg-zinc-800 border border-zinc-700 rounded-xl p-5">
               <div className="flex items-start justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <span className="text-xl">{b.emoji}</span>
@@ -202,7 +202,7 @@ export default async function ProfitBenchmarkPage() {
         <h2 className="text-lg font-semibold mb-4">ROI by experience level</h2>
         <div className="space-y-3 mb-12">
           {roiTiers.map(t => (
-            <div key={t.tier} className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 flex items-start gap-4">
+            <div key={t.tier} className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 flex items-start gap-4">
               <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-lg px-3 py-1.5 text-emerald-400 font-semibold text-sm whitespace-nowrap">
                 {t.roi}
               </div>
@@ -214,7 +214,7 @@ export default async function ProfitBenchmarkPage() {
           ))}
         </div>
 
-        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 mb-8">
+        <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 mb-8">
           <h2 className="font-semibold text-white mb-3">How to use these benchmarks</h2>
           <div className="space-y-3 text-sm text-zinc-400">
             <p>If your margins are consistently below the benchmarks for your category, the problem is usually sourcing (paying too much) or pricing (selling too cheap). Rarely is it the platform.</p>
@@ -235,7 +235,7 @@ export default async function ProfitBenchmarkPage() {
           </Link>
         </div>
 
-        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-center">
+        <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 text-center">
           <p className="text-sm font-medium text-white mb-1">Know your actual margins, not estimates</p>
           <p className="text-sm text-zinc-400 mb-5">MarginLog tracks your real net profit on every sale — with dashboards by category and platform so you can see where you&apos;re actually beating these benchmarks.</p>
           <Link href="/signup" className="inline-block bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-8 py-3 rounded-xl transition-colors">
@@ -244,7 +244,7 @@ export default async function ProfitBenchmarkPage() {
         </div>
       </main>
 
-      <footer className="border-t border-zinc-800 mt-16">
+      <footer className="border-t border-zinc-700 mt-16">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
           <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
           <Link href="/tools" className="hover:text-zinc-400 transition-colors">Tools</Link>

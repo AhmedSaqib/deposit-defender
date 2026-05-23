@@ -116,7 +116,7 @@ export default function DashboardTabs({
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <div className="flex gap-1 bg-zinc-900 border border-zinc-800 rounded-lg p-1">
+        <div className="flex gap-1 bg-zinc-800 border border-zinc-700 rounded-lg p-1">
           {TABS.map(tab => (
             <button
               key={tab}
@@ -151,7 +151,7 @@ export default function DashboardTabs({
         <>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {stats.map(s => (
-              <div key={s.label} className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
+              <div key={s.label} className="bg-zinc-800 border border-zinc-700 rounded-xl p-4">
                 <p className="text-zinc-500 text-xs mb-1">{s.label}</p>
                 <p className="text-white font-bold text-xl">{s.value}</p>
                 <p className="text-zinc-600 text-xs mt-0.5">{s.sub}</p>
@@ -159,7 +159,7 @@ export default function DashboardTabs({
             ))}
           </div>
 
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-sm font-medium text-zinc-400">
                 {GRANULARITIES.find(g => g.key === granularity)?.title}
@@ -183,7 +183,7 @@ export default function DashboardTabs({
             <ProfitChart data={computeChartData(chartSales, granularity)} />
           </div>
 
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-sm font-medium text-zinc-400">Recent sales</h2>
               <Link href="/sales" className="text-xs text-emerald-400 hover:text-emerald-300">View all</Link>
@@ -195,7 +195,7 @@ export default function DashboardTabs({
               </p>
             ) : (
               <>
-                <div className="flex items-center justify-between pb-1 mb-1 border-b border-zinc-800">
+                <div className="flex items-center justify-between pb-1 mb-1 border-b border-zinc-700">
                   <span className="text-xs text-zinc-600">Item</span>
                   <div className="flex gap-6 text-xs text-zinc-600">
                     <span className="w-16 text-right">Revenue</span>
@@ -206,7 +206,7 @@ export default function DashboardTabs({
                   {recentSales.map(s => {
                     const profit = calcNetProfit(s.sale_price, s.cost_of_goods, s.shipping_cost, s.platform as Platform)
                     return (
-                      <div key={s.id} className="flex items-center justify-between py-2 border-b border-zinc-800 last:border-0">
+                      <div key={s.id} className="flex items-center justify-between py-2 border-b border-zinc-700 last:border-0">
                         <div>
                           <p className="text-sm text-white">{s.item_name}</p>
                           <p className="text-xs text-zinc-500">

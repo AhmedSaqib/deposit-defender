@@ -21,7 +21,7 @@ const icons: Record<string, string> = {
 
 export default function CalculatorsPage() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
         <Logo />
         <div className="flex items-center gap-4">
@@ -47,7 +47,7 @@ export default function CalculatorsPage() {
             <Link
               key={platform.slug}
               href={`/calculators/${platform.slug}`}
-              className="bg-zinc-900 border border-zinc-800 hover:border-zinc-600 rounded-2xl p-5 transition-colors group"
+              className="bg-zinc-800 border border-zinc-700 hover:border-zinc-600 rounded-2xl p-5 transition-colors group"
             >
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-2xl">{icons[platform.slug] ?? '📊'}</span>
@@ -62,7 +62,7 @@ export default function CalculatorsPage() {
           ))}
         </div>
 
-        <div className="mt-12 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-center">
+        <div className="mt-12 bg-zinc-800 border border-zinc-700 rounded-2xl p-6 text-center">
           <p className="text-sm font-medium text-white mb-1">Selling across multiple platforms?</p>
           <p className="text-sm text-zinc-400 mb-5">
             MarginLog tracks every sale automatically — profit, analytics, and CSV export for tax season.
@@ -77,7 +77,7 @@ export default function CalculatorsPage() {
         </div>
       </main>
 
-      <footer className="border-t border-zinc-800 mt-16">
+      <footer className="border-t border-zinc-700 mt-16">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
           <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
           <Link href="/about" className="hover:text-zinc-400 transition-colors">About</Link>

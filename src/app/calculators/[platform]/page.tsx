@@ -48,7 +48,7 @@ export default async function CalculatorPage(
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -118,7 +118,7 @@ export default async function CalculatorPage(
           <h2 className="text-lg font-semibold mb-6">{platform.name} profit — common questions</h2>
           <div className="space-y-5">
             {platform.faqs.map(faq => (
-              <div key={faq.q} className="border-b border-zinc-800 pb-5">
+              <div key={faq.q} className="border-b border-zinc-700 pb-5">
                 <p className="font-medium text-white mb-2">{faq.q}</p>
                 <p className="text-sm text-zinc-400 leading-relaxed">{faq.a}</p>
               </div>
@@ -134,7 +134,7 @@ export default async function CalculatorPage(
               <Link
                 key={s}
                 href={`/calculators/${s}`}
-                className="text-xs text-zinc-500 hover:text-white border border-zinc-800 hover:border-zinc-600 rounded-lg px-3 py-1.5 transition-colors"
+                className="text-xs text-zinc-500 hover:text-white border border-zinc-700 hover:border-zinc-600 rounded-lg px-3 py-1.5 transition-colors"
               >
                 {CALC_PLATFORMS[s].name}
               </Link>
@@ -143,7 +143,7 @@ export default async function CalculatorPage(
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-12 bg-zinc-900 border border-zinc-800 rounded-2xl p-8 text-center">
+        <div className="mt-12 bg-zinc-800 border border-zinc-700 rounded-2xl p-8 text-center">
           <p className="text-xl font-bold mb-2">Stop calculating this by hand</p>
           <p className="text-zinc-400 text-sm mb-6 max-w-md mx-auto">
             MarginLog logs every sale in 30 seconds — true profit, platform analytics, and CSV export for tax season. Free for up to 15 users during beta.
@@ -158,7 +158,7 @@ export default async function CalculatorPage(
         </div>
       </main>
 
-      <footer className="border-t border-zinc-800 mt-16">
+      <footer className="border-t border-zinc-700 mt-16">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
           <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
           <Link href="/calculators" className="hover:text-zinc-400 transition-colors">All calculators</Link>

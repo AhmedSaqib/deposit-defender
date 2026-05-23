@@ -41,7 +41,7 @@ export default async function ToolsPage() {
   const { data: { user } } = await supabase.auth.getUser()
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
         <Logo />
         <div className="flex items-center gap-3">
@@ -67,7 +67,7 @@ export default async function ToolsPage() {
             <Link
               key={tool.href}
               href={tool.href}
-              className="flex items-start gap-5 bg-zinc-900 border border-zinc-800 hover:border-zinc-600 rounded-2xl p-6 transition-colors group"
+              className="flex items-start gap-5 bg-zinc-800 border border-zinc-700 hover:border-zinc-600 rounded-2xl p-6 transition-colors group"
             >
               <span className="text-3xl mt-0.5">{tool.emoji}</span>
               <div>
@@ -78,7 +78,7 @@ export default async function ToolsPage() {
           ))}
         </div>
 
-        <div className="mt-12 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-center">
+        <div className="mt-12 bg-zinc-800 border border-zinc-700 rounded-2xl p-6 text-center">
           <p className="text-sm font-medium text-white mb-1">Want to track every sale automatically?</p>
           <p className="text-sm text-zinc-400 mb-5">MarginLog logs your profit, fees, and analytics across every platform — free to start.</p>
           <Link
@@ -91,7 +91,7 @@ export default async function ToolsPage() {
         </div>
       </main>
 
-      <footer className="border-t border-zinc-800 mt-16">
+      <footer className="border-t border-zinc-700 mt-16">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
           <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
           <Link href="/calculators" className="hover:text-zinc-400 transition-colors">Calculators</Link>

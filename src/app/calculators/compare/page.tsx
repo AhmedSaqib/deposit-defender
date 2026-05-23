@@ -55,7 +55,7 @@ const jsonLd = {
 
 export default function ComparePage() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -95,8 +95,8 @@ export default function ComparePage() {
         {/* Fee overview table */}
         <div className="mt-12">
           <h2 className="text-lg font-semibold mb-4">Resale platform fee comparison</h2>
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden">
-            <div className="grid grid-cols-3 px-5 py-3 border-b border-zinc-800 text-xs text-zinc-500 font-medium">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-2xl overflow-hidden">
+            <div className="grid grid-cols-3 px-5 py-3 border-b border-zinc-700 text-xs text-zinc-500 font-medium">
               <span>Platform</span>
               <span className="text-center">Fee</span>
               <span className="text-right">On a $50 sale</span>
@@ -110,7 +110,7 @@ export default function ComparePage() {
                 <Link
                   key={slug}
                   href={`/calculators/${slug}`}
-                  className="grid grid-cols-3 px-5 py-3.5 border-b border-zinc-800/50 last:border-0 hover:bg-zinc-800/50 transition-colors"
+                  className="grid grid-cols-3 px-5 py-3.5 border-b border-zinc-700/50 last:border-0 hover:bg-zinc-800/50 transition-colors"
                 >
                   <span className="text-sm text-zinc-300">{p.name}</span>
                   <span className="text-sm text-zinc-400 text-center">{p.feeLabel}</span>
@@ -127,7 +127,7 @@ export default function ComparePage() {
           <h2 className="text-lg font-semibold mb-6">Platform fee questions</h2>
           <div className="space-y-5">
             {(jsonLd.mainEntity as Array<{ name: string; acceptedAnswer: { text: string } }>).map(faq => (
-              <div key={faq.name} className="border-b border-zinc-800 pb-5">
+              <div key={faq.name} className="border-b border-zinc-700 pb-5">
                 <p className="font-medium text-white mb-2">{faq.name}</p>
                 <p className="text-sm text-zinc-400 leading-relaxed">{faq.acceptedAnswer.text}</p>
               </div>
@@ -135,7 +135,7 @@ export default function ComparePage() {
           </div>
         </div>
 
-        <div className="mt-12 bg-zinc-900 border border-zinc-800 rounded-2xl p-8 text-center">
+        <div className="mt-12 bg-zinc-800 border border-zinc-700 rounded-2xl p-8 text-center">
           <p className="text-xl font-bold mb-2">Track every sale automatically</p>
           <p className="text-zinc-400 text-sm mb-6 max-w-md mx-auto">
             MarginLog logs every sale in 30 seconds — true profit, analytics across all platforms, and CSV export for tax season. Free during beta.
@@ -150,7 +150,7 @@ export default function ComparePage() {
         </div>
       </main>
 
-      <footer className="border-t border-zinc-800 mt-16">
+      <footer className="border-t border-zinc-700 mt-16">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
           <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
           <Link href="/calculators" className="hover:text-zinc-400 transition-colors">All calculators</Link>

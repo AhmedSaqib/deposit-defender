@@ -32,7 +32,7 @@ export default async function GlossaryTermPage({ params }: Props) {
   const related = term.related ? getRelatedTerms(term.related) : []
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
         <Logo />
         <div className="flex items-center gap-3">
@@ -61,7 +61,7 @@ export default async function GlossaryTermPage({ params }: Props) {
           <p className="text-zinc-300 leading-relaxed text-base">{term.definition}</p>
 
           {term.example && (
-            <div className="mt-6 bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+            <div className="mt-6 bg-zinc-800 border border-zinc-700 rounded-xl p-5">
               <p className="text-xs text-zinc-500 font-medium uppercase tracking-wide mb-2">Example</p>
               <p className="text-zinc-300 text-sm leading-relaxed">{term.example}</p>
             </div>
@@ -76,7 +76,7 @@ export default async function GlossaryTermPage({ params }: Props) {
                 <Link
                   key={r.slug}
                   href={`/glossary/${r.slug}`}
-                  className="flex items-center justify-between bg-zinc-900 border border-zinc-800 hover:border-zinc-600 rounded-xl px-4 py-3 transition-colors group"
+                  className="flex items-center justify-between bg-zinc-800 border border-zinc-700 hover:border-zinc-600 rounded-xl px-4 py-3 transition-colors group"
                 >
                   <div>
                     <p className="font-medium text-white group-hover:text-emerald-400 transition-colors text-sm">{r.term}</p>
@@ -98,7 +98,7 @@ export default async function GlossaryTermPage({ params }: Props) {
           </Link>
         </div>
 
-        <div className="mt-10 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-center">
+        <div className="mt-10 bg-zinc-800 border border-zinc-700 rounded-2xl p-6 text-center">
           <p className="text-sm font-medium text-white mb-1">Track your real numbers automatically</p>
           <p className="text-sm text-zinc-400 mb-5">MarginLog calculates net profit, ROI, and margins on every sale — across every platform.</p>
           <Link href="/signup" className="inline-block bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-8 py-3 rounded-xl transition-colors">
@@ -107,7 +107,7 @@ export default async function GlossaryTermPage({ params }: Props) {
         </div>
       </main>
 
-      <footer className="border-t border-zinc-800 mt-16">
+      <footer className="border-t border-zinc-700 mt-16">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
           <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
           <Link href="/glossary" className="hover:text-zinc-400 transition-colors">Glossary</Link>

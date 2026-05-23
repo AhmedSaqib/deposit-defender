@@ -13,7 +13,7 @@ export default async function Nav() {
   const isPro = sub?.status === 'active'
 
   return (
-    <nav className="bg-zinc-900 border-b border-zinc-800 px-4 py-3">
+    <nav className="bg-zinc-800 border-b border-zinc-700 px-4 py-3">
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         <Logo href="/dashboard" />
         <div className="flex items-center gap-1">

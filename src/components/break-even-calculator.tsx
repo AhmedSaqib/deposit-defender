@@ -53,7 +53,7 @@ export default function BreakEvenCalculator() {
   const hasInput = cogsVal > 0 || shippingVal > 0
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-6">
+    <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-xs text-zinc-500 mb-1.5">Platform</label>
@@ -124,7 +124,7 @@ export default function BreakEvenCalculator() {
       </div>
 
       {hasInput && (
-        <div className="border-t border-zinc-800 pt-5 space-y-3">
+        <div className="border-t border-zinc-700 pt-5 space-y-3">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="bg-zinc-800/60 rounded-xl p-4">
               <p className="text-xs text-zinc-500 mb-1">Break-even price</p>

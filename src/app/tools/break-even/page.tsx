@@ -15,7 +15,7 @@ export default async function BreakEvenPage() {
   const { data: { user } } = await supabase.auth.getUser()
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
         <Logo />
         <div className="flex items-center gap-3">
@@ -70,7 +70,7 @@ export default async function BreakEvenPage() {
           </Link>
         </div>
 
-        <div className="mt-10 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-center">
+        <div className="mt-10 bg-zinc-800 border border-zinc-700 rounded-2xl p-6 text-center">
           <p className="text-sm font-medium text-white mb-1">Log every sale and track your real profit automatically</p>
           <p className="text-sm text-zinc-400 mb-5">MarginLog deducts platform fees on every sale. Dashboard, analytics, and CSV export for tax season — free to start.</p>
           <Link href="/signup" className="inline-block bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-8 py-3 rounded-xl transition-colors">
@@ -79,7 +79,7 @@ export default async function BreakEvenPage() {
         </div>
       </main>
 
-      <footer className="border-t border-zinc-800 mt-16">
+      <footer className="border-t border-zinc-700 mt-16">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
           <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
           <Link href="/tools" className="hover:text-zinc-400 transition-colors">Tools</Link>

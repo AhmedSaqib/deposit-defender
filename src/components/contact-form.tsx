@@ -39,7 +39,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-4">
+    <form onSubmit={handleSubmit} className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 space-y-4">
       {error && (
         <p className="text-red-400 text-sm bg-red-400/10 border border-red-400/20 rounded-lg px-4 py-3">{error}</p>
       )}

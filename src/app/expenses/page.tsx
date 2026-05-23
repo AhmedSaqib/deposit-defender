@@ -41,7 +41,7 @@ export default async function ExpensesPage() {
   const today = now.toISOString().split('T')[0]
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <Nav />
       <main className="max-w-3xl mx-auto px-4 py-8 space-y-6">
         <div>
@@ -51,11 +51,11 @@ export default async function ExpensesPage() {
 
         {/* Summary */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-4">
             <p className="text-zinc-500 text-xs mb-1">This month</p>
             <p className="text-white font-bold text-xl">{formatCurrency(monthTotal)}</p>
           </div>
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-4">
             <p className="text-zinc-500 text-xs mb-1">{thisYear} total</p>
             <p className="text-white font-bold text-xl">{formatCurrency(yearTotal)}</p>
           </div>
@@ -63,7 +63,7 @@ export default async function ExpensesPage() {
 
         {/* Category breakdown */}
         {byCategory.length > 0 && (
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5">
             <h2 className="text-sm font-medium text-zinc-400 mb-3">{thisYear} by category</h2>
             <div className="space-y-2">
               {byCategory.map(({ cat, total }) => (
@@ -77,7 +77,7 @@ export default async function ExpensesPage() {
         )}
 
         {/* Add expense form */}
-        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
+        <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6">
           <h2 className="text-sm font-semibold text-white mb-4">Log an expense</h2>
           <form action={logExpense} className="space-y-4">
             <div>
@@ -142,11 +142,11 @@ export default async function ExpensesPage() {
 
         {/* Expense list */}
         {all.length > 0 && (
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-2xl overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-zinc-800 text-zinc-500 text-xs">
+                  <tr className="border-b border-zinc-700 text-zinc-500 text-xs">
                     <th className="text-left px-4 py-3 font-medium">Description</th>
                     <th className="text-left px-4 py-3 font-medium hidden sm:table-cell">Category</th>
                     <th className="text-left px-4 py-3 font-medium hidden sm:table-cell">Date</th>
@@ -156,7 +156,7 @@ export default async function ExpensesPage() {
                 </thead>
                 <tbody>
                   {all.map(e => (
-                    <tr key={e.id} className="border-b border-zinc-800/50 last:border-0 hover:bg-zinc-800/30 transition-colors">
+                    <tr key={e.id} className="border-b border-zinc-700/50 last:border-0 hover:bg-zinc-800/30 transition-colors">
                       <td className="px-4 py-3">
                         <p className="text-white">{e.description}</p>
                         {e.notes && <p className="text-zinc-500 text-xs">{e.notes}</p>}
@@ -181,7 +181,7 @@ export default async function ExpensesPage() {
         )}
 
         {all.length === 0 && (
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-12 text-center">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-12 text-center">
             <p className="text-zinc-500 text-sm">No expenses logged yet.</p>
           </div>
         )}

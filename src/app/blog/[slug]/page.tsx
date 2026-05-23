@@ -97,7 +97,7 @@ function ResellingProfitMistakes() {
         The only fix is logging as you go. Even a rough record at the time of purchase beats nothing. And at tax time, a CSV export of your sales and costs is worth more than a shoebox of receipts.
       </p>
 
-      <hr className="border-zinc-800 my-10" />
+      <hr className="border-zinc-700 my-10" />
 
       <h2 className="text-white">The common thread</h2>
       <p className="text-zinc-400">
@@ -207,7 +207,7 @@ function HowToTrackResellingProfits() {
         Whatever you use, the non-negotiable is logging every sale close to when it happens, not in batches at the end of the month. The further you get from the sale, the less accurate your records.
       </p>
 
-      <hr className="border-zinc-800 my-10" />
+      <hr className="border-zinc-700 my-10" />
 
       <h2 className="text-white">A simpler starting point</h2>
       <p className="text-zinc-400">
@@ -248,7 +248,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
         <Logo />
@@ -271,7 +271,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <Content />
       </main>
 
-      <footer className="border-t border-zinc-800 mt-16">
+      <footer className="border-t border-zinc-700 mt-16">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap items-center justify-between gap-4">
           <p className="text-xs text-zinc-600">© {new Date().getFullYear()} MarginLog</p>
           <nav className="flex gap-5 text-xs text-zinc-600">

@@ -32,7 +32,7 @@ export default function HaulCalculator() {
         <p className="text-zinc-500 text-sm mt-1">Split one purchase price across multiple items to get per-item COGS.</p>
       </div>
 
-      <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-4">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 space-y-4">
         <div>
           <label className="block text-sm text-zinc-400 mb-1.5">Total purchase cost ($)</label>
           <input
@@ -81,7 +81,7 @@ export default function HaulCalculator() {
       </div>
 
       {cogsPerItem > 0 && (
-        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
+        <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-5">
           <div className="flex items-center justify-between mb-1">
             <p className="text-sm text-zinc-400">Cost per item</p>
             <p className="text-2xl font-bold text-emerald-400">{formatCurrency(cogsPerItem)}</p>
@@ -89,7 +89,7 @@ export default function HaulCalculator() {
           <p className="text-xs text-zinc-500 mb-4">
             {formatCurrency(totalCostNum)} ÷ {items.length} item{items.length !== 1 ? 's' : ''}
           </p>
-          <div className="space-y-2 border-t border-zinc-800 pt-4">
+          <div className="space-y-2 border-t border-zinc-700 pt-4">
             {items.map((item, i) => (
               <div key={i} className="flex items-center justify-between">
                 <span className="text-sm text-zinc-300">{item || `Item ${i + 1}`}</span>

@@ -31,7 +31,7 @@ export default function CompareCalculator() {
 
   return (
     <div className="space-y-4">
-      <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-4">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <Field label="Sale price" value={salePrice} onChange={setSalePrice} />
           <Field label="Cost of goods" value={cogs} onChange={setCogs} />
@@ -44,8 +44,8 @@ export default function CompareCalculator() {
 
       {hasInput && (
         <>
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden">
-            <div className="grid grid-cols-4 gap-2 px-5 py-3 border-b border-zinc-800 text-xs text-zinc-500 font-medium">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-2xl overflow-hidden">
+            <div className="grid grid-cols-4 gap-2 px-5 py-3 border-b border-zinc-700 text-xs text-zinc-500 font-medium">
               <span>Platform</span>
               <span className="text-right">Fee</span>
               <span className="text-right">Net profit</span>
@@ -59,7 +59,7 @@ export default function CompareCalculator() {
               return (
                 <div
                   key={slug}
-                  className={`grid grid-cols-4 gap-2 px-5 py-3.5 border-b border-zinc-800/50 last:border-0 ${isBest ? 'bg-emerald-500/5' : ''}`}
+                  className={`grid grid-cols-4 gap-2 px-5 py-3.5 border-b border-zinc-700/50 last:border-0 ${isBest ? 'bg-emerald-500/5' : ''}`}
                 >
                   <div className="flex items-center gap-2 min-w-0">
                     <span className="text-sm text-zinc-300 truncate">{platform.name}</span>
@@ -89,7 +89,7 @@ export default function CompareCalculator() {
             </div>
           )}
 
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-center">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 text-center">
             <p className="text-sm font-medium text-white mb-1">Selling across multiple platforms?</p>
             <p className="text-sm text-zinc-400 mb-5">
               Log every sale automatically. MarginLog tracks your profit, analytics, and tax exports — free during beta.

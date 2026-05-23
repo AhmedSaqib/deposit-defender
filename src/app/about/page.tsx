@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <header className="flex items-center justify-between px-6 py-4 max-w-3xl mx-auto">
         <Logo />
         <Link href="/" className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-white transition-colors">
@@ -68,7 +68,7 @@ export default function AboutPage() {
             </p>
           </section>
 
-          <section className="border-t border-zinc-800 pt-8">
+          <section className="border-t border-zinc-700 pt-8">
             <p className="text-zinc-500 text-sm">
               Questions or feedback? Email us at{' '}
               <a href="mailto:hello@marginlog.ai" className="text-emerald-400 hover:text-emerald-300">
@@ -79,7 +79,7 @@ export default function AboutPage() {
         </div>
       </main>
 
-      <footer className="border-t border-zinc-800 mt-16">
+      <footer className="border-t border-zinc-700 mt-16">
         <div className="max-w-3xl mx-auto px-6 py-6 flex flex-wrap gap-4 text-xs text-zinc-600">
           <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
           <Link href="/about" className="hover:text-zinc-400 transition-colors">About</Link>

@@ -64,7 +64,7 @@ export default function AnalyticsCharts({
           { label: 'Platform fees', value: costTotals.fees, color: 'text-amber-400', isCurrency: true },
           { label: 'Shipping paid', value: costTotals.shipping, color: 'text-rose-400', isCurrency: true },
         ].map(({ label, value, color, isCurrency }) => (
-          <div key={label} className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
+          <div key={label} className="bg-zinc-800 border border-zinc-700 rounded-xl p-4">
             <p className="text-zinc-500 text-xs mb-1">{label}</p>
             <p className={`font-bold text-lg ${color}`}>{isCurrency ? formatCurrency(value as number) : value}</p>
           </div>
@@ -73,7 +73,7 @@ export default function AnalyticsCharts({
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {/* Category breakdown */}
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+        <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5">
           <h3 className="text-sm font-medium text-zinc-400 mb-4">Profit by category</h3>
           {!hasData ? <EmptyState /> : (
             <ResponsiveContainer width="100%" height={220}>
@@ -101,7 +101,7 @@ export default function AnalyticsCharts({
         </div>
 
         {/* Revenue breakdown donut */}
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+        <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5">
           <h3 className="text-sm font-medium text-zinc-400 mb-4">Where your revenue goes</h3>
           {!hasData ? <EmptyState /> : (
             <ResponsiveContainer width="100%" height={220}>
@@ -130,7 +130,7 @@ export default function AnalyticsCharts({
       </div>
 
       {/* Platform profit bar chart */}
-      <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5">
         <h3 className="text-sm font-medium text-zinc-400 mb-4">Net profit by platform</h3>
         {!hasData ? <EmptyState /> : (
           <ResponsiveContainer width="100%" height={180}>

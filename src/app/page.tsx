@@ -81,7 +81,7 @@ export default async function LandingPage() {
   if (user) redirect('/dashboard')
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -131,7 +131,7 @@ export default async function LandingPage() {
             </div>
 
             {/* Dashboard preview */}
-            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-5">
+            <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 space-y-5">
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-xs text-zinc-500 mb-1">Net profit this month</p>
@@ -153,7 +153,7 @@ export default async function LandingPage() {
               <p className="text-xs text-zinc-600 -mt-2">Monthly profit · last 12 months</p>
 
               {/* Platform breakdown */}
-              <div className="border-t border-zinc-800 pt-4 space-y-3">
+              <div className="border-t border-zinc-700 pt-4 space-y-3">
                 {platforms.map(({ name, amount, pct, color }) => (
                   <div key={name} className="space-y-1">
                     <div className="flex items-center justify-between text-xs">
@@ -172,7 +172,7 @@ export default async function LandingPage() {
 
         <section className="py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
+            <div key={title} className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6">
               <div className="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
                 <Icon className="w-5 h-5 text-emerald-400" />
               </div>
@@ -182,7 +182,7 @@ export default async function LandingPage() {
           ))}
         </section>
 
-        <section className="py-12 border-t border-zinc-800">
+        <section className="py-12 border-t border-zinc-700">
           <p className="text-zinc-500 text-sm text-center mb-5">Not ready to sign up? Try the free fee calculators — no account needed.</p>
           <div className="flex flex-wrap justify-center gap-2">
             {[
@@ -198,7 +198,7 @@ export default async function LandingPage() {
               <Link
                 key={href}
                 href={href}
-                className="text-xs text-zinc-500 hover:text-white border border-zinc-800 hover:border-zinc-600 rounded-lg px-3 py-1.5 transition-colors"
+                className="text-xs text-zinc-500 hover:text-white border border-zinc-700 hover:border-zinc-600 rounded-lg px-3 py-1.5 transition-colors"
               >
                 {label}
               </Link>
@@ -207,7 +207,7 @@ export default async function LandingPage() {
         </section>
       </main>
 
-      <footer className="border-t border-zinc-800">
+      <footer className="border-t border-zinc-700">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap items-center justify-between gap-4">
           <p className="text-xs text-zinc-600">© {new Date().getFullYear()} MarginLog. Not financial advice.</p>
           <nav className="flex gap-5 text-xs text-zinc-600">

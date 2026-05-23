@@ -25,10 +25,10 @@ export default async function LogPage({ searchParams }: { searchParams: Promise<
 
   if (atLimit) {
     return (
-      <div className="min-h-screen bg-zinc-950 text-white">
+      <div className="min-h-screen bg-zinc-900 text-white">
         <Nav />
         <main className="max-w-xl mx-auto px-4 py-8">
-          <div className="bg-zinc-900 border border-zinc-700 rounded-2xl p-8 text-center">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-2xl p-8 text-center">
             <p className="text-4xl mb-4">🔒</p>
             <h1 className="text-xl font-bold mb-2">You've hit your free limit</h1>
             <p className="text-zinc-400 text-sm mb-1">
@@ -49,7 +49,7 @@ export default async function LogPage({ searchParams }: { searchParams: Promise<
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-zinc-900 text-white">
       <Nav />
       <main className="max-w-xl mx-auto px-4 py-8">
         {monthlyCount >= FREE_LIMIT - 3 && (
@@ -69,7 +69,7 @@ export default async function LogPage({ searchParams }: { searchParams: Promise<
           </div>
         </div>
 
-        <form action={logSale} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-4">
+        <form action={logSale} className="bg-zinc-800 border border-zinc-700 rounded-2xl p-6 space-y-4">
           <div>
             <label className="block text-sm text-zinc-400 mb-1.5">Item name</label>
             <input
