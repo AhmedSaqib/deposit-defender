@@ -88,17 +88,17 @@ export default async function LandingPage() {
       />
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
         <Logo />
-        <div className="flex items-center gap-3">
-          <Link href="/tools" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Link href="/tools" className="hidden sm:block text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">
             Tools
           </Link>
-          <Link href="/blog" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">
+          <Link href="/blog" className="hidden sm:block text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">
             Blog
           </Link>
-          <Link href="/login" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">
+          <Link href="/login" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5 whitespace-nowrap">
             Log in
           </Link>
-          <Link href="/signup" className="text-sm bg-emerald-500 hover:bg-emerald-400 text-black font-medium px-4 py-1.5 rounded-lg transition-colors">
+          <Link href="/signup" className="text-sm bg-emerald-500 hover:bg-emerald-400 text-black font-medium px-4 py-1.5 rounded-lg transition-colors whitespace-nowrap">
             Get started free
           </Link>
         </div>
