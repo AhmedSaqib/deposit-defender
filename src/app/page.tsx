@@ -81,21 +81,21 @@ export default async function LandingPage() {
   if (user) redirect('/dashboard')
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
+    <div className="min-h-screen bg-white text-zinc-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
-        <Logo />
+        <Logo light />
         <div className="flex items-center gap-3">
-          <Link href="/tools" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">
+          <Link href="/tools" className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors px-3 py-1.5">
             Tools
           </Link>
-          <Link href="/blog" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">
+          <Link href="/blog" className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors px-3 py-1.5">
             Blog
           </Link>
-          <Link href="/login" className="text-sm text-zinc-400 hover:text-white transition-colors px-3 py-1.5">
+          <Link href="/login" className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors px-3 py-1.5">
             Log in
           </Link>
           <Link href="/signup" className="text-sm bg-emerald-500 hover:bg-emerald-400 text-black font-medium px-4 py-1.5 rounded-lg transition-colors">
@@ -108,11 +108,11 @@ export default async function LandingPage() {
         <section className="py-16 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <p className="text-emerald-400 text-sm font-medium mb-4 tracking-wide uppercase">For eBay, Poshmark, Mercari & more</p>
+              <p className="text-emerald-600 text-sm font-medium mb-4 tracking-wide uppercase">For eBay, Poshmark, Mercari & more</p>
               <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight">
                 See your real profit<br />after every sale
               </h1>
-              <p className="text-zinc-400 text-lg lg:text-xl mb-10 leading-relaxed">
+              <p className="text-zinc-600 text-lg lg:text-xl mb-10 leading-relaxed">
                 Platform fees quietly eat your margin. MarginLog deducts them automatically — log a sale in seconds and know exactly what you made.
               </p>
               <Link
@@ -121,16 +121,16 @@ export default async function LandingPage() {
               >
                 Start tracking free
               </Link>
-              <p className="mt-3 text-xs text-zinc-600">Resellers are already tracking with MarginLog · Free to start</p>
+              <p className="mt-3 text-xs text-zinc-500">Resellers are already tracking with MarginLog · Free to start</p>
               <Link
                 href="/calculators"
-                className="block mt-4 text-sm text-zinc-500 hover:text-emerald-400 transition-colors"
+                className="block mt-4 text-sm text-zinc-500 hover:text-emerald-500 transition-colors"
               >
                 Try the free fee calculators →
               </Link>
             </div>
 
-            {/* Dashboard preview */}
+            {/* Dashboard preview — stays dark intentionally */}
             <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-5">
               <div className="flex items-start justify-between">
                 <div>
@@ -172,17 +172,17 @@ export default async function LandingPage() {
 
         <section className="py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
-              <div className="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
-                <Icon className="w-5 h-5 text-emerald-400" />
+            <div key={title} className="bg-white border border-zinc-200 rounded-2xl p-6">
+              <div className="w-10 h-10 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center justify-center mb-4">
+                <Icon className="w-5 h-5 text-emerald-600" />
               </div>
-              <h3 className="font-semibold text-white mb-2">{title}</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">{desc}</p>
+              <h3 className="font-semibold text-zinc-900 mb-2">{title}</h3>
+              <p className="text-zinc-600 text-sm leading-relaxed">{desc}</p>
             </div>
           ))}
         </section>
 
-        <section className="py-12 border-t border-zinc-800">
+        <section className="py-12 border-t border-zinc-200">
           <p className="text-zinc-500 text-sm text-center mb-5">Not ready to sign up? Try the free fee calculators — no account needed.</p>
           <div className="flex flex-wrap justify-center gap-2">
             {[
@@ -198,7 +198,7 @@ export default async function LandingPage() {
               <Link
                 key={href}
                 href={href}
-                className="text-xs text-zinc-500 hover:text-white border border-zinc-800 hover:border-zinc-600 rounded-lg px-3 py-1.5 transition-colors"
+                className="text-xs text-zinc-500 hover:text-zinc-900 border border-zinc-200 hover:border-zinc-400 rounded-lg px-3 py-1.5 transition-colors"
               >
                 {label}
               </Link>
@@ -207,15 +207,15 @@ export default async function LandingPage() {
         </section>
       </main>
 
-      <footer className="border-t border-zinc-800">
+      <footer className="border-t border-zinc-200">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-wrap items-center justify-between gap-4">
-          <p className="text-xs text-zinc-600">© {new Date().getFullYear()} MarginLog. Not financial advice.</p>
-          <nav className="flex gap-5 text-xs text-zinc-600">
-            <Link href="/blog" className="hover:text-zinc-400 transition-colors">Blog</Link>
-            <Link href="/about" className="hover:text-zinc-400 transition-colors">About</Link>
-            <Link href="/privacy" className="hover:text-zinc-400 transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-zinc-400 transition-colors">Terms</Link>
-            <Link href="/contact" className="hover:text-zinc-400 transition-colors">Contact</Link>
+          <p className="text-xs text-zinc-500">© {new Date().getFullYear()} MarginLog. Not financial advice.</p>
+          <nav className="flex gap-5 text-xs text-zinc-500">
+            <Link href="/blog" className="hover:text-zinc-600 transition-colors">Blog</Link>
+            <Link href="/about" className="hover:text-zinc-600 transition-colors">About</Link>
+            <Link href="/privacy" className="hover:text-zinc-600 transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-zinc-600 transition-colors">Terms</Link>
+            <Link href="/contact" className="hover:text-zinc-600 transition-colors">Contact</Link>
           </nav>
         </div>
       </footer>

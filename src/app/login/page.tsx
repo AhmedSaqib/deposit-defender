@@ -37,37 +37,37 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-white flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-3">
-            <Logo />
+            <Logo light />
           </div>
-          <p className="text-zinc-400 text-sm">Welcome back</p>
+          <p className="text-zinc-600 text-sm">Welcome back</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="bg-white border border-zinc-200 rounded-2xl p-6 space-y-4">
           {error && (
-            <p className="text-red-400 text-sm bg-red-400/10 border border-red-400/20 rounded-lg px-3 py-2">{error}</p>
+            <p className="text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg px-3 py-2">{error}</p>
           )}
           <div>
-            <label className="block text-sm text-zinc-400 mb-1.5">Email</label>
+            <label className="block text-sm text-zinc-600 mb-1.5">Email</label>
             <input
               type="email"
               required
               value={email}
               onChange={e => setEmail(e.target.value)}
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+              className="w-full bg-white border border-zinc-300 rounded-lg px-3 py-2.5 text-zinc-900 text-sm focus:outline-none focus:border-emerald-500 transition-colors"
             />
           </div>
           <div>
-            <label className="block text-sm text-zinc-400 mb-1.5">Password</label>
+            <label className="block text-sm text-zinc-600 mb-1.5">Password</label>
             <input
               type="password"
               required
               value={password}
               onChange={e => setPassword(e.target.value)}
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+              className="w-full bg-white border border-zinc-300 rounded-lg px-3 py-2.5 text-zinc-900 text-sm focus:outline-none focus:border-emerald-500 transition-colors"
             />
           </div>
           <button
@@ -81,7 +81,7 @@ export default function LoginPage() {
 
         <p className="text-center text-zinc-500 text-sm mt-4">
           No account?{' '}
-          <Link href="/signup" className="text-emerald-400 hover:text-emerald-300">
+          <Link href="/signup" className="text-emerald-600 hover:text-emerald-700">
             Sign up free
           </Link>
         </p>
