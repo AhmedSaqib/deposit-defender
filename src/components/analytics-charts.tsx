@@ -56,7 +56,7 @@ export default function AnalyticsCharts({
   return (
     <div className="space-y-6">
       {/* Summary tiles — top */}
-      <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
         {[
           { label: 'Items sold', value: count.toString(), color: 'text-white', isCurrency: false },
           { label: 'Total revenue', value: costTotals.revenue, color: 'text-white', isCurrency: true },

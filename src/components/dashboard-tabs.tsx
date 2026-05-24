@@ -160,7 +160,7 @@ export default function DashboardTabs({
           </div>
 
           <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5">
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
               <h2 className="text-sm font-medium text-zinc-400">
                 {GRANULARITIES.find(g => g.key === granularity)?.title}
               </h2>

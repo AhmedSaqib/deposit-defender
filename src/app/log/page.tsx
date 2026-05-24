@@ -62,7 +62,7 @@ export default async function LogPage({ searchParams }: { searchParams: Promise<
         )}
         <div className="flex items-baseline justify-between mb-6">
           <h1 className="text-xl font-semibold">Log a sale</h1>
-          <div className="flex gap-3 text-xs text-zinc-400">
+          <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-zinc-400">
             <a href="/haul" className="hover:text-emerald-400 transition-colors">Split a haul →</a>
             <a href="/bundle" className="hover:text-emerald-400 transition-colors">Log a bundle →</a>
             <a href="/import" className="hover:text-emerald-400 transition-colors">Import CSV →</a>
@@ -107,7 +107,7 @@ export default async function LogPage({ searchParams }: { searchParams: Promise<
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label className="block text-sm text-zinc-400 mb-1.5">Sale price ($)</label>
               <input
