@@ -134,13 +134,13 @@ export default function DashboardTabs({
         <div className="flex gap-2">
           <Link
             href="/import"
-            className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 px-4 py-2 rounded-lg transition-colors"
+            className="hidden sm:flex items-center gap-2 text-sm text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 px-4 py-2 rounded-lg transition-colors whitespace-nowrap"
           >
             <FileInput className="w-4 h-4" /> Import
           </Link>
           <Link
             href="/log"
-            className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+            className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black text-sm font-semibold px-4 py-2 rounded-lg transition-colors whitespace-nowrap"
           >
             <PlusCircle className="w-4 h-4" /> Log sale
           </Link>
