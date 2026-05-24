@@ -47,11 +47,26 @@ export default async function CalculatorPage(
     })),
   }
 
+  const appSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: `${platform.name} Profit Calculator`,
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description: `Calculate your real ${platform.name} profit after ${platform.feeLabel} fee, shipping, and cost of goods.`,
+    url: `https://marginlog.net/calculators/${slug}`,
+  }
+
   return (
     <div className="min-h-screen bg-zinc-900 text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
       />
 
       <header className="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">

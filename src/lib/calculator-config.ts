@@ -45,6 +45,10 @@ export const CALC_PLATFORMS: Record<string, CalcPlatform> = {
         q: 'How do I calculate profit on eBay?',
         a: 'Subtract the eBay final value fee (13.25% + $0.30), your actual shipping cost, and what you originally paid for the item from your sale price. The number left is your net profit.',
       },
+      {
+        q: 'How do I calculate my eBay profit margin?',
+        a: 'Divide your net profit by the sale price and multiply by 100. For example: a $50 sale with $8 in fees, $7 shipping, and $10 cost of goods leaves $25 net profit — a 50% margin. Use this calculator to get the net profit figure, then divide by your sale price.',
+      },
     ],
   },
 
@@ -217,6 +221,10 @@ export const CALC_PLATFORMS: Record<string, CalcPlatform> = {
       {
         q: 'Is Vinted better than Poshmark for sellers?',
         a: 'On fees alone, yes — Vinted takes 0% vs Poshmark\'s 20%. However, Vinted\'s buyer base differs. Use the calculators for both platforms to compare your actual profit per item on each.',
+      },
+      {
+        q: 'How much does Vinted postage cost?',
+        a: 'Vinted buyers pay for postage directly — sellers receive their full listing price with no shipping deducted. Label costs vary by item weight and carrier but are paid by the buyer on top of your listing price, not subtracted from your earnings. As a seller, enter $0 for shipping cost in this calculator.',
       },
     ],
   },
