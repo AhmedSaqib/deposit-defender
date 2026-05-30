@@ -34,7 +34,7 @@ export default function BillingButton({ isPro, cancelAtPeriodEnd, currentPeriodE
         title={cancelAtPeriodEnd && endDate ? `Access ends ${endDate}` : 'Manage billing'}
       >
         <Zap className="w-4 h-4" />
-        {loading ? '...' : cancelAtPeriodEnd && endDate ? `Pro · ends ${endDate}` : 'Pro'}
+        <span className="hidden sm:inline">{loading ? '...' : cancelAtPeriodEnd && endDate ? `Pro · ends ${endDate}` : 'Pro'}</span>
       </button>
     )
   }
@@ -46,7 +46,7 @@ export default function BillingButton({ isPro, cancelAtPeriodEnd, currentPeriodE
       className="flex items-center gap-1.5 text-sm bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-3 py-1.5 rounded-lg transition-colors disabled:opacity-50"
     >
       <Zap className="w-4 h-4" />
-      {loading ? '...' : 'Upgrade'}
+      <span className="hidden sm:inline">{loading ? '...' : 'Upgrade'}</span>
     </button>
   )
 }

@@ -37,13 +37,11 @@ export default async function Nav() {
             <MapPin className="w-4 h-4 shrink-0" />
             <span className="hidden md:inline">Trips</span>
           </Link>
-          <div className="hidden sm:block">
-            <BillingButton
-              isPro={isPro}
-              cancelAtPeriodEnd={sub?.cancelAtPeriodEnd ?? false}
-              currentPeriodEnd={sub?.currentPeriodEnd ?? null}
-            />
-          </div>
+          <BillingButton
+            isPro={isPro}
+            cancelAtPeriodEnd={sub?.cancelAtPeriodEnd ?? false}
+            currentPeriodEnd={sub?.currentPeriodEnd ?? null}
+          />
           <form action={signOut}>
             <button type="submit" className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-white px-2 sm:px-3 py-1.5 rounded-lg hover:bg-zinc-700 transition-colors ml-1">
               <LogOut className="w-4 h-4 shrink-0" />
