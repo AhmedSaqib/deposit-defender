@@ -4,7 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { PLATFORMS, EXPENSE_CATEGORIES, type Platform, type ExpenseCategory } from '@/lib/platform-fees'
-import { canLogSale } from '@/lib/subscription'
+import { canLogSale, getSubscriptionStatus, getMonthlyCount, FREE_LIMIT } from '@/lib/subscription'
 import { z } from 'zod'
 
 const SaleSchema = z.object({
@@ -99,6 +99,14 @@ export async function importSales(rows: {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/login')
+
+  const status = await getSubscriptionStatus(user.id)
+  if (status !== 'active') {
+    const count = await getMonthlyCount(user.id)
+    const remaining = FREE_LIMIT - count
+    if (remaining <= 0) redirect('/log?limit=1')
+    if (rows.length > remaining) throw new Error(`Free plan limit: you can only log ${remaining} more sale${remaining === 1 ? '' : 's'} this month.`)
+  }
 
   const { error } = await supabase.from('sales').insert(
     rows.map(row => ({ ...row, user_id: user.id, status: 'sold' }))
