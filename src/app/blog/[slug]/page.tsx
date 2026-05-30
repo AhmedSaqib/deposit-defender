@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
-function EbayFeesExplained2025() {
+function EbayFeesExplained2026() {
   return (
     <article className="prose prose-invert prose-zinc max-w-none">
       <p className="text-zinc-400 lead">
@@ -342,7 +342,7 @@ function HowToTrackResellingProfits() {
 }
 
 const CONTENT: Record<string, React.FC> = {
-  'ebay-fees-explained-2026': EbayFeesExplained2025,
+  'ebay-fees-explained-2026': EbayFeesExplained2026,
   'how-to-track-reselling-profits': HowToTrackResellingProfits,
   'reselling-profit-mistakes': ResellingProfitMistakes,
 }
