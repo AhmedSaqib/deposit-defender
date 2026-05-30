@@ -342,7 +342,7 @@ function HowToTrackResellingProfits() {
 }
 
 const CONTENT: Record<string, React.FC> = {
-  'ebay-fees-explained-2025': EbayFeesExplained2025,
+  'ebay-fees-explained-2026': EbayFeesExplained2025,
   'how-to-track-reselling-profits': HowToTrackResellingProfits,
   'reselling-profit-mistakes': ResellingProfitMistakes,
 }
