@@ -28,6 +28,127 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
+function EbayFeesExplained2025() {
+  return (
+    <article className="prose prose-invert prose-zinc max-w-none">
+      <p className="text-zinc-400 lead">
+        Most sellers glance at the sale price and feel good. Then eBay takes their cut, you subtract what you paid for the item, factor in the shipping you actually covered, and the number that hits your account is always lower than expected. This post breaks down every eBay fee with real examples — so you know exactly what you keep on a $20, $50, and $100 sale.
+      </p>
+
+      <h2 className="text-white">The fees eBay actually charges</h2>
+      <p className="text-zinc-400">eBay's fee structure breaks into three buckets:</p>
+      <ul className="text-zinc-400 space-y-2">
+        <li><span className="text-white font-medium">Final value fee</span> — the main one. A percentage of the total sale amount including any shipping the buyer paid. Charged when the item sells.</li>
+        <li><span className="text-white font-medium">Insertion fee</span> — charged when you create a listing. Free for the first 250 listings per month; $0.35 per listing after that.</li>
+        <li><span className="text-white font-medium">Payment processing</span> — eBay manages payments directly since 2021. The processing cost is baked into the final value fee rate, so there is no separate PayPal fee anymore.</li>
+      </ul>
+      <p className="text-zinc-400">
+        For most resellers, the insertion fee is irrelevant — you're unlikely to exceed 250 listings a month. The final value fee is the one that matters.
+      </p>
+
+      <h2 className="text-white">Final value fee rates by category</h2>
+      <p className="text-zinc-400">
+        The standard rate for most categories is <span className="text-white font-medium">13.25% + $0.30 per order</span>. This covers the majority of what resellers sell — clothing, collectibles, electronics, home goods, sporting goods.
+      </p>
+      <p className="text-zinc-400">Notable exceptions:</p>
+      <ul className="text-zinc-400 space-y-1">
+        <li>Books, DVDs, music, video games: <span className="text-white">14.95%</span></li>
+        <li>Clothing &amp; shoes under $100: <span className="text-white">15%</span> (drops to 8% for items over $100)</li>
+        <li>Watches priced over $5,000: <span className="text-white">6.5%</span></li>
+        <li>Heavy equipment parts: <span className="text-white">3%</span></li>
+      </ul>
+      <p className="text-zinc-400">
+        If you're selling clothing under $100 — one of the most common reselling categories — you're paying 15%, not 13.25%. That gap adds up at volume.
+      </p>
+
+      <h2 className="text-white">eBay fees apply to shipping too</h2>
+      <p className="text-zinc-400">
+        This catches a lot of sellers off guard. eBay calculates the final value fee on the <span className="text-white font-medium">total transaction amount</span>, which includes any shipping cost the buyer paid. If you list an item for $40 and charge $8 shipping, eBay fees apply to $48 — not $40.
+      </p>
+      <p className="text-zinc-400">
+        This is why charging separately for shipping doesn't save as much as it feels like it should. The buyer pays $8 for shipping, but eBay takes 13.25% of that $8 too ($1.06). You collect $8 and keep roughly $6.94 of it — less your actual postage cost on top of that.
+      </p>
+      <p className="text-zinc-400">
+        Many experienced sellers price shipping into the item and offer free shipping. It simplifies the math and can improve search ranking, since eBay's algorithm favours free shipping listings.
+      </p>
+
+      <h2 className="text-white">What a $50 sale actually leaves you</h2>
+      <p className="text-zinc-400">
+        Here's the full calculation on a $50 sale with free shipping to the buyer:
+      </p>
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 space-y-2 text-sm not-prose my-6">
+        <div className="flex justify-between text-zinc-400"><span>Sale price</span><span>$50.00</span></div>
+        <div className="flex justify-between text-zinc-400"><span>eBay fee (13.25% + $0.30)</span><span>− $6.93</span></div>
+        <div className="flex justify-between text-zinc-400"><span>Shipping you paid</span><span>− $6.50</span></div>
+        <div className="flex justify-between text-zinc-400"><span>Cost of goods</span><span>− $12.00</span></div>
+        <div className="flex justify-between text-white font-semibold border-t border-zinc-700 pt-2"><span>Net profit</span><span>$24.57</span></div>
+      </div>
+      <p className="text-zinc-400">
+        That's 49 cents kept for every dollar sold. Not unusual — but a long way from the $50 that appeared in your eBay dashboard. If you paid more than $12 for the item or shipped something heavy, the margin compresses further.
+      </p>
+
+      <h2 className="text-white">What a $20 sale leaves you</h2>
+      <p className="text-zinc-400">
+        Lower-priced items are where the math gets uncomfortable. The $0.30 fixed fee becomes proportionally large, and shipping costs don't scale down:
+      </p>
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 space-y-2 text-sm not-prose my-6">
+        <div className="flex justify-between text-zinc-400"><span>Sale price</span><span>$20.00</span></div>
+        <div className="flex justify-between text-zinc-400"><span>eBay fee (13.25% + $0.30)</span><span>− $2.95</span></div>
+        <div className="flex justify-between text-zinc-400"><span>Shipping you paid</span><span>− $5.00</span></div>
+        <div className="flex justify-between text-zinc-400"><span>Cost of goods</span><span>− $6.00</span></div>
+        <div className="flex justify-between text-white font-semibold border-t border-zinc-700 pt-2"><span>Net profit</span><span>$6.05</span></div>
+      </div>
+      <p className="text-zinc-400">
+        $6.05 on a $20 sale — a 30% margin. Pay $8 for the item instead of $6 and you're down to $4.05. Pay $10 and you've made $2.05 for the time spent listing, packing, and shipping. This is why experienced resellers have a minimum margin rule. Many won't touch anything that won't 2x after fees.
+      </p>
+
+      <h2 className="text-white">The minimum price formula</h2>
+      <p className="text-zinc-400">
+        Before listing anything, it's worth calculating the floor — the sale price below which you're guaranteed to lose money. The formula for standard eBay categories:
+      </p>
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 text-sm not-prose my-6">
+        <p className="text-zinc-400 mb-2">Minimum price = (COGS + shipping cost + $0.30) ÷ (1 − 0.1325)</p>
+        <p className="text-zinc-500 text-xs">Example: item cost $10, shipping $5 → ($10 + $5 + $0.30) ÷ 0.8675 = <span className="text-white">$17.63 minimum</span></p>
+      </div>
+      <p className="text-zinc-400">
+        List below $17.63 and you lose money on the sale. List at $22 and you keep $4.07. The further above your floor you can list, the better — but knowing the floor stops you from pricing deals that feel okay but are actually losses.
+      </p>
+      <p className="text-zinc-400">
+        You can also use the <Link href="/tools/break-even" className="text-emerald-400 hover:text-emerald-300">break-even calculator</Link> here to do this automatically for any platform.
+      </p>
+
+      <h2 className="text-white">eBay Store — when does it make sense?</h2>
+      <p className="text-zinc-400">
+        eBay offers store subscriptions ranging from $7.95 to $349.95 per month. The main benefits are more free listings and slightly reduced final value fees on some categories (typically 0.25–0.50% lower).
+      </p>
+      <p className="text-zinc-400">
+        The math on whether a store pays off: at a 0.25% fee reduction, a Basic Store at $27.95/month breaks even at roughly <span className="text-white font-medium">$11,180/month in gross sales</span>. Below that volume, you save more by paying standard rates. Most casual resellers are better off without a subscription until they're consistently clearing five figures a month.
+      </p>
+
+      <h2 className="text-white">eBay vs other platforms on the same item</h2>
+      <p className="text-zinc-400">
+        eBay's 13.25% sits between Poshmark (20%) and Mercari (10%). For high-value items, Depop charges around 10% and Facebook Marketplace charges 5% on shipped sales — or nothing on local pickup.
+      </p>
+      <p className="text-zinc-400">
+        The right platform depends on the item, the buyer base, and your shipping cost. A $60 clothing item nets roughly $40 on eBay and $36 on Poshmark — a $4 difference per sale that adds up at volume. You can <Link href="/calculators/compare" className="text-emerald-400 hover:text-emerald-300">compare all platform fees side by side</Link> to see which one keeps the most money in your pocket on any given item.
+      </p>
+
+      <hr className="border-zinc-700 my-10" />
+
+      <h2 className="text-white">The number to actually watch</h2>
+      <p className="text-zinc-400">
+        eBay's Seller Hub shows gross sales. Your bank account shows deposits. Neither tells you what you made. Net profit — sale price minus eBay's fee, your shipping cost, and what you paid for the item — is the only figure worth tracking.
+      </p>
+      <p className="text-zinc-400">
+        The problem is that doing this calculation manually for every sale is tedious enough that most sellers stop doing it. They end up with a rough feel for their numbers rather than actual data — which makes it impossible to know whether a category is profitable, whether a platform is worth the effort, or whether the business is growing or shrinking.
+      </p>
+      <p className="text-zinc-400">
+        If you want to track this without a spreadsheet, <Link href="/calculators/ebay" className="text-emerald-400 hover:text-emerald-300">the eBay calculator here</Link> handles the fee maths instantly. For tracking every sale and seeing running profit over time, <Link href="/" className="text-emerald-400 hover:text-emerald-300">MarginLog</Link> does it automatically — log a sale, select eBay, and the 13.25% + $0.30 is deducted straight away. Free to start.
+      </p>
+    </article>
+  )
+}
+
 function ResellingProfitMistakes() {
   return (
     <article className="prose prose-invert prose-zinc max-w-none">
@@ -221,6 +342,7 @@ function HowToTrackResellingProfits() {
 }
 
 const CONTENT: Record<string, React.FC> = {
+  'ebay-fees-explained-2025': EbayFeesExplained2025,
   'how-to-track-reselling-profits': HowToTrackResellingProfits,
   'reselling-profit-mistakes': ResellingProfitMistakes,
 }

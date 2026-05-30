@@ -8,6 +8,13 @@ export type Post = {
 
 export const POSTS: Post[] = [
   {
+    slug: 'ebay-fees-explained-2025',
+    title: 'eBay Fees Explained 2025 — What You Actually Keep',
+    description: 'eBay takes more than most sellers realise. A full breakdown of every eBay fee, real examples of what a $20, $50, and $100 sale leaves you, and the minimum price formula every reseller should know.',
+    date: '2026-05-25',
+    readingTime: '7 min read',
+  },
+  {
     slug: 'how-to-track-reselling-profits',
     title: 'How to Track Reselling Profits (The Right Way)',
     description: 'Most resellers have no idea what they actually made last month. Here is a simple system for tracking reselling profits accurately — across every platform.',
